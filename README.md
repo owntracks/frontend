@@ -40,6 +40,7 @@ Clone the repository and copy `index.html` and the `static/` directory to your s
 
 ## ToDo
 
+- Add screenshots to `README.md`!
 - Node.js based development workflow:
 
   - Webpack
