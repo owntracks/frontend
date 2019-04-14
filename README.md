@@ -2,6 +2,10 @@
 
 > A modern web interface for OwnTracks
 
+<p style="text-align: center;">
+  <img src="docs/images/owntracks-ui.png" alt="Owntracks UI">
+</p>
+
 ## Introduction
 
 This is a WebInterface for OwnTracks, intended to replace the various web pages shipping with the recorder. OwnTracks UI uses Vue.js under the hood.
@@ -17,6 +21,7 @@ Clone the repository and copy `index.html` and the `static/` directory to your s
 - Enable or disable multiple layers:
 
   - Last known (i.e. live) locations:
+
     - Accuracy visualization (circle)
     - Device friendly name and icon
     - Detailed information (if available): time, lat, lon, height, battery and speed
@@ -37,6 +42,14 @@ Clone the repository and copy `index.html` and the `static/` directory to your s
     - Max zoom
     - Default position and zoom
     - Heatmap colors, radius and blur
+
+## Screenshots
+
+_Click to enlarge._
+
+<a href="docs/images/live.png" target="_blank"><img src="docs/images/live.png" alt="Live" height="200"></a>
+<a href="docs/images/multiple.png" target="_blank"><img src="docs/images/multiple.png" alt="Multiple" height="200"></a>
+<a href="docs/images/heatmap.png" target="_blank"><img src="docs/images/heatmap.png" alt="Heatmap" height="200"></a>
 
 ## ToDo
 
