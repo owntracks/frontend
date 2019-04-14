@@ -53,7 +53,6 @@ _Click to enlarge._
 
 ## ToDo
 
-- Add screenshots to `README.md`!
 - Node.js based development workflow:
 
   - Webpack
