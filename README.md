@@ -49,7 +49,9 @@ _Click to enlarge._
 
 <a href="docs/images/live.png" target="_blank"><img src="docs/images/live.png" alt="Live" height="200"></a>
 <a href="docs/images/multiple.png" target="_blank"><img src="docs/images/multiple.png" alt="Multiple" height="200"></a>
+<a href="docs/images/dare-selection.png" target="_blank"><img src="docs/images/date-selection.png" alt="Date selection" height="200"></a>
 <a href="docs/images/heatmap.png" target="_blank"><img src="docs/images/heatmap.png" alt="Heatmap" height="200"></a>
+<a href="docs/images/customized.png" target="_blank"><img src="docs/images/customized.png" alt="Customized" height="200"></a>
 
 ## ToDo
 
