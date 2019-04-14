@@ -1,9 +1,9 @@
 # OwnTracks UI
 
-> A modern web interface for OwnTracks
+> A modern web interface for OwnTracks made with Vue.js
 
 <p style="text-align: center;">
-  <img src="docs/images/owntracks-ui.png" alt="Owntracks UI">
+  <img src="docs/images/owntracks-ui.png" alt="OwnTracks UI">
 </p>
 
 ## Introduction
