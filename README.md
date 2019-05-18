@@ -8,7 +8,7 @@
 
 ## Introduction
 
-This is a WebInterface for [OwnTracks](https://github.com/owntracks/recorder), intended to replace the various web pages shipping with the recorder. OwnTracks UI uses Vue.js under the hood.
+This is a web interface for [OwnTracks](https://github.com/owntracks/recorder), intended to replace the various web pages shipping with the recorder. OwnTracks UI uses Vue.js under the hood.
 
 *This is not an official OwnTracks project.*
 
