@@ -69,6 +69,8 @@ ul {
 
 #app > main {
   flex: 1;
+  /* https://github.com/linusg/owntracks-ui/issues/6 */
+  display: flex;
 }
 
 .button,
@@ -195,6 +197,11 @@ ul {
 
 .location-popup-detail {
   white-space: nowrap;
+}
+
+.leaflet-container {
+  /* https://github.com/linusg/owntracks-ui/issues/6 */
+  height: auto !important;
 }
 
 .leaflet-container .leaflet-popup {
