@@ -62,6 +62,7 @@ _Click to enlarge._
   - Sass
   - Dependency management with yarn instead of a local copy or unpkg.com
 
+- Add documentation, at least for the config file
 - Docker support
 - Download data for selected date range, user and device as JSON
 
