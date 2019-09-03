@@ -21,8 +21,8 @@ Clone the repository and copy `index.html` and the `static/` directory to your s
 ### Docker
 
 You can launch directly via Docker run like this:
-```bash
-docker run -d -p 80:80 -e SERVER_URL=otrecorder-url -e SERVER_PORT=otrecorder-port cosme/owntracks-ui
+```console
+$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port cosme/owntracks-ui
 ```
 
 Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default compose config, and the service is named `otrecorder`):
