@@ -4,7 +4,7 @@ events {
 }
 http {
     upstream otrecorder {
-        server ${SERVER_URL}:${SERVER_PORT};
+        server ${SERVER_HOST}:${SERVER_PORT};
     }
     server {
         listen ${LISTEN_PORT};
