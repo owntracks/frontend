@@ -10,8 +10,6 @@
 
 This is a web interface for [OwnTracks](https://github.com/owntracks/recorder), intended to replace the various web pages shipping with the recorder. OwnTracks UI uses Vue.js under the hood.
 
-*This is not an official OwnTracks project.*
-
 ## Installation
 
 Clone the repository and copy `index.html` and the `static/` directory to your server's webroot. The API is expected to be reachable under the same domain as the web interface.
