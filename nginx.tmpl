@@ -19,6 +19,7 @@ http {
             proxy_set_header Connection upgrade;
         }
         location / {
+            include  /etc/nginx/mime.types;
             try_files $uri $uri/index.html;
         }
     }
