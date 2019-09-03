@@ -12,7 +12,7 @@ http {
         location /api {
             proxy_pass http://otrecorder/api/;
         }
-         location /ws {
+        location /ws {
             proxy_pass http://otrecorder/ws/;
             proxy_http_version 1.1;
             proxy_set_header Upgrade $http_upgrade;
