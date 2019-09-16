@@ -8,4 +8,4 @@ COPY nginx.tmpl /etc/nginx/nginx.tmpl
 COPY index.html /usr/share/nginx/html
 COPY static/ /usr/share/nginx/html/static/
 
-CMD /bin/sh -c "envsubst '\${SERVER_HOST} \${SERVER_PORT} \${LISTEN_PORT}' < /etc/nginx/nginx.tmpl > /etc/nginx/nginx.conf && nginx -g 'daemon off;' || cat /etc/nginx/nginx.conf"
+CMD /bin/sh -c "envsubst '\${SERVER_HOST} \${SERVER_PORT} \${LISTEN_PORT}' < /etc/nginx/nginx.tmpl > /etc/nginx/nginx.conf && nginx -g 'daemon off;' || ( env; cat /etc/nginx/nginx.conf )"
