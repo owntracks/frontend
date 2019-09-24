@@ -20,7 +20,7 @@ Clone the repository and copy `index.html` and the `static/` directory to your s
 
 You can launch directly via Docker run like this:
 ```console
-$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port cosme/owntracks-ui
+$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port owntracks/frontend
 ```
 
 Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default compose config, and the service is named `otrecorder`):
@@ -30,7 +30,7 @@ version: '3'
 
 services:
   owntracks-ui:
-    image: cosme/owntracks-ui
+    image: owntracks/frontend
     ports:
       - 80:80
     environment:
@@ -86,7 +86,6 @@ _Click to enlarge._
   - Dependency management with yarn instead of a local copy or unpkg.com
 
 - Add documentation, at least for the config file
-- Docker support
 - Download data for selected date range, user and device as JSON
 
 ## Contributing
