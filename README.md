@@ -5,7 +5,7 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
 
 <p style="text-align: center;">
-  <img src="docs/images/owntracks-ui.png" alt="OwnTracks UI">
+  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/owntracks-ui.png" alt="OwnTracks UI">
 </p>
 
 ## Introduction
@@ -72,11 +72,11 @@ services:
 
 _Click to enlarge._
 
-<a href="docs/images/live.png" target="_blank"><img src="docs/images/live.png" alt="Live" height="200"></a>
-<a href="docs/images/multiple.png" target="_blank"><img src="docs/images/multiple.png" alt="Multiple" height="200"></a>
-<a href="docs/images/date-selection.png" target="_blank"><img src="docs/images/date-selection.png" alt="Date selection" height="200"></a>
-<a href="docs/images/heatmap.png" target="_blank"><img src="docs/images/heatmap.png" alt="Heatmap" height="200"></a>
-<a href="docs/images/customized.png" target="_blank"><img src="docs/images/customized.png" alt="Customized" height="200"></a>
+<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/live.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/live.png" alt="Live" height="200"></a>
+<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/multiple.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/multiple.png" alt="Multiple" height="200"></a>
+<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" alt="Date selection" height="200"></a>
+<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" alt="Heatmap" height="200"></a>
+<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" alt="Customized" height="200"></a>
 
 ## ToDo
 
