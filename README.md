@@ -12,7 +12,32 @@ This is a web interface for [OwnTracks](https://github.com/owntracks/recorder), 
 
 ## Installation
 
+### Manual install
+
 Clone the repository and copy `index.html` and the `static/` directory to your server's webroot. The API is expected to be reachable under the same domain as the web interface.
+
+### Docker
+
+You can launch directly via Docker run like this:
+```console
+$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port cosme/owntracks-ui
+```
+
+Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default compose config, and the service is named `otrecorder`):
+
+```yaml
+version: '3'
+
+services:
+  owntracks-ui:
+    image: cosme/owntracks-ui
+    ports:
+      - 80:80
+    environment:
+      - SERVER_HOST=otrecorder
+      - SERVER_PORT=8083
+    restart: unless-stopped
+```
 
 ## Features
 
