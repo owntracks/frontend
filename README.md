@@ -2,7 +2,7 @@
 
 > A modern web interface for OwnTracks made with Vue.js
 
-![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)
+[![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
 
 <p style="text-align: center;">
   <img src="docs/images/owntracks-ui.png" alt="OwnTracks UI">
