@@ -4,7 +4,9 @@
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
 
-![OwnTracks UI](docs/images/owntracks-ui.png)
+<p style="text-align: center;">
+  <img src="docs/images/owntracks-ui.png" alt="OwnTracks UI">
+</p>
 
 ## Introduction
 
