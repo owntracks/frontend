@@ -93,6 +93,10 @@ const DEFAULT_CONFIG = {
     // disable splitting into separate lines.
     maxPointDistance: 1000,
   },
+  // Remove the ping/ping location which is enabled in the recorder's
+  // Docker image for health checks by default:
+  // https://github.com/owntracks/recorder/issues/195#issuecomment-304004436
+  ignorePingLocation: true,
 };
 
 // Use deepmerge to combine the default and user-defined configuration.

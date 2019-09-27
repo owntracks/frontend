@@ -1,5 +1,6 @@
 import * as types from "@/store/mutation-types";
 import * as api from "@/api";
+import config from "@/config";
 import { isIsoDate } from "@/util";
 
 /**
@@ -99,10 +100,18 @@ const getDevices = async ({ commit, state }) => {
  * Load last location of the selected user/device.
  */
 const getLastLocations = async ({ commit, state }) => {
-  commit(
-    types.SET_LAST_LOCATIONS,
-    await api.getLastLocations(state.selectedUser, state.selectedDevice)
+  let lastLocations = await api.getLastLocations(
+    state.selectedUser,
+    state.selectedDevice
   );
+  if (config.ignorePingLocation) {
+    // Remove ping/ping from the owntracks/recorder Docker image
+    // https://github.com/owntracks/frontend/issues/12
+    lastLocations = lastLocations.filter(
+      l => !(l.username === "ping" && l.device === "ping")
+    );
+  }
+  commit(types.SET_LAST_LOCATIONS, lastLocations);
 };
 
 /**
