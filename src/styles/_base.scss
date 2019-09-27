@@ -7,7 +7,7 @@
 :root {
   --color-text: #333;
   --color-background: #fff;
-  --color-accent: #3388ff;
+  --color-accent: #478db2;
   --color-accent-text: #fff;
   --drop-shadow: drop-shadow(0 10px 10px rgb(0, 0, 0, 0.2));
   --dropdown-arrow: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2225%22%20height%3D%2210%22%3E%3Cpath%20fill%3D%22%23333%22%20fill-opacity%3D%221%22%20stroke%3D%22none%22%20d%3D%22M0%2C0%20L0%2C0%20L1%2C0%20L1%2C6%20L7%2C6%20L7%2C7%20L0%2C7%20z%22%20transform%3D%22rotate(-45%205%200)%22%20%2F%3E%3C%2Fsvg%3E");
@@ -31,6 +31,13 @@ ul {
   list-style: inside;
 }
 
+.vue2leaflet-map {
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  z-index: 0;
+}
+
 #app {
   display: flex;
   min-height: 100%;
@@ -42,6 +49,7 @@ ul {
   padding: 20px;
   white-space: nowrap;
   overflow-x: auto;
+  z-index: 1;
   color: var(--color-accent-text);
   background: var(--color-accent);
 }
@@ -69,8 +77,6 @@ ul {
 
 #app > main {
   flex: 1;
-  /* https://github.com/linusg/owntracks-ui/issues/6 */
-  display: flex;
 }
 
 .button,
@@ -199,11 +205,6 @@ ul {
   white-space: nowrap;
 }
 
-.leaflet-container {
-  /* https://github.com/linusg/owntracks-ui/issues/6 */
-  height: auto !important;
-}
-
 .leaflet-container .leaflet-popup {
   filter: var(--drop-shadow);
 }
@@ -254,17 +255,14 @@ ul {
   color: var(--color-accent-text);
 }
 
-header .mdi {
+header .feather {
+  font-size: 20px;
+  margin-right: 10px;
   position: relative;
-  top: 5px;
-  margin-right: 3px;
+  top: -2px;
+  vertical-align: middle;
 }
 
-header .button .mdi {
-  line-height: 0;
-}
-
-.mdi-16px.mdi-set,
-.mdi-16px.mdi::before {
-  font-size: 16px;
+.button-icon .feather {
+  margin: 0;
 }

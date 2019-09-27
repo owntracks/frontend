@@ -1,6 +1,6 @@
 # OwnTracks UI
 
-> A modern web interface for OwnTracks made with Vue.js
+> Web interface for OwnTracks
 
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
 
@@ -10,17 +10,32 @@
 
 ## Introduction
 
-This is a web interface for [OwnTracks](https://github.com/owntracks/recorder), intended to replace the various web pages shipping with the recorder. OwnTracks UI uses Vue.js under the hood.
+This is a web interface for [OwnTracks](https://github.com/owntracks/recorder) built as
+a Vue.js single page application. The recorder itself already ships with some basic web
+pages, this is a more advanced interface with more functionality, all in one place.
 
 ## Installation
 
-### Manual install
+### Manually
 
-Clone the repository and copy `index.html` and the `static/` directory to your server's webroot. The API is expected to be reachable under the same domain as the web interface.
+For development:
+
+- Run `yarn install` to install dependencies
+- Run `yarn serve` to compile for development and start the hot-reload server
+- Run `yarn lint` to lint and fix files
+
+To deploy:
+
+- Run `yarn install --production` to install dependencies
+- Run `yarn build` to compile and minify for production
+- Copy the content of the `dist/` directory to your webroot
+
+The API is expected to be reachable under the same domain as the web interface.
 
 ### Docker
 
 You can launch directly via Docker run like this:
+
 ```console
 $ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port owntracks/frontend
 ```
@@ -44,29 +59,25 @@ services:
 ## Features
 
 - Enable or disable multiple layers:
-
   - Last known (i.e. live) locations:
-
     - Accuracy visualization (circle)
     - Device friendly name and icon
-    - Detailed information (if available): time, lat, lon, height, battery and speed
-
+    - Detailed information (if available): time, latitude, longitude, height, battery and speed
   - Location history (data points, line or both)
   - Location heatmap
   - Button to quickly fit all shown objects on the map into view
-
 - Display data in a specific date range
 - Filter by user and device
-- Customizable:
-
+- Customisable:
   - UI color
   - Default start and end date
   - Map:
-
     - Tile server
     - Max zoom
     - Default position and zoom
     - Heatmap colors, radius and blur
+
+  See [`docs/config.md`](docs/config.md) for more info.
 
 ## Screenshots
 
@@ -77,18 +88,6 @@ _Click to enlarge._
 <a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" alt="Date selection" height="200"></a>
 <a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" alt="Heatmap" height="200"></a>
 <a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" alt="Customized" height="200"></a>
-
-## ToDo
-
-- Node.js based development workflow:
-
-  - Webpack
-  - Vue SFCs
-  - Sass
-  - Dependency management with yarn instead of a local copy or unpkg.com
-
-- Add documentation, at least for the config file
-- Download data for selected date range, user and device as JSON
 
 ## Contributing
 
