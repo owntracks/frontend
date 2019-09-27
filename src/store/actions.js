@@ -60,16 +60,24 @@ const loadData = async ({ dispatch }) => {
 };
 
 /**
+ * Reload last locations and location history. Will be called when
+ * start date, end date, selected user or selected device changes.
+ */
+const reloadData = async ({ dispatch }) => {
+  await dispatch("getLastLocations");
+  await dispatch("getLocationHistory");
+};
+
+/**
  * Connect to WebSocket to receive live location updates. When an update is
  * received, reload last locations and location history.
  */
 const connectWebsocket = async ({ dispatch }) => {
   api.connectWebsocket(async () => {
-    await dispatch("getLastLocations");
     // Reloading the complete location history is necessary because the
     // last locations do lack some of the detailed information.
     // TODO: make this optional via config.
-    await dispatch("getLocationHistory");
+    await dispatch("reloadData");
   });
 };
 
@@ -131,8 +139,7 @@ const getRecorderVersion = async ({ commit }) => {
  */
 const setSelectedUser = async ({ commit, dispatch }, user) => {
   commit(types.SET_SELECTED_USER, user);
-  await dispatch("getLocationHistory");
-  await dispatch("getLastLocations");
+  await dispatch("reloadData");
 };
 
 /**
@@ -142,8 +149,7 @@ const setSelectedUser = async ({ commit, dispatch }, user) => {
  */
 const setSelectedDevice = async ({ commit, dispatch }, device) => {
   commit(types.SET_SELECTED_DEVICE, device);
-  await dispatch("getLocationHistory");
-  await dispatch("getLastLocations");
+  await dispatch("reloadData");
 };
 
 /**
@@ -153,8 +159,7 @@ const setSelectedDevice = async ({ commit, dispatch }, device) => {
  */
 const setStartDate = async ({ commit, dispatch }, startDate) => {
   commit(types.SET_START_DATE, startDate);
-  await dispatch("getLocationHistory");
-  await dispatch("getLastLocations");
+  await dispatch("reloadData");
 };
 
 /**
@@ -164,13 +169,13 @@ const setStartDate = async ({ commit, dispatch }, startDate) => {
  */
 const setEndDate = async ({ commit, dispatch }, endDate) => {
   commit(types.SET_END_DATE, endDate);
-  await dispatch("getLocationHistory");
-  await dispatch("getLastLocations");
+  await dispatch("reloadData");
 };
 
 export default {
   populateStateFromQuery,
   loadData,
+  reloadData,
   connectWebsocket,
   getUsers,
   getDevices,
