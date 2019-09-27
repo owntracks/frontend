@@ -6,7 +6,7 @@ export const getApiUrl = path => {
     ? config.api.baseUrl.slice(1)
     : config.api.baseUrl;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
-  return `${normalizedBaseUrl}${normalizedPath}`;
+  return new URL(`${normalizedBaseUrl}${normalizedPath}`);
 };
 
 export const isIsoDate = s => ISO_DATE_REGEXP.test(s);

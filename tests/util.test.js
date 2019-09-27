@@ -9,16 +9,18 @@ import {
 describe("getApiUrl", () => {
   test("without base URL", () => {
     // See testURL in jest.config.js
-    expect(getApiUrl("foo")).toBe("http://localhost/foo");
-    expect(getApiUrl("/foo")).toBe("http://localhost/foo");
-    expect(getApiUrl("/foo/bar")).toBe("http://localhost/foo/bar");
+    expect(getApiUrl("foo").href).toBe("http://localhost/foo");
+    expect(getApiUrl("/foo").href).toBe("http://localhost/foo");
+    expect(getApiUrl("/foo/bar").href).toBe("http://localhost/foo/bar");
   });
 
   test("with base URL", () => {
     config.api.baseUrl = "http://example.com/owntracks";
-    expect(getApiUrl("foo")).toBe("http://example.com/owntracks/foo");
-    expect(getApiUrl("/foo")).toBe("http://example.com/owntracks/foo");
-    expect(getApiUrl("/foo/bar")).toBe("http://example.com/owntracks/foo/bar");
+    expect(getApiUrl("foo").href).toBe("http://example.com/owntracks/foo");
+    expect(getApiUrl("/foo").href).toBe("http://example.com/owntracks/foo");
+    expect(getApiUrl("/foo/bar").href).toBe(
+      "http://example.com/owntracks/foo/bar"
+    );
   });
 });
 
