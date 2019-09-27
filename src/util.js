@@ -21,7 +21,3 @@ export const distanceBetweenCoordinates = (c1, c2) => {
   // Return distance in meters
   return EARTH_RADIUS_IN_KM * c * 1000;
 };
-
-export const capitalizeFirstLetter = string => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
