@@ -18,31 +18,6 @@ pages, this is a more advanced interface with more functionality, all in one pla
 
 ### Manually
 
-**For development:**
-
-- Run `yarn install` to install dependencies
-- Run `yarn serve` to compile for development and start the hot-reload server
-- Run `yarn lint` to lint and fix files
-
-You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your production
-instance of OwnTracks for development without making changes to its CORS-Headers:
-
-```console
-$ yarn cors-proxy
-```
-If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme) enabled:
-
-```console
-$ env OT_BASIC_AUTH_USERNAME=username OT_BASIC_AUTH_PASSWORD='P@$$w0rd' yarn cors-proxy
-```
-
-The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PROXY_HOST`
-and `OT_PROXY_PORT` environment variables.
-
-Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://owntracks.example.com"`.
-
-**To deploy:**
-
 - Run `yarn install --production` to install dependencies
 - Run `yarn build` to compile and minify for production
 - Copy the content of the `dist/` directory to your webroot
@@ -80,6 +55,30 @@ Copy [`public/config/config.default.js`](public/config/config.default.js) to
 `public/config/config.js` and make changes as you wish.
 
 See [`docs/config.md`](docs/config.md) for all available options.
+
+## Development
+
+- Run `yarn install` to install dependencies
+- Run `yarn serve` to compile for development and start the hot-reload server
+- Run `yarn lint` to lint and fix files
+- Run `yarn test` to run unit tests
+
+You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your production
+instance of OwnTracks for development without making changes to its CORS-Headers:
+
+```console
+$ yarn cors-proxy
+```
+If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme) enabled:
+
+```console
+$ env OT_BASIC_AUTH_USERNAME=username OT_BASIC_AUTH_PASSWORD='P@$$w0rd' yarn cors-proxy
+```
+
+The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PROXY_HOST`
+and `OT_PROXY_PORT` environment variables.
+
+Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://owntracks.example.com"`.
 
 ## Features
 
