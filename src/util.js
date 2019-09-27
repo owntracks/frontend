@@ -1,8 +1,16 @@
 import config from "@/config";
 import { ISO_DATE_REGEXP, EARTH_RADIUS_IN_KM } from "@/constants";
 
-export const getApiUrl = path => new URL(`${config.api.baseUrl}${path}`);
+export const getApiUrl = path => {
+  const normalizedBaseUrl = config.api.baseUrl.endsWith("/")
+    ? config.api.baseUrl.slice(1)
+    : config.api.baseUrl;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${normalizedBaseUrl}${normalizedPath}`;
+};
+
 export const isIsoDate = s => ISO_DATE_REGEXP.test(s);
+
 export const degreesToRadians = degrees => (degrees * Math.PI) / 180;
 
 // https://stackoverflow.com/a/365853/5952681
