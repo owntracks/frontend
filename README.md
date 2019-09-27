@@ -25,9 +25,12 @@ pages, this is a more advanced interface with more functionality, all in one pla
 - Run `yarn lint` to lint and fix files
 
 You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your production
-instance of OwnTracks for development without making changes to its CORS-Headers.
+instance of OwnTracks for development without making changes to its CORS-Headers:
 
-Run like this:
+```console
+$ yarn cors-proxy
+```
+If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme) enabled:
 
 ```console
 $ env OT_BASIC_AUTH_USERNAME=username OT_BASIC_AUTH_PASSWORD='P@$$w0rd' yarn cors-proxy
