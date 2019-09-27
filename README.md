@@ -18,13 +18,27 @@ pages, this is a more advanced interface with more functionality, all in one pla
 
 ### Manually
 
-For development:
+**For development:**
 
 - Run `yarn install` to install dependencies
 - Run `yarn serve` to compile for development and start the hot-reload server
 - Run `yarn lint` to lint and fix files
 
-To deploy:
+You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your production
+instance of OwnTracks for development without making changes to its CORS-Headers.
+
+Run like this:
+
+```console
+$ env OT_BASIC_AUTH_USERNAME=username OT_BASIC_AUTH_PASSWORD='P@$$w0rd' yarn cors-proxy
+```
+
+The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PROXY_HOST`
+and `OT_PROXY_PORT` environment variables.
+
+Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://owntracks.example.com"`.
+
+**To deploy:**
 
 - Run `yarn install --production` to install dependencies
 - Run `yarn build` to compile and minify for production
@@ -40,7 +54,8 @@ You can launch directly via Docker run like this:
 $ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port owntracks/frontend
 ```
 
-Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default compose config, and the service is named `otrecorder`):
+Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default
+compose config, and the service is named `otrecorder`):
 
 ```yaml
 version: '3'
@@ -56,28 +71,26 @@ services:
     restart: unless-stopped
 ```
 
+## Configuration
+
+Copy [`public/config/config.default.js`](public/config/config.default.js) to
+`public/config/config.js` and make changes as you wish.
+
+See [`docs/config.md`](docs/config.md) for all available options.
+
 ## Features
 
-- Enable or disable multiple layers:
-  - Last known (i.e. live) locations:
-    - Accuracy visualization (circle)
-    - Device friendly name and icon
-    - Detailed information (if available): time, latitude, longitude, height, battery and speed
-  - Location history (data points, line or both)
-  - Location heatmap
-  - Button to quickly fit all shown objects on the map into view
+- Last known (i.e. live) locations:
+  - Accuracy visualization (circle)
+  - Device friendly name and icon
+  - Detailed information (if available): time, latitude, longitude, height, battery and
+    speed
+- Location history (data points, line or both)
+- Location heatmap
+- Quickly fit all shown objects on the map into view
 - Display data in a specific date range
 - Filter by user and device
-- Customisable:
-  - UI color
-  - Default start and end date
-  - Map:
-    - Tile server
-    - Max zoom
-    - Default position and zoom
-    - Heatmap colors, radius and blur
-
-  See [`docs/config.md`](docs/config.md) for more info.
+- Highly customisable
 
 ## Screenshots
 
@@ -91,4 +104,5 @@ _Click to enlarge._
 
 ## Contributing
 
-Please feel free to open an issue and discuss your ideas and report bugs. If you think you can help out with something, open a PR!
+Please feel free to open an issue and discuss your ideas and report bugs. If you think
+you can help out with something, open a PR!
