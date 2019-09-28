@@ -46,8 +46,8 @@ export default {
   components: { AppHeader, Modal },
   created() {
     document.documentElement.style.setProperty(
-      "--color-accent",
-      config.accentColor
+      "--color-primary",
+      config.primaryColor
     );
     this.populateStateFromQuery(this.$route.query);
     this.loadData();

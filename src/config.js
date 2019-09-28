@@ -13,7 +13,8 @@ const DEFAULT_CONFIG = {
     // API base URL, defaults to the same domain. Keep CORS in mind.
     baseUrl: `${window.location.protocol}//${window.location.host}`,
   },
-  accentColor: "#478db2",
+  // Primary color for the user interface
+  primaryColor: "#3f51b5",
   // Initial start and end date. Doesn't have to be hardcoded, see
   // above. Defaults to one month ago - today.
   startDate,
@@ -51,7 +52,7 @@ const DEFAULT_CONFIG = {
         imperial: true,
       },
     },
-    // `color` and `fillColor` default to `accentColor` when null.
+    // `color` and `fillColor` default to `primaryColor` when null.
     polyline: {
       color: null,
       fillColor: "transparent",

@@ -160,16 +160,16 @@ export default {
       controls: config.map.controls,
       polyline: {
         ...config.map.polyline,
-        color: config.map.polyline.color || config.accentColor,
+        color: config.map.polyline.color || config.primaryColor,
       },
       circle: {
         ...config.map.circle,
-        color: config.map.circle.color || config.accentColor,
-        fillColor: config.map.circle.fillColor || config.accentColor,
+        color: config.map.circle.color || config.primaryColor,
+        fillColor: config.map.circle.fillColor || config.primaryColor,
       },
       circleMarker: {
         ...config.map.circleMarker,
-        color: config.map.circleMarker.color || config.accentColor,
+        color: config.map.circleMarker.color || config.primaryColor,
       },
       heatmap: config.map.heatmap,
     };
