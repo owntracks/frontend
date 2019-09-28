@@ -79,6 +79,25 @@ ul {
     flex: 1;
     position: relative;
   }
+
+  ul.info-list {
+    list-style: none;
+
+    li {
+      .feather {
+        margin-right: 10px;
+      }
+
+      a {
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      & + li {
+        margin-top: 20px;
+      }
+    }
+  }
 }
 
 .button,

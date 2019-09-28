@@ -8,26 +8,32 @@
       Not implemented.
     </modal>
     <modal name="information" adaptive>
-      <ul>
+      <ul class="info-list">
         <li>
+          <GithubIcon size="1x" />
           <a href="https://github.com/owntracks/frontend">
             owntracks/frontend
           </a>
           ({{ frontendVersion }})
         </li>
         <li>
+          <GithubIcon size="1x" />
           <a href="https://github.com/owntracks/recorder">
             owntracks/recorder
           </a>
           ({{ recorderVersion }})
         </li>
         <li>
+          <BookIcon size="1x" />
           <a href="https://owntracks.org/booklet/">
-            OwnTracks Recorder Documentation
+            OwnTracks Documentation
           </a>
         </li>
         <li>
-          <a href="https://twitter.com/OwnTracks">@OwnTracks</a>
+          <TwitterIcon size="1x" />
+          <a href="https://twitter.com/OwnTracks">
+            OwnTracks on Twitter
+          </a>
         </li>
       </ul>
     </modal>
@@ -36,12 +42,14 @@
 
 <script>
 import { mapActions, mapState } from "vuex";
+import { BookIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
 
 import config from "@/config";
 import * as types from "@/store/mutation-types";
 import AppHeader from "@/components/AppHeader";
+
 export default {
-  components: { AppHeader },
+  components: { BookIcon, GithubIcon, TwitterIcon, AppHeader },
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",
