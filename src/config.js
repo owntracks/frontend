@@ -10,7 +10,7 @@ startDate.setUTCMonth(startDate.getMonth() - 1);
 
 const DEFAULT_CONFIG = {
   api: {
-    // API base URL, defaults to the same domain. Keep CORS in mind.
+    // API base URL, defaults to the current protocol and host. Keep CORS in mind.
     baseUrl: `${window.location.protocol}//${window.location.host}`,
   },
   // Primary color for the user interface
@@ -79,7 +79,7 @@ const DEFAULT_CONFIG = {
       gradient: null,
     },
     // Which layers to show by default. The source of truth at runtime
-    // is the Vuex store, which is initialised from these values and
+    // is the Vuex store, which is initialized from these values and
     // the query parameters, in that order.
     layers: {
       last: true,
