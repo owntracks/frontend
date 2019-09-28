@@ -25,10 +25,6 @@ export default new Vuex.Store({
       zoom: config.map.zoom,
       layers: config.map.layers,
     },
-    modals: {
-      download: false,
-      information: false,
-    },
   },
   getters,
   mutations,

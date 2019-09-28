@@ -4,10 +4,10 @@
     <main>
       <router-view />
     </main>
-    <Modal name="download">
+    <modal name="download" adaptive>
       Not implemented.
-    </Modal>
-    <Modal name="information">
+    </modal>
+    <modal name="information" adaptive>
       <ul>
         <li>
           <a href="https://github.com/owntracks/frontend">
@@ -30,20 +30,18 @@
           <a href="https://twitter.com/OwnTracks">@OwnTracks</a>
         </li>
       </ul>
-    </Modal>
+    </modal>
   </div>
 </template>
 
 <script>
-import { mapActions, mapMutations, mapState } from "vuex";
+import { mapActions, mapState } from "vuex";
 
 import config from "@/config";
 import * as types from "@/store/mutation-types";
 import AppHeader from "@/components/AppHeader";
-import Modal from "@/components/Modal";
-
 export default {
-  components: { AppHeader, Modal },
+  components: { AppHeader },
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",
@@ -71,9 +69,6 @@ export default {
     ...mapState(["frontendVersion", "recorderVersion"]),
   },
   methods: {
-    ...mapMutations({
-      setModalVisibility: types.SET_MODAL_VISIBILITY,
-    }),
     ...mapActions(["populateStateFromQuery", "loadData"]),
     updateUrlQuery() {
       const {

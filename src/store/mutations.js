@@ -37,7 +37,4 @@ export default {
   [types.SET_MAP_LAYER_VISIBILITY](state, { layer, visibility }) {
     state.map.layers[layer] = visibility;
   },
-  [types.SET_MODAL_VISIBILITY](state, { modal, visibility }) {
-    state.modals[modal] = visibility;
-  },
 };

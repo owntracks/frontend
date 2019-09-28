@@ -128,12 +128,7 @@
         <button
           class="button button-flat button-icon"
           title="Download raw data"
-          @click="
-            setModalVisibility({
-              modal: 'download',
-              visibility: true,
-            })
-          "
+          @click="$modal.show('download')"
         >
           <DownloadIcon size="1x" />
         </button>
@@ -142,12 +137,7 @@
         <button
           class="button button-flat button-icon"
           title="Information"
-          @click="
-            setModalVisibility({
-              modal: 'information',
-              visibility: true,
-            })
-          "
+          @click="$modal.show('information')"
         >
           <InfoIcon size="1x" />
         </button>
@@ -219,7 +209,6 @@ export default {
   methods: {
     ...mapMutations({
       setMapLayerVisibility: types.SET_MAP_LAYER_VISIBILITY,
-      setModalVisibility: types.SET_MODAL_VISIBILITY,
     }),
     ...mapActions([
       "setSelectedUser",

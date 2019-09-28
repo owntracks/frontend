@@ -1,5 +1,6 @@
 .leaflet-container {
   position: absolute;
+  z-index: 0;
 
   .leaflet-popup {
     filter: var(--drop-shadow);

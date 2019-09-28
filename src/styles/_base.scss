@@ -131,7 +131,7 @@ ul {
   color: var(--color-text);
   background: var(--color-background);
   filter: var(--drop-shadow);
-  z-index: 2000;
+  z-index: 1;
 
   label {
     cursor: pointer;
