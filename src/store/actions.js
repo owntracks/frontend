@@ -147,6 +147,7 @@ const getRecorderVersion = async ({ commit }) => {
  * @param {string} user Name of the new selected user
  */
 const setSelectedUser = async ({ commit, dispatch }, user) => {
+  commit(types.SET_SELECTED_DEVICE, null);
   commit(types.SET_SELECTED_USER, user);
   await dispatch("reloadData");
 };
