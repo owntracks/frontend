@@ -64,8 +64,6 @@ ul {
       .feather {
         font-size: 20px;
         margin-right: 10px;
-        position: relative;
-        top: -2px;
         vertical-align: middle;
       }
 
@@ -121,8 +119,17 @@ ul {
   background: transparent;
 }
 
+.button-outline,
+.button-flat {
+  transition: background 0.2s;
+  &:hover,
+  &:focus {
+    background: rgba(0, 0, 0, 0.2);
+  }
+}
+
 .button-icon {
-  padding: 8px 0;
+  padding: 8px;
 }
 
 .dropdown {
