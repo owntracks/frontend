@@ -11,7 +11,11 @@
         </li>
         <li>
           <MapPinIcon size="1x" />
-          {{ lat }}, {{ lon }}, {{ alt }}m
+          {{ lat }}
+          <br />
+          {{ lon }}
+          <br />
+          {{ alt }}m
         </li>
         <li v-if="address">
           <HomeIcon size="1x" />
