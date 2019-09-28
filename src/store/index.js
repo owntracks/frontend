@@ -17,7 +17,7 @@ export default new Vuex.Store({
     lastLocations: [],
     locationHistory: {},
     selectedUser: config.selectedUser,
-    selectedDevice: config.selectedDevice,
+    selectedDevice: config.selectedUser !== null ? config.selectedDevice : null,
     startDate: config.startDate,
     endDate: config.endDate,
     map: {
