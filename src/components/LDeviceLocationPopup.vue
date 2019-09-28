@@ -1,37 +1,73 @@
 <template>
   <LPopup>
-    <img v-if="face" class="location-popup-face" :src="faceImageDataURI" />
-    <b v-if="name">{{ name }}</b>
-    <b v-else>{{ user }}/{{ device }}</b>
-    <div class="location-popup-detail">
-      <span class="mdi mdi-16px mdi-calendar-clock"></span>
-      {{ new Date(timestamp * 1000).toLocaleString() }}
-    </div>
-    <div class="location-popup-detail">
-      <span class="mdi mdi-16px mdi-crosshairs-gps"></span>
-      {{ lat }}, {{ lon }}, {{ alt }}m
-    </div>
-    <div v-if="address" class="location-popup-detail">
-      <span class="mdi mdi-16px mdi-map-marker"></span>
-      {{ address }}
-    </div>
-    <div v-if="typeof battery === 'number'" class="location-popup-detail">
-      <span class="mdi mdi-16px mdi-battery"></span>
-      {{ battery }} %
-    </div>
-    <div v-if="typeof speed === 'number'" class="location-popup-detail">
-      <span class="mdi mdi-16px mdi-speedometer"></span>
-      {{ speed }} km/h
+    <div v-if="name" class="device">{{ name }}</div>
+    <div v-else class="device">{{ user }}/{{ device }}</div>
+    <div class="wrapper">
+      <img v-if="face" :src="faceImageDataURI" />
+      <ul class="info-list">
+        <li>
+          <ClockIcon size="1x" />
+          {{ new Date(timestamp * 1000).toLocaleString() }}
+        </li>
+        <li>
+          <MapPinIcon size="1x" />
+          {{ lat }}, {{ lon }}, {{ alt }}m
+        </li>
+        <li v-if="address">
+          <HomeIcon size="1x" />
+          {{ address }}
+        </li>
+        <li v-if="typeof battery === 'number'">
+          <BatteryIcon size="1x" />
+          {{ battery }} %
+        </li>
+        <li v-if="typeof speed === 'number'">
+          <ZapIcon size="1x" />
+          {{ speed }} km/h
+        </li>
+      </ul>
     </div>
   </LPopup>
 </template>
 
+<style lang="scss" scoped>
+.device {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 20px;
+
+  img {
+    align-self: start;
+    margin-right: 20px;
+  }
+}
+</style>
+
 <script>
+import {
+  BatteryIcon,
+  ClockIcon,
+  HomeIcon,
+  MapPinIcon,
+  ZapIcon,
+} from "vue-feather-icons";
 import { LPopup } from "vue2-leaflet";
 
 export default {
   name: "LDeviceLocationPopup",
   components: {
+    BatteryIcon,
+    ClockIcon,
+    HomeIcon,
+    MapPinIcon,
+    ZapIcon,
     LPopup,
   },
   props: {

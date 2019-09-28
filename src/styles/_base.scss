@@ -82,8 +82,14 @@ ul {
     list-style: none;
 
     li {
+      // https://stackoverflow.com/a/17158366/5952681
+      margin-left: 25px;
+      text-indent: -25px;
+
       .feather {
-        margin-right: 10px;
+        font-size: 16px;
+        margin-right: 8px;
+        vertical-align: middle;
       }
 
       a {
@@ -92,7 +98,7 @@ ul {
       }
 
       & + li {
-        margin-top: 20px;
+        margin-top: 15px;
       }
     }
   }

@@ -40,6 +40,10 @@
   </div>
 </template>
 
+<style lang="scss">
+@import "styles/main";
+</style>
+
 <script>
 import { mapActions, mapState } from "vuex";
 import { BookIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
@@ -104,7 +108,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-@import "styles/main";
-</style>
