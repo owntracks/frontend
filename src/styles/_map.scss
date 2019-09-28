@@ -1,0 +1,33 @@
+.leaflet-container {
+  position: absolute;
+
+  .leaflet-popup {
+    filter: var(--drop-shadow);
+
+    .leaflet-popup-content-wrapper {
+      border-radius: 3px;
+      box-shadow: none;
+    }
+
+    a.leaflet-popup-close-button {
+      padding: 5px 5px 0 0;
+    }
+  }
+
+  .leaflet-popup-tip {
+    box-shadow: none;
+  }
+}
+
+.location-popup-face {
+  border-radius: 50%;
+  border: 2px solid var(--color-background);
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.location-popup-detail {
+  white-space: nowrap;
+}

@@ -1,0 +1,34 @@
+.vdp-datepicker {
+  position: static !important;
+  display: inline-block;
+  white-space: initial;
+  overflow: initial;
+  z-index: 3000;
+
+  input {
+    width: 120px;
+  }
+
+  .vdp-datepicker__calendar {
+    color: var(--color-text);
+    border: 0;
+    border-radius: 3px;
+    z-index: 4000;
+    margin-top: 12px;
+    filter: var(--drop-shadow);
+
+    .cell {
+      &:not(.blank):not(.disabled).day:hover,
+      &:not(.blank):not(.disabled).month:hover,
+      &:not(.blank):not(.disabled).year:hover {
+        border-color: var(--color-primary);
+      }
+
+      &.selected,
+      &.selected:hover {
+        background: var(--color-primary);
+        color: var(--color-primary-text);
+      }
+    }
+  }
+}

@@ -3,6 +3,7 @@
     ref="map"
     :center="map.center"
     :zoom="map.zoom"
+    :options="{ zoomControl: false }"
     @update:center="setMapCenter"
     @update:zoom="setMapZoom"
   >

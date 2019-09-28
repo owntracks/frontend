@@ -31,52 +31,54 @@ ul {
   list-style: inside;
 }
 
-.vue2leaflet-map {
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  z-index: 0;
-}
-
 #app {
   display: flex;
   min-height: 100%;
   flex-direction: column;
-}
 
-#app > header {
-  display: flex;
-  padding: 20px;
-  white-space: nowrap;
-  overflow-x: auto;
-  z-index: 1;
-  color: var(--color-primary-text);
-  background: var(--color-primary);
-}
+  // Only select immediate child as the datepicker contains a <header> as well
+  > header {
+    display: flex;
+    padding: 20px;
+    white-space: nowrap;
+    overflow-x: auto;
+    color: var(--color-primary-text);
+    background: var(--color-primary);
 
-#app > header > nav {
-  display: flex;
-  flex: 1;
-}
+    nav {
+      display: flex;
+      flex: 1;
 
-#app > header > nav:not(:first-child) {
-  margin-left: 20px;
-}
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
 
-#app > header > nav.nav-shrink {
-  flex: 0 1 auto;
-}
+      &.nav-shrink {
+        flex: 0 1 auto;
+      }
 
-#app > header > nav .nav-item {
-  display: inline-block;
-}
+      .nav-item:not(:first-child) {
+        margin-left: 20px;
+      }
 
-#app > header > nav .nav-item:not(:first-child) {
-  margin-left: 20px;
-}
+      .feather {
+        font-size: 20px;
+        margin-right: 10px;
+        position: relative;
+        top: -2px;
+        vertical-align: middle;
+      }
 
-#app > main {
-  flex: 1;
+      .button-icon .feather {
+        margin: 0;
+      }
+    }
+  }
+
+  main {
+    flex: 1;
+    position: relative;
+  }
 }
 
 .button,
@@ -130,6 +132,21 @@ ul {
   background: var(--color-background);
   filter: var(--drop-shadow);
   z-index: 2000;
+
+  label {
+    cursor: pointer;
+    display: block;
+    padding: 8px 15px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+
+    input[type=checkbox] {
+      position: relative;
+      top: 2px;
+    }
+  }
 }
 
 .dropdown-body::before,
@@ -146,123 +163,4 @@ ul {
 
 .dropdown:focus-within .dropdown-body {
   display: block;
-}
-
-.dropdown-body label {
-  cursor: pointer;
-  display: block;
-  padding: 8px 15px;
-}
-
-.dropdown-body label:hover {
-  background: rgba(0, 0, 0, 0.1);
-}
-
-.dropdown-body label input[type=checkbox] {
-  position: relative;
-  top: 2px;
-}
-
-.modal {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.4);
-  filter: var(--drop-shadow);
-  z-index: 4000;
-}
-
-.modal .modal-container {
-  min-width: 300px;
-  padding: 20px;
-  border-radius: 3px;
-  background: var(--color-background);
-}
-
-.modal .modal-container .modal-close-button {
-  display: block;
-  border: none;
-  float: right;
-  font-size: 24px;
-  line-height: 16px;
-  background: transparent;
-  cursor: pointer;
-}
-
-.location-popup-face {
-  border-radius: 50%;
-  border: 2px solid var(--color-background);
-  position: absolute;
-  top: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.location-popup-detail {
-  white-space: nowrap;
-}
-
-.leaflet-container .leaflet-popup {
-  filter: var(--drop-shadow);
-}
-
-.leaflet-container .leaflet-popup .leaflet-popup-content-wrapper {
-  border-radius: 3px;
-  box-shadow: none;
-}
-
-.leaflet-container .leaflet-popup a.leaflet-popup-close-button {
-  padding: 5px 5px 0 0;
-}
-
-.leaflet-popup-tip-container .leaflet-popup-tip {
-  box-shadow: none;
-}
-
-.vdp-datepicker {
-  position: static !important;
-  display: inline-block;
-  white-space: initial;
-  overflow: initial;
-  z-index: 3000;
-}
-
-.vdp-datepicker input {
-  width: 120px;
-}
-
-.vdp-datepicker .vdp-datepicker__calendar {
-  color: var(--color-text);
-  border: 0;
-  border-radius: 3px;
-  z-index: 4000;
-  margin-top: 12px;
-  filter: var(--drop-shadow);
-}
-
-.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).day:hover,
-.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).month:hover,
-.vdp-datepicker .vdp-datepicker__calendar .cell:not(.blank):not(.disabled).year:hover {
-  border-color: var(--color-primary);
-}
-
-.vdp-datepicker .vdp-datepicker__calendar .cell.selected,
-.vdp-datepicker .vdp-datepicker__calendar .cell.selected:hover {
-  background: var(--color-primary);
-  color: var(--color-primary-text);
-}
-
-header .feather {
-  font-size: 20px;
-  margin-right: 10px;
-  position: relative;
-  top: -2px;
-  vertical-align: middle;
-}
-
-.button-icon .feather {
-  margin: 0;
 }
