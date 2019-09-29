@@ -8,10 +8,14 @@
  */
 
 /**
+ * Vuex state.
+ *
  * @typedef {Object.<String, *>} State
  */
 
 /**
+ * URL query parameter object.
+ *
  * @typedef {Object.<String, *>} QueryParams
  */
 
@@ -33,15 +37,19 @@
  */
 
 /**
+ * A last location object.
  *
  * @typedef {Object.<String, *>} LastLocation
  */
 
 /**
+ * An array of location history objects
  *
  * @typedef {Array.<Object.<String, *>>} LocationHistory
  */
 
 /**
+ * Multiple arrays of location history objects mapped to user and devices.
+ *
  * @typedef {Object.<User, Object.<Device, LocationHistory>>} MultiLocationHistory
  */
