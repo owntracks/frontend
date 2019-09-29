@@ -1,11 +1,35 @@
 import { getApiUrl } from "@/util";
 
+/** @typedef {import("./types").QueryParams} QueryParams */
+/** @typedef {import("./types").User} User */
+/** @typedef {import("./types").Device} Device */
+/** @typedef {import("./types").LastLocation} LastLocation */
+/** @typedef {import("./types").LocationHistory} LocationHistory */
+
+/**
+ * Callback for new WebSocket location messages.
+ *
+ * @callback webSocketLocationCallback
+ */
+
+/**
+ * Fetch an API resource.
+ *
+ * @param {String} path API resource path
+ * @param {QueryParams} [params] Query parameters
+ * @return {Promise} Promise returned by the fetch function
+ */
 const fetchApi = (path, params = {}) => {
   const url = getApiUrl(path);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   return fetch(url);
 };
 
+/**
+ * Get the recorder's version.
+ *
+ * @return {String} Version
+ */
 export const getVersion = async () => {
   const response = await fetchApi("/api/0/version");
   const json = await response.json();
@@ -13,6 +37,11 @@ export const getVersion = async () => {
   return version;
 };
 
+/**
+ * Get all users.
+ *
+ * @return {Array.<User>} Array of usernames
+ */
 export const getUsers = async () => {
   const response = await fetchApi("/api/0/list");
   const json = await response.json();
@@ -20,6 +49,12 @@ export const getUsers = async () => {
   return users;
 };
 
+/**
+ * Get all devices for the provided users.
+ *
+ * @param {Array.<User>} users Array of usernames
+ * @return {Object.<User, Array.<Device>>} Object mapping each username to an array of device names
+ */
 export const getDevices = async users => {
   const devices = {};
   await Promise.all(
@@ -33,6 +68,13 @@ export const getDevices = async users => {
   return devices;
 };
 
+/**
+ * Get last locations for a specific or all user/device.
+ *
+ * @param {User} [user] Get last locations of all devices from this user
+ * @param {Device} [device] Get last location of specific device
+ * @return {Array.<LastLocation>} Array of last location objects
+ */
 export const getLastLocations = async (user, device) => {
   const params = {};
   if (user) {
@@ -46,6 +88,15 @@ export const getLastLocations = async (user, device) => {
   return json;
 };
 
+/**
+ * Get the location history of a specific user/device.
+ *
+ * @param {User} user Username
+ * @param {Device} device Device name
+ * @param {Date} start Start date
+ * @param {Date} end End date
+ * @return {LocationHistory} Array of location history objects
+ */
 export const getUserDeviceLocationHistory = async (
   user,
   device,
@@ -65,6 +116,14 @@ export const getUserDeviceLocationHistory = async (
   return json.data;
 };
 
+/**
+ * Get the location history of multiple devices.
+ *
+ * @param {Object.<User, Array.<Device>>} devices Devices of which the history should be fetched
+ * @param {Date} start Start date
+ * @param {Date} end End date
+ * @return {Object.<User, Object.<Device, LocationHistory>>} Array of location history objects
+ */
 export const getLocationHistory = async (devices, start, end) => {
   const locationHistory = {};
   await Promise.all(
@@ -85,6 +144,11 @@ export const getLocationHistory = async (devices, start, end) => {
   return locationHistory;
 };
 
+/**
+ * Connect to the WebSocket API, reconnect when necessary and handle received messages.
+ *
+ * @param {webSocketLocationCallback} [callback] Callback for location messages
+ */
 export const connectWebsocket = async callback => {
   let url = getApiUrl("/ws/last");
   url.protocol = url.protocol.replace("http", "ws");

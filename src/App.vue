@@ -61,7 +61,7 @@ export default {
     );
     this.populateStateFromQuery(this.$route.query);
     this.loadData();
-    // Update URL query params when relevant state changes
+    // Update URL query params when relevant values changes
     this.$store.subscribe(
       mutation =>
         [
@@ -82,6 +82,10 @@ export default {
   },
   methods: {
     ...mapActions(["populateStateFromQuery", "loadData"]),
+    /**
+     * Update all URL query parameters. This is called whenever any
+     * of the relevant values change in the Vuex store.
+     */
     updateUrlQuery() {
       const {
         map,

@@ -121,6 +121,11 @@ export default {
     },
   },
   computed: {
+    /**
+     * Return the face image as a data URI string which can be used for an image's src attribute
+     *
+     * @return {String} base64-encoded face image data URI
+     */
     faceImageDataURI() {
       return `data:image/png;base64,${this.face}`;
     },

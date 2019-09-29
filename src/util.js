@@ -1,6 +1,15 @@
 import config from "@/config";
 import { ISO_DATE_REGEXP, EARTH_RADIUS_IN_KM } from "@/constants";
 
+/** @typedef {import("./types").Coordinate} Coordinate */
+
+/**
+ * Get a complete URL for any API resource, taking the
+ * base URL configuration into account.
+ *
+ * @param {String} path Path to the API resource
+ * @return {URL} Final API URL
+ */
 export const getApiUrl = path => {
   const normalizedBaseUrl = config.api.baseUrl.endsWith("/")
     ? config.api.baseUrl.slice(1)
@@ -9,11 +18,30 @@ export const getApiUrl = path => {
   return new URL(`${normalizedBaseUrl}${normalizedPath}`);
 };
 
+/**
+ * Check if the given string is an ISO 8601 YYYY-MM-DD date.
+ *
+ * @param {String} s Input value to be tested
+ * @return {Boolean} Whether the input is an ISO 8601 date
+ */
 export const isIsoDate = s => ISO_DATE_REGEXP.test(s);
 
+/**
+ * Convert degrees to radians.
+ *
+ * @param {Number} degrees Angle in degrees
+ * @return {Number} Angle in radians
+ */
 export const degreesToRadians = degrees => (degrees * Math.PI) / 180;
 
-// https://stackoverflow.com/a/365853/5952681
+/**
+ * Calculate the distance between two coordinates.
+ * https://stackoverflow.com/a/365853/5952681
+ *
+ * @param {Coordinate} c1 First coordinate
+ * @param {Coordinate} c2 Second coordinate
+ * @return {Number} Distance in meters
+ */
 export const distanceBetweenCoordinates = (c1, c2) => {
   const latDistanceInRad = degreesToRadians(c1.lat - c2.lat);
   const lngDistanceInRad = degreesToRadians(c1.lng - c2.lng);

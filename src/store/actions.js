@@ -3,10 +3,14 @@ import * as api from "@/api";
 import config from "@/config";
 import { isIsoDate } from "@/util";
 
+/** @typedef {import("./types").QueryParams} QueryParams */
+/** @typedef {import("./types").User} User */
+/** @typedef {import("./types").Device} Device */
+
 /**
  * Populate the state from URL query parameters.
  *
- * @param {Object} query URL query parameters
+ * @param {QueryParams} query URL query parameters
  */
 const populateStateFromQuery = ({ state, commit }, query) => {
   if (query.lat && !isNaN(parseFloat(query.lat))) {
@@ -144,7 +148,7 @@ const getRecorderVersion = async ({ commit }) => {
 /**
  * Set the selected user and reload the location history.
  *
- * @param {string} user Name of the new selected user
+ * @param {User} user Name of the new selected user
  */
 const setSelectedUser = async ({ commit, dispatch }, user) => {
   commit(types.SET_SELECTED_DEVICE, null);
@@ -155,7 +159,7 @@ const setSelectedUser = async ({ commit, dispatch }, user) => {
 /**
  * Set the selected device and reload the location history.
  *
- * @param {string} device Name of the new selected device
+ * @param {Device} device Name of the new selected device
  */
 const setSelectedDevice = async ({ commit, dispatch }, device) => {
   commit(types.SET_SELECTED_DEVICE, device);

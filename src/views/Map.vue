@@ -185,6 +185,9 @@ export default {
       setMapCenter: types.SET_MAP_CENTER,
       setMapZoom: types.SET_MAP_ZOOM,
     }),
+    /**
+     * Fit all objects on the map into view.
+     */
     fitView() {
       if (
         (this.map.layers.line ||
