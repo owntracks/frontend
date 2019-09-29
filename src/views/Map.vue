@@ -188,7 +188,7 @@ export default {
     fitView() {
       if (
         (this.map.layers.line ||
-          this.map.layers.loints ||
+          this.map.layers.points ||
           this.map.layers.heatmap) &&
         this.locationHistoryLatLngs.length > 0
       ) {
