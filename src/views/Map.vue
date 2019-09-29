@@ -28,7 +28,7 @@
       <LCircle
         v-for="l in lastLocations"
         :key="`${l.topic}-circle`"
-        :lat-lng="{ lat: l.lat, lng: l.lon }"
+        :lat-lng="[l.lat, l.lon]"
         :radius="l.acc"
         :color="circle.color"
         :fill-color="circle.fillColor"
@@ -60,8 +60,7 @@
         v-for="(group, i) in locationHistoryLatLngGroups"
         :key="i"
         :lat-lngs="group"
-        :color="polyline.color"
-        :fill-color="polyline.fillColor"
+        v-bind="polyline"
       />
     </template>
 
@@ -72,10 +71,7 @@
             v-for="(l, n) in deviceLocations"
             :key="`${user}-${device}-${n}`"
             :lat-lng="[l.lat, l.lon]"
-            :radius="circleMarker.radius"
-            :color="circleMarker.color"
-            :fill-color="circleMarker.fillColor"
-            :fill-opacity="circleMarker.fillOpacity"
+            v-bind="circleMarker"
           >
             <LDeviceLocationPopup
               :user="user"
@@ -152,17 +148,14 @@ export default {
   },
   data() {
     return {
-      center: this.$store.state.map.center,
-      zoom: this.$store.state.map.zoom,
-      maxNativeZoom: config.map.maxNativeZoom,
-      maxZoom: config.map.maxZoom,
-      url: config.map.url,
       attribution: config.map.attribution,
+      center: this.$store.state.map.center,
       controls: config.map.controls,
-      polyline: {
-        ...config.map.polyline,
-        color: config.map.polyline.color || config.primaryColor,
-      },
+      heatmap: config.map.heatmap,
+      maxZoom: config.map.maxZoom,
+      maxNativeZoom: config.map.maxNativeZoom,
+      url: config.map.url,
+      zoom: this.$store.state.map.zoom,
       circle: {
         ...config.map.circle,
         color: config.map.circle.color || config.primaryColor,
@@ -172,7 +165,10 @@ export default {
         ...config.map.circleMarker,
         color: config.map.circleMarker.color || config.primaryColor,
       },
-      heatmap: config.map.heatmap,
+      polyline: {
+        ...config.map.polyline,
+        color: config.map.polyline.color || config.primaryColor,
+      },
     };
   },
   mounted() {
