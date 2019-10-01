@@ -4,39 +4,8 @@
     <main>
       <router-view />
     </main>
-    <modal name="download" adaptive>
-      Not implemented.
-    </modal>
-    <modal name="information" adaptive>
-      <ul class="info-list">
-        <li>
-          <GithubIcon size="1x" />
-          <a href="https://github.com/owntracks/frontend">
-            owntracks/frontend
-          </a>
-          ({{ frontendVersion }})
-        </li>
-        <li>
-          <GithubIcon size="1x" />
-          <a href="https://github.com/owntracks/recorder">
-            owntracks/recorder
-          </a>
-          ({{ recorderVersion }})
-        </li>
-        <li>
-          <BookIcon size="1x" />
-          <a href="https://owntracks.org/booklet/">
-            OwnTracks Documentation
-          </a>
-        </li>
-        <li>
-          <TwitterIcon size="1x" />
-          <a href="https://twitter.com/OwnTracks">
-            OwnTracks on Twitter
-          </a>
-        </li>
-      </ul>
-    </modal>
+    <DownloadModal />
+    <InformationModal />
   </div>
 </template>
 
@@ -45,15 +14,16 @@
 </style>
 
 <script>
-import { mapActions, mapState } from "vuex";
-import { BookIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
+import { mapActions } from "vuex";
 
 import config from "@/config";
 import * as types from "@/store/mutation-types";
 import AppHeader from "@/components/AppHeader";
+import DownloadModal from "@/components/modals/Download";
+import InformationModal from "@/components/modals/Information";
 
 export default {
-  components: { BookIcon, GithubIcon, TwitterIcon, AppHeader },
+  components: { AppHeader, DownloadModal, InformationModal },
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",
@@ -76,9 +46,6 @@ export default {
     );
     // Initially update URL query params from state
     this.updateUrlQuery();
-  },
-  computed: {
-    ...mapState(["frontendVersion", "recorderVersion"]),
   },
   methods: {
     ...mapActions(["populateStateFromQuery", "loadData"]),
