@@ -104,7 +104,6 @@
 <script>
 import { mapGetters, mapState, mapMutations } from "vuex";
 import L from "leaflet";
-import "leaflet.heat";
 import {
   LMap,
   LTileLayer,
@@ -119,10 +118,10 @@ import "leaflet/dist/leaflet.css";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-import LHeatmap from "vue2-leaflet-heatmap";
 
 import * as types from "@/store/mutation-types";
 import config from "@/config";
+import LHeatmap from "@/components/LHeatmap";
 import LDeviceLocationPopup from "@/components/LDeviceLocationPopup";
 
 // See https://github.com/KoRiGaN/Vue2Leaflet/issues/28#issuecomment-299038157
