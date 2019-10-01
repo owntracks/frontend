@@ -31,6 +31,22 @@ ul {
   list-style: inside;
 }
 
+pre {
+  background: #000;
+  border-radius: 3px;
+  color: #ddd;
+  display: block;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  overflow-x: auto;
+
+  code {
+    display: block;
+    margin: 20px;
+  }
+}
+
 #app {
   display: flex;
   min-height: 100%;
@@ -104,7 +120,8 @@ ul {
   }
 }
 
-.button,
+
+
 .vdp-datepicker input {
   cursor: pointer;
   color: var(--color-text);
@@ -112,35 +129,59 @@ ul {
   border: 0;
   border-radius: 18px;
   padding: 8px 16px;
-  text-overflow: ellipsis;
-}
-
-.vdp-datepicker input {
   min-width: 130px;
 }
 
-.button-outline {
-  border: 1px solid var(--color-background);
-  color: var(--color-primary-text);
-  background: transparent;
-}
+.button {
+  cursor: pointer;
+  color: var(--color-text);
+  background: var(--color-background);
+  border: 0;
+  border-radius: 18px;
+  padding: 8px 16px;
+  text-overflow: ellipsis;
 
-.button-flat {
-  color: var(--color-primary-text);
-  background: transparent;
-}
+  &.button-primary {
+    color: var(--color-primary-text);
+    background: var(--color-primary);
 
-.button-outline,
-.button-flat {
-  transition: background 0.2s;
-  &:hover,
-  &:focus {
-    background: rgba(0, 0, 0, 0.2);
+    &:focus::-moz-focus-inner {
+      border-color: var(--color-primary-text)e;
+    }
   }
-}
 
-.button-icon {
-  padding: 8px;
+  &.button-outline {
+    border: 1px solid var(--color-background);
+    color: var(--color-primary-text);
+    background: transparent;
+
+    &.button-primary {
+      border-color: var(--color-primary);
+      color: var(--color-text);
+    }
+  }
+
+  &.button-flat {
+    color: var(--color-primary-text);
+    background: transparent;
+
+    &.button-primary {
+      color: var(--color-text);
+    }
+  }
+
+  &.button-outline,
+  &.button-flat {
+    transition: background 0.2s;
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &.button-icon {
+    padding: 8px;
+  }
 }
 
 .dropdown {

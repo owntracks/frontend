@@ -57,3 +57,22 @@ export const distanceBetweenCoordinates = (c1, c2) => {
   // Return distance in meters
   return EARTH_RADIUS_IN_KM * c * 1000;
 };
+
+/**
+ * Let the user download a string as file.
+ *
+ * @param {String} text Content of the file
+ * @param {String} filename Suggested filename for the browser
+ * @param {String} [mimeType] Content mime type
+ */
+export const download = (text, filename, mimeType = "text/plain") => {
+  const dataUrl = `data:${mimeType},${encodeURIComponent(text)}`;
+  console.log(dataUrl);
+  const element = document.createElement("a");
+  element.href = dataUrl;
+  element.download = filename;
+  element.style.display = "none";
+  document.body.appendChild(element);
+  element.click();
+  document.body.removeChild(element);
+};

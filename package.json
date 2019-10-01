@@ -9,6 +9,7 @@
     "cors-proxy": "node scripts/corsProxy.js"
   },
   "dependencies": {
+    "clipboard-copy": "^3.1.0",
     "deepmerge": "^4.0.0",
     "leaflet": "^1.5.1",
     "leaflet.heat": "^0.2.0",
