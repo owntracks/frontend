@@ -16,6 +16,12 @@
         ({{ recorderVersion }})
       </li>
       <li>
+        <GlobeIcon size="1x" />
+        <a href="https://owntracks.org">
+          OwnTracks Website
+        </a>
+      </li>
+      <li>
         <BookIcon size="1x" />
         <a href="https://owntracks.org/booklet/">
           OwnTracks Documentation
@@ -33,10 +39,15 @@
 
 <script>
 import { mapState } from "vuex";
-import { BookIcon, GithubIcon, TwitterIcon } from "vue-feather-icons";
+import {
+  BookIcon,
+  GithubIcon,
+  GlobeIcon,
+  TwitterIcon,
+} from "vue-feather-icons";
 
 export default {
-  components: { BookIcon, GithubIcon, TwitterIcon },
+  components: { BookIcon, GithubIcon, GlobeIcon, TwitterIcon },
   computed: {
     ...mapState(["frontendVersion", "recorderVersion"]),
   },
