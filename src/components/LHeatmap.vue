@@ -48,6 +48,11 @@ const props = {
     custom: true,
     default: 1.0,
   },
+  gradient: {
+    type: Object,
+    custom: true,
+    default: null,
+  },
   visible: {
     type: Boolean,
     custom: true,
@@ -74,6 +79,9 @@ export default {
     if (this.max) {
       options.max = this.max;
     }
+    if (this.gradient) {
+      options.gradient = this.gradient;
+    }
     this.mapObject = L.heatLayer(this.latLng, options);
     DomEvent.on(this.mapObject, this.$listeners);
     propsBinder(this, this.mapObject, props);
@@ -98,6 +106,9 @@ export default {
     },
     setMax(max) {
       this.mapObject.setOptions({ max });
+    },
+    setGradient(gradient) {
+      this.mapObject.setOptions({ gradient });
     },
     setVisible(newVal, oldVal) {
       if (newVal === oldVal) return;
