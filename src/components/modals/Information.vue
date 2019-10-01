@@ -13,7 +13,7 @@
         <a href="https://github.com/owntracks/recorder">
           owntracks/recorder
         </a>
-        ({{ recorderVersion }})
+        ({{ recorderVersion || "Loading version..." }})
       </li>
       <li>
         <GlobeIcon size="1x" />
