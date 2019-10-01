@@ -112,6 +112,11 @@ ul {
   border: 0;
   border-radius: 18px;
   padding: 8px 16px;
+  text-overflow: ellipsis;
+}
+
+.vdp-datepicker input {
+  min-width: 130px;
 }
 
 .button-outline {
