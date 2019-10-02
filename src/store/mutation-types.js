@@ -1,3 +1,4 @@
+export const SET_IS_LOADING = "SET_IS_LOADING";
 export const SET_RECORDER_VERSION = "SET_RECORDER_VERSION";
 export const SET_USERS = "SET_USERS";
 export const SET_DEVICES = "SET_DEVICES";

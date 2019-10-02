@@ -122,6 +122,7 @@ const getLastLocations = async ({ commit, state }) => {
  * Load location history of all devices, in the selected date range.
  */
 const getLocationHistory = async ({ commit, state }) => {
+  commit(types.SET_IS_LOADING, true);
   let devices;
   if (state.selectedUser) {
     if (state.selectedDevice) {
@@ -136,6 +137,7 @@ const getLocationHistory = async ({ commit, state }) => {
     types.SET_LOCATION_HISTORY,
     await api.getLocationHistory(devices, state.startDate, state.endDate)
   );
+  commit(types.SET_IS_LOADING, false);
 };
 
 /**

@@ -6,6 +6,7 @@
     </main>
     <DownloadModal />
     <InformationModal />
+    <LoadingModal />
   </div>
 </template>
 
@@ -21,9 +22,10 @@ import * as types from "@/store/mutation-types";
 import AppHeader from "@/components/AppHeader";
 import DownloadModal from "@/components/modals/Download";
 import InformationModal from "@/components/modals/Information";
+import LoadingModal from "@/components/modals/Loading";
 
 export default {
-  components: { AppHeader, DownloadModal, InformationModal },
+  components: { AppHeader, DownloadModal, InformationModal, LoadingModal },
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",
@@ -32,8 +34,8 @@ export default {
     this.populateStateFromQuery(this.$route.query);
     this.loadData();
     // Update URL query params when relevant values changes
-    this.$store.subscribe(
-      mutation =>
+    this.$store.subscribe(mutation => {
+      if (
         [
           types.SET_SELECTED_USER,
           types.SET_SELECTED_DEVICE,
@@ -42,8 +44,17 @@ export default {
           types.SET_MAP_CENTER,
           types.SET_MAP_ZOOM,
           types.SET_MAP_LAYER_VISIBILITY,
-        ].includes(mutation.type) && this.updateUrlQuery()
-    );
+        ].includes(mutation.type)
+      ) {
+        this.updateUrlQuery();
+      }
+
+      if (mutation.type === types.SET_IS_LOADING) {
+        this.$store.state.isLoading
+          ? this.$modal.show("loading")
+          : this.$modal.hide("loading");
+      }
+    });
     // Initially update URL query params from state
     this.updateUrlQuery();
   },

@@ -1,6 +1,9 @@
 import * as types from "@/store/mutation-types";
 
 export default {
+  [types.SET_IS_LOADING](state, isLoading) {
+    state.isLoading = isLoading;
+  },
   [types.SET_RECORDER_VERSION](state, version) {
     state.recorderVersion = version;
   },

@@ -10,6 +10,7 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    isLoading: false,
     frontendVersion: process.env.PACKAGE_VERSION,
     recorderVersion: "",
     users: [],
