@@ -67,7 +67,6 @@ export const distanceBetweenCoordinates = (c1, c2) => {
  */
 export const download = (text, filename, mimeType = "text/plain") => {
   const dataUrl = `data:${mimeType},${encodeURIComponent(text)}`;
-  console.log(dataUrl);
   const element = document.createElement("a");
   element.href = dataUrl;
   element.download = filename;
