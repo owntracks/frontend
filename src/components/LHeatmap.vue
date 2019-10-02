@@ -87,6 +87,13 @@ export default {
     propsBinder(this, this.mapObject, props);
     this.parentContainer = findRealParent(this.$parent);
     this.parentContainer.addLayer(this, !this.visible);
+    this.$watch(
+      "latLng",
+      newVal => {
+        this.mapObject.setLatLngs(newVal);
+      },
+      { deep: true }
+    );
   },
   beforeDestroy() {
     this.parentContainer.removeLayer(this);
