@@ -63,8 +63,8 @@ describe("distanceBetweenCoordinates", () => {
     expect(
       distanceBetweenCoordinates({ lat: 0, lng: 0 }, { lat: 0, lng: 0 })
     ).toBe(0);
-    // The Shard - Victoria Memorial
 
+    // The Shard - Victoria Memorial
     expect(
       distanceBetweenCoordinates(
         { lat: 51.5046678, lng: -0.0870769 },
