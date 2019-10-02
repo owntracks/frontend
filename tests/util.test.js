@@ -71,7 +71,7 @@ describe("distanceBetweenCoordinates", () => {
         { lat: 51.501752, lng: -0.1408258 }
       )
       // 3.74km according to Google Maps
-    ).toBe(3734.363267904623);
+    ).toBe(3734.3632679046705);
 
     // Gatwick Airport - Heathrow Airport
     expect(
@@ -80,7 +80,7 @@ describe("distanceBetweenCoordinates", () => {
         { lat: 51.4720694, lng: -0.4499871 }
       )
       // 40km according to Google Maps
-    ).toBe(40321.45758693094);
+    ).toBe(40321.457586930104);
 
     // Berlin - San Francisco
     expect(
@@ -89,6 +89,6 @@ describe("distanceBetweenCoordinates", () => {
         { lat: 37.7576948, lng: -122.4726193 }
       )
       // 9,102.73km according to Google Maps
-    ).toBe(9105627.810109459);
+    ).toBe(9105627.810109457);
   });
 });
