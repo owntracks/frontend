@@ -30,9 +30,7 @@
         :key="`${l.topic}-circle`"
         :lat-lng="[l.lat, l.lon]"
         :radius="l.acc"
-        :color="circle.color"
-        :fill-color="circle.fillColor"
-        :fill-opacity="circle.fillOpacity"
+        v-bind="circle"
       />
 
       <LMarker
