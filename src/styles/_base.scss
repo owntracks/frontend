@@ -80,7 +80,6 @@ pre {
       .feather {
         font-size: 20px;
         margin-right: 10px;
-        vertical-align: middle;
       }
 
       .button-icon .feather {
@@ -105,7 +104,6 @@ pre {
       .feather {
         font-size: 16px;
         margin-right: 8px;
-        vertical-align: middle;
       }
 
       a {
@@ -119,8 +117,6 @@ pre {
     }
   }
 }
-
-
 
 .vdp-datepicker input {
   cursor: pointer;
@@ -241,4 +237,8 @@ pre {
 
 .dropdown:focus-within .dropdown-body {
   display: block;
+}
+
+.feather {
+  vertical-align: middle;
 }
