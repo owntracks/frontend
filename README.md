@@ -2,7 +2,9 @@
 
 > Web interface for OwnTracks
 
+![Version](https://img.shields.io/github/package-json/v/owntracks/frontend/v2.0.0-alpha)
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
+[![License](https://img.shields.io/github/license/owntracks/frontend?color=d63e97)](https://github.com/owntracks/frontend/blob/master/LICENSE)
 
 <p style="text-align: center;">
   <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/owntracks-ui.png" alt="OwnTracks UI">
