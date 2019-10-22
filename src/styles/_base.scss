@@ -31,6 +31,43 @@ ul {
   list-style: inside;
 }
 
+input[type="checkbox"] {
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  vertical-align: bottom;
+
+  &::before {
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 16px;
+    width: 16px;
+  }
+
+  &:checked::before {
+    background: var(--color-primary);
+  }
+
+  &:checked::after {
+    border-bottom: 2px solid var(--color-primary-text);
+    border-right: 2px solid var(--color-primary-text);
+    content: "";
+    display: inline-block;
+    height: 10px;
+    left: 7px;
+    position: absolute;
+    top: 3px;
+    transform: rotate(45deg);
+    width: 4px;
+  }
+
+  & + label {
+    cursor: pointer;
+  }
+}
+
 pre {
   background: #000;
   border-radius: 3px;
@@ -214,11 +251,6 @@ pre {
 
     &:hover {
       background: rgba(0, 0, 0, 0.1);
-    }
-
-    input[type=checkbox] {
-      position: relative;
-      top: 2px;
     }
   }
 }
