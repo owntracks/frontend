@@ -171,8 +171,10 @@ pre {
   background: var(--color-background);
   border: 0;
   border-radius: 18px;
+  overflow: hidden;
   padding: 8px 16px;
   text-overflow: ellipsis;
+  white-space: nowrap;
 
   &.button-primary {
     color: var(--color-primary-text);
