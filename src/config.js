@@ -69,6 +69,7 @@ const DEFAULT_CONFIG = {
   selectedDevice: null,
   selectedUser: null,
   startDate,
+  verbose: false,
 };
 
 // Use deepmerge to combine the default and user-defined configuration.

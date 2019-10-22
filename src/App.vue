@@ -19,6 +19,7 @@ import { mapActions } from "vuex";
 
 import config from "@/config";
 import * as types from "@/store/mutation-types";
+import { log } from "@/logging";
 import AppHeader from "@/components/AppHeader";
 import DownloadModal from "@/components/modals/Download";
 import InformationModal from "@/components/modals/Information";
@@ -85,6 +86,11 @@ export default {
         ...(user !== null && device !== null && { device }),
         ...(activeLayers.length > 0 && { layers: activeLayers.join(",") }),
       };
+      log("STATE", "Updating URL query from state");
+      log(
+        "STATE",
+        JSON.parse(JSON.stringify({ map, start, end, user, device }))
+      );
       this.$router.replace({ query }).catch(() => {}); // https://github.com/vuejs/vue-router/issues/2872#issuecomment-519073998
     },
   },

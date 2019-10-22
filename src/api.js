@@ -1,3 +1,4 @@
+import { log, logLevels } from "@/logging";
 import { getApiUrl } from "@/util";
 
 /** @typedef {import("./types").QueryParams} QueryParams */
@@ -22,7 +23,8 @@ import { getApiUrl } from "@/util";
 const fetchApi = (path, params = {}) => {
   const url = getApiUrl(path);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
-  return fetch(url);
+  log("HTTP", `GET ${url.href}`);
+  return fetch(url).catch(error => log("HTTP", error, logLevels.ERROR));
 };
 
 /**
@@ -154,13 +156,18 @@ export const connectWebsocket = async callback => {
   url.protocol = url.protocol.replace("http", "ws");
   url = url.href;
   const ws = new WebSocket(url);
-  console.info(`[WS] Connecting to ${url}...`);
+  log("WS", `Connecting to ${url}`);
   ws.onopen = () => {
-    console.info("[WS] Connected");
+    log("WS", "Connected");
     ws.send("LAST");
   };
-  ws.onclose = () => {
-    console.info("[WS] Disconnected. Reconnecting in one second...");
+  ws.onclose = event => {
+    log(
+      "WS",
+      `Disconnected unexpectedly (reason: ${event.reason ||
+        "unknown"}). Reconnecting in one second.`,
+      logLevels.WARNING
+    );
     setTimeout(connectWebsocket, 1000);
   };
   ws.onmessage = async msg => {
@@ -168,16 +175,16 @@ export const connectWebsocket = async callback => {
       try {
         const data = JSON.parse(msg.data);
         if (data._type === "location") {
-          console.info("[WS] Location update received");
+          log("WS", "Location update received");
           callback && (await callback());
         }
       } catch (err) {
         if (msg.data !== "LAST") {
-          console.exception(err);
+          log("WS", err, logLevels.ERROR);
         }
       }
     } else {
-      console.info("[WS] Ping");
+      log("WS", "Ping");
     }
   };
 };

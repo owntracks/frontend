@@ -63,6 +63,7 @@ window.owntracks.config = {};
 - [`selectedDevice`](#selectedDevice)
 - [`selectedUser`](#selectedUser)
 - [`startDate`](#startDate)
+- [`verbose`](#verbose)
 
 ### `api.baseUrl`
 
@@ -429,6 +430,13 @@ Initial start date for fetched data.
     startDate
   };
   ```
+
+### `verbose`
+
+Whether to enable verbose mode or not.
+
+- Type: [`Boolean`]
+- Default: `false`
 
 [`Boolean`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
 [`Date`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
