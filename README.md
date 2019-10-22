@@ -74,10 +74,18 @@ instance of OwnTracks for development without making changes to its CORS-Headers
 ```console
 $ yarn cors-proxy
 ```
-If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme) enabled:
+If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme)
+enabled, create a `.env` file with your credentials:
+
+```text
+OT_BASIC_AUTH_USERNAME=user
+OT_BASIC_AUTH_PASSWORD='P@$$w0rd'
+```
+
+Then run:
 
 ```console
-$ env OT_BASIC_AUTH_USERNAME=username OT_BASIC_AUTH_PASSWORD='P@$$w0rd' yarn cors-proxy
+$ env $(cat .env | xargs) yarn cors-proxy
 ```
 
 The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PROXY_HOST`
