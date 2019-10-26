@@ -56,7 +56,7 @@ services:
 It's possible to get started without any configuration change whatsoever, assuming your
 OwnTracks API is reachable at the root of the same host as the frontend.
 
-Copy [`public/config/config.default.js`](public/config/config.default.js) to
+Copy [`public/config/config.example.js`](public/config/config.example.js) to
 `public/config/config.js` and make changes as you wish.
 
 See [`docs/config.md`](docs/config.md) for all available options.
