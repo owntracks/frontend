@@ -1,15 +1,20 @@
 {
   "name": "owntracks-ui",
   "version": "2.0.0-alpha",
+  "author": {
+    "name": "Linus Groh",
+    "email": "mail@linusgroh.de"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "test": "vue-cli-service test:unit",
-    "cors-proxy": "node scripts/corsProxy.js"
+    "cors-proxy": "node scripts/corsProxy.js",
+    "test": "vue-cli-service test:unit"
   },
   "dependencies": {
     "clipboard-copy": "^3.1.0",
+    "core-js": "^3.3.2",
     "deepmerge": "^4.0.0",
     "leaflet": "^1.5.1",
     "leaflet.heat": "^0.2.0",
@@ -22,10 +27,10 @@
     "vuex": "^3.1.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.11.0",
-    "@vue/cli-plugin-eslint": "^3.11.0",
-    "@vue/cli-plugin-unit-jest": "^3.11.0",
-    "@vue/cli-service": "^3.11.0",
+    "@vue/cli-plugin-babel": "^4.0.5",
+    "@vue/cli-plugin-eslint": "^4.0.5",
+    "@vue/cli-plugin-unit-jest": "^4.0.5",
+    "@vue/cli-service": "^4.0.5",
     "@vue/eslint-config-prettier": "^5.0.0",
     "@vue/test-utils": "1.0.0-beta.29",
     "babel-core": "7.0.0-bridge.0",
@@ -42,10 +47,6 @@
     "vue-template-compiler": "^2.5.21"
   },
   "license": "MIT",
-  "author": {
-    "name": "Linus Groh",
-    "email": "mail@linusgroh.de"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/owntracks/frontend.git"
