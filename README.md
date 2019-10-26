@@ -45,6 +45,8 @@ services:
     image: owntracks/frontend
     ports:
       - 80:80
+    volumes:
+      - ./path/to/custom/config.js:/usr/share/nginx/html/config/config.js
     environment:
       - SERVER_HOST=otrecorder
       - SERVER_PORT=8083
