@@ -1,0 +1,9 @@
+.git
+node_modules
+docs
+scripts
+tests
+LICENSE
+README.md
+*Dockerfile*
+*docker-compose*
