@@ -1,0 +1,278 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --color-text: #333;
+  --color-background: #fff;
+  --color-primary: #3f51b5;
+  --color-primary-text: #fff;
+  --drop-shadow: drop-shadow(0 10px 10px rgb(0, 0, 0, 0.2));
+  --dropdown-arrow: url("data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2225%22%20height%3D%2210%22%3E%3Cpath%20fill%3D%22%23333%22%20fill-opacity%3D%221%22%20stroke%3D%22none%22%20d%3D%22M0%2C0%20L0%2C0%20L1%2C0%20L1%2C6%20L7%2C6%20L7%2C7%20L0%2C7%20z%22%20transform%3D%22rotate(-45%205%200)%22%20%2F%3E%3C%2Fsvg%3E");
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  color: var(--color-text);
+}
+
+a {
+  color: var(--color-primary);
+}
+
+ul {
+  list-style: inside;
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  cursor: pointer;
+  position: relative;
+  vertical-align: bottom;
+
+  &::before {
+    border: 2px solid var(--color-primary);
+    border-radius: 4px;
+    content: "";
+    display: block;
+    height: 16px;
+    width: 16px;
+  }
+
+  &:checked::before {
+    background: var(--color-primary);
+  }
+
+  &:checked::after {
+    border-bottom: 2px solid var(--color-primary-text);
+    border-right: 2px solid var(--color-primary-text);
+    content: "";
+    display: inline-block;
+    height: 10px;
+    left: 7px;
+    position: absolute;
+    top: 3px;
+    transform: rotate(45deg);
+    width: 4px;
+  }
+
+  & + label {
+    cursor: pointer;
+  }
+}
+
+pre {
+  background: #000;
+  border-radius: 3px;
+  color: #ddd;
+  display: block;
+  font-family: Consolas, "Andale Mono WT", "Andale Mono", "Lucida Console",
+    "Lucida Sans Typewriter", "DejaVu Sans Mono", "Bitstream Vera Sans Mono",
+    "Liberation Mono", "Nimbus Mono L", Monaco, "Courier New", Courier, monospace;
+  overflow-x: auto;
+
+  code {
+    display: block;
+    margin: 20px;
+  }
+}
+
+#app {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+
+  // Only select immediate child as the datepicker contains a <header> as well
+  > header {
+    display: flex;
+    padding: 20px;
+    white-space: nowrap;
+    overflow-x: auto;
+    color: var(--color-primary-text);
+    background: var(--color-primary);
+
+    nav {
+      display: flex;
+      flex: 1;
+
+      &:not(:first-child) {
+        margin-left: 20px;
+      }
+
+      &.nav-shrink {
+        flex: 0 1 auto;
+      }
+
+      .nav-item:not(:first-child) {
+        margin-left: 20px;
+      }
+
+      .feather {
+        font-size: 20px;
+        margin-right: 10px;
+      }
+
+      .button-icon .feather {
+        margin: 0;
+      }
+    }
+  }
+
+  main {
+    flex: 1;
+    position: relative;
+  }
+
+  ul.info-list {
+    list-style: none;
+
+    li {
+      // https://stackoverflow.com/a/17158366/5952681
+      margin-left: 25px;
+      text-indent: -25px;
+
+      .feather {
+        font-size: 16px;
+        margin-right: 8px;
+      }
+
+      a {
+        font-weight: bold;
+        text-decoration: none;
+      }
+
+      & + li {
+        margin-top: 15px;
+      }
+    }
+  }
+}
+
+.vdp-datepicker input {
+  cursor: pointer;
+  color: var(--color-text);
+  background: var(--color-background);
+  border: 0;
+  border-radius: 18px;
+  padding: 8px 16px;
+  min-width: 130px;
+}
+
+.button {
+  cursor: pointer;
+  color: var(--color-text);
+  background: var(--color-background);
+  border: 0;
+  border-radius: 18px;
+  overflow: hidden;
+  padding: 8px 16px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+  &.button-primary {
+    color: var(--color-primary-text);
+    background: var(--color-primary);
+
+    &:focus::-moz-focus-inner {
+      border-color: var(--color-primary-text)e;
+    }
+  }
+
+  &.button-outline {
+    border: 1px solid var(--color-background);
+    color: var(--color-primary-text);
+    background: transparent;
+
+    &.button-primary {
+      border-color: var(--color-primary);
+      color: var(--color-text);
+    }
+  }
+
+  &.button-flat {
+    color: var(--color-primary-text);
+    background: transparent;
+
+    &.button-primary {
+      color: var(--color-text);
+    }
+  }
+
+  &.button-outline,
+  &.button-flat {
+    transition: background 0.2s;
+    &:hover,
+    &:focus {
+      background: rgba(0, 0, 0, 0.2);
+    }
+  }
+
+  &.button-icon {
+    padding: 8px;
+  }
+}
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown-button,
+.vdp-datepicker input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--dropdown-arrow);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  padding-right: 30px;
+}
+
+.dropdown-body {
+  display: none;
+  position: absolute;
+  margin-top: 12px;
+  padding: 8px 0;
+  border-radius: 3px;
+  color: var(--color-text);
+  background: var(--color-background);
+  filter: var(--drop-shadow);
+  z-index: 1;
+
+  label {
+    cursor: pointer;
+    display: block;
+    padding: 8px 15px;
+
+    &:hover {
+      background: rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+.dropdown-body::before,
+.vdp-datepicker .vdp-datepicker__calendar::before {
+  content: "";
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid var(--color-background);
+  position: absolute;
+  top: -20px;
+  left: 20px;
+}
+
+.dropdown:focus-within .dropdown-body {
+  display: block;
+}
+
+.feather {
+  vertical-align: middle;
+}
