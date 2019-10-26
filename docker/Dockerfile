@@ -1,5 +1,5 @@
 FROM node:10 as build
-LABEL version="2.0.0-alpha"
+LABEL version="2.0.0-beta.1"
 LABEL description="OwnTracks UI"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 WORKDIR /usr/src/app
