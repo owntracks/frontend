@@ -6,11 +6,13 @@ export const logLevels = {
   ERROR: "ERROR",
 };
 
+/* eslint-disable no-console */
 const logFunctions = {
   [logLevels.INFO]: console.info,
   [logLevels.WARNING]: console.warn,
   [logLevels.ERROR]: console.error,
 };
+/* eslint-enable no-console */
 
 const logColors = {
   [logLevels.INFO]: "#0d66ba",
