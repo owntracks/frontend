@@ -75,14 +75,17 @@ const reloadData = async ({ dispatch }) => {
 
 /**
  * Connect to WebSocket to receive live location updates. When an update is
- * received, reload last locations and location history.
+ * received, reload last locations and location history dependin on config.
  */
 const connectWebsocket = async ({ dispatch }) => {
   api.connectWebsocket(async () => {
-    // Reloading the complete location history is necessary because the
-    // last locations do lack some of the detailed information.
-    // TODO: make this optional via config.
-    await dispatch("reloadData");
+    // TODO: keep cards from HTTP API response in the Vuex store so we
+    // can use the data from the WebSocket location update (which does
+    // not contain card information) and don't have to poll the API.
+    await dispatch("getLastLocations");
+    if (config.onLocationChange.reloadHistory) {
+      await dispatch("getLocationHistory");
+    }
   });
 };
 

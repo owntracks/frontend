@@ -59,6 +59,8 @@ window.owntracks.config = {};
   - [`polyline`](#mappolyline)
   - [`url`](#mapurl)
   - [`zoom`](#mapzoom)
+- `onLocationChange`
+  - [`reloadHistory`](#onlocationchangereloadhistory)
 - [`primaryColor`](#primarycolor)
 - [`selectedDevice`](#selecteddevice)
 - [`selectedUser`](#selecteduser)
@@ -363,6 +365,14 @@ Initial map zoom level.
 
 - Type: [`Number`]
 - Default: `19`
+
+### `onLocationChange.reloadHistory`
+
+Whether to reload the location history (of selected date range) or not when a location
+update is received.
+
+- Type: [`Boolean`]
+- Default: `false`
 
 ### `primaryColor`
 
