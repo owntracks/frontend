@@ -1,3 +1,12 @@
+# 2.0.0-beta.1 (2019-11-02)
+
+- Add `onLocationChange.reloadHistory` config option
+- Add Travis CI config
+- Fix timezone issues in tests
+- Fix ESLint errors in production mode
+- Fix table of content links in config documentation
+- Upgrade dependencies
+
 # 2.0.0-beta.1 (2019-10-26)
 
 - Convert codebase to Node.js based development workflow, including:
