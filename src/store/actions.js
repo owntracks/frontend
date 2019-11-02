@@ -75,7 +75,7 @@ const reloadData = async ({ dispatch }) => {
 
 /**
  * Connect to WebSocket to receive live location updates. When an update is
- * received, reload last locations and location history dependin on config.
+ * received, reload last locations and location history depending on config.
  */
 const connectWebsocket = async ({ dispatch }) => {
   api.connectWebsocket(async () => {
