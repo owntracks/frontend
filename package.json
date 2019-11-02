@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "clipboard-copy": "^3.1.0",
-    "core-js": "^3.3.2",
-    "deepmerge": "^4.2.1",
+    "core-js": "^3.3.6",
+    "deepmerge": "^4.2.2",
     "leaflet": "^1.5.1",
     "leaflet.heat": "^0.2.0",
     "vue": "^2.6.6",
