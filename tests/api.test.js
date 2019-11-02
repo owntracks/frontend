@@ -144,14 +144,14 @@ describe("API", () => {
     const locationHistory = await api.getUserDeviceLocationHistory(
       "foo",
       "phone",
-      new Date(1970, 1, 1),
-      new Date(1970, 12, 31)
+      new Date(Date.UTC(1970, 0, 1)),
+      new Date(Date.UTC(1970, 11, 31))
     );
     expect(locationHistory).toEqual(response.data);
 
     expect(fetch.mock.calls.length).toEqual(1);
     expect(fetch.mock.calls[0][0].href).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-31T00%3A00%3A00&to=1971-01-30T23%3A59%3A59&user=foo&device=phone&format=json"
+      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
   });
 
@@ -194,8 +194,8 @@ describe("API", () => {
 
     const locationHistory = await api.getLocationHistory(
       { foo: ["phone", "tablet"], bar: ["laptop"] },
-      new Date(1970, 1, 1),
-      new Date(1970, 12, 31)
+      new Date(Date.UTC(1970, 0, 1)),
+      new Date(Date.UTC(1970, 11, 31))
     );
     expect(locationHistory).toEqual({
       foo: {
@@ -207,13 +207,13 @@ describe("API", () => {
 
     expect(fetch.mock.calls.length).toEqual(3);
     expect(fetch.mock.calls[0][0].href).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-31T00%3A00%3A00&to=1971-01-30T23%3A59%3A59&user=foo&device=phone&format=json"
+      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
     expect(fetch.mock.calls[1][0].href).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-31T00%3A00%3A00&to=1971-01-30T23%3A59%3A59&user=foo&device=tablet&format=json"
+      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=tablet&format=json"
     );
     expect(fetch.mock.calls[2][0].href).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-31T00%3A00%3A00&to=1971-01-30T23%3A59%3A59&user=bar&device=laptop&format=json"
+      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=bar&device=laptop&format=json"
     );
   });
 });
