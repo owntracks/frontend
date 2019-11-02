@@ -1,7 +1,4 @@
 FROM node:10 as build
-LABEL version="2.0.0-beta.2"
-LABEL description="OwnTracks UI"
-LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install
@@ -9,6 +6,9 @@ COPY . ./
 RUN yarn build
 
 FROM nginx:1.17-alpine
+LABEL version="2.0.0-beta.2"
+LABEL description="OwnTracks UI"
+LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 ENV LISTEN_PORT=80 \
   SERVER_HOST=otrecorder \
   SERVER_PORT=80
