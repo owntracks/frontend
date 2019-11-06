@@ -7,15 +7,15 @@
 [![Build Status](https://travis-ci.org/owntracks/frontend.svg?branch=master)](https://travis-ci.org/owntracks/frontend)
 [![License](https://img.shields.io/github/license/owntracks/frontend?color=d63e97)](https://github.com/owntracks/frontend/blob/master/LICENSE)
 
-<p style="text-align: center;">
-  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/owntracks-ui.png" alt="OwnTracks UI">
-</p>
+![OwnTracks UI](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/owntracks-ui.png)
 
 ## Introduction
 
 This is a web interface for [OwnTracks](https://github.com/owntracks/recorder) built as
 a Vue.js single page application. The recorder itself already ships with some basic web
 pages, this is a more advanced interface with more functionality, all in one place.
+
+![Map features](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/map-features.png)
 
 ## Installation
 
@@ -108,17 +108,21 @@ Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://own
 - Quickly fit all shown objects on the map into view
 - Display data in a specific date range
 - Filter by user and device
+- Download selected location data as JSON
 - Highly customisable
 
 ## Screenshots
 
-_Click to enlarge._
+<p align="center">
+  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/loading.gif" alt="Loading...">
+  <br>
+  <br>
+  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/downloader.png" alt="Download location data">
+  <br>
+  <br>
+  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/info.png" alt="Info">
+</p>
 
-<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/live.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/live.png" alt="Live" height="200"></a>
-<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/multiple.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/multiple.png" alt="Multiple" height="200"></a>
-<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/date-selection.png" alt="Date selection" height="200"></a>
-<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/heatmap.png" alt="Heatmap" height="200"></a>
-<a href="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" target="_blank"><img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/customized.png" alt="Customized" height="200"></a>
 
 ## Contributing
 
