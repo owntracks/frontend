@@ -1,7 +1,5 @@
 # OwnTracks UI
 
-> Web interface for OwnTracks
-
 ![Version](https://img.shields.io/github/package-json/v/owntracks/frontend)
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
 [![Build Status](https://travis-ci.org/owntracks/frontend.svg?branch=master)](https://travis-ci.org/owntracks/frontend)
@@ -17,19 +15,28 @@ pages, this is a more advanced interface with more functionality, all in one pla
 
 ![Map features](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/map-features.png)
 
+## Features
+
+- Last known (i.e. live) locations:
+  - Accuracy visualization (circle)
+  - Device friendly name and icon
+  - Detailed information (if available): time, latitude, longitude, height, battery and
+    speed
+- Location history (data points, line or both)
+- Location heatmap
+- Quickly fit all shown objects on the map into view
+- Display data in a specific date range
+- Filter by user and device
+- Download selected location data as JSON
+- Highly customisable
+
 ## Installation
-
-### Manually
-
-- Run `yarn install --production` to install dependencies
-- Run `yarn build` to compile and minify for production
-- Copy the content of the `dist/` directory to your webroot
-
-The API is expected to be reachable under the same domain as the web interface.
 
 ### Docker
 
-You can launch directly via Docker run like this:
+A pre-built Docker image is available on Docker Hub as [`owntracks/frontend`](https://hub.docker.com/r/owntracks/frontend).
+
+You can start a container directly via `docker run`:
 
 ```console
 $ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port owntracks/frontend
@@ -53,6 +60,12 @@ services:
       - SERVER_PORT=8083
     restart: unless-stopped
 ```
+
+### Manually
+
+- Run `yarn install --production` to install dependencies
+- Run `yarn build` to compile and minify for production
+- Copy the content of the `dist/` directory to your webroot
 
 ## Configuration
 
@@ -95,21 +108,6 @@ The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PR
 and `OT_PROXY_PORT` environment variables.
 
 Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://owntracks.example.com"`.
-
-## Features
-
-- Last known (i.e. live) locations:
-  - Accuracy visualization (circle)
-  - Device friendly name and icon
-  - Detailed information (if available): time, latitude, longitude, height, battery and
-    speed
-- Location history (data points, line or both)
-- Location heatmap
-- Quickly fit all shown objects on the map into view
-- Display data in a specific date range
-- Filter by user and device
-- Download selected location data as JSON
-- Highly customisable
 
 ## Screenshots
 
