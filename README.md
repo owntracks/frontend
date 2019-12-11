@@ -39,7 +39,7 @@ A pre-built Docker image is available on Docker Hub as [`owntracks/frontend`](ht
 You can start a container directly via `docker run`:
 
 ```console
-$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=otrecorder-port owntracks/frontend
+$ docker run -d -p 80:80 -e SERVER_HOST=otrecorder-host -e SERVER_PORT=8083 owntracks/frontend
 ```
 
 Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the default
@@ -60,6 +60,17 @@ services:
       - SERVER_PORT=8083
     restart: unless-stopped
 ```
+
+To build the image from source replace `image:` with:
+
+```yaml
+build:
+  context: ./owntracks-frontend
+  dockerfile: docker/Dockerfile
+```
+
+(assuming you have this repository cloned to `owntracks-frontend` in the same
+directory as `docker-compose.yml`)
 
 ### Manually
 
