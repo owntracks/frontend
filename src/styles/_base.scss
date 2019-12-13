@@ -34,10 +34,16 @@ ul {
 input[type="checkbox"] {
   appearance: none;
   border: 0; // Remove the unchecked checkbox outline in Safari on iOS
+  border-radius: 4px; // Round the focus box-shadow
   cursor: pointer;
   margin-right: 3px;
   position: relative;
   vertical-align: top;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
+  }
 
   &::before {
     border: 2px solid var(--color-primary);
