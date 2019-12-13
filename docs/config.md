@@ -26,6 +26,7 @@ window.owntracks.config = {};
   - [`baseUrl`](#apibaseurl)
 - [`endDate`](#enddate)
 - [`ignorePingLocation`](#ignorepinglocation)
+- [`locale`](#locale)
 - `map`
   - [`attribution`](#mapattribution)
   - `center`
@@ -119,6 +120,13 @@ Remove the `ping/ping` location from the fetched data. This is useful when using
     ignorePingLocation: false
   };
   ```
+
+### `locale`
+
+The language to use for the user interface. Available: `en` (English).
+
+- Type: [`String`]
+- Default: `"en"`
 
 ### `map.attribution`
 

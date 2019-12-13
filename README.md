@@ -98,6 +98,8 @@ See [`docs/config.md`](docs/config.md) for all available options.
 - Run `yarn lint` to lint and fix files
 - Run `yarn test` to run unit tests
 
+### CORS-Proxy
+
 You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your production
 instance of OwnTracks for development without making changes to its CORS-Headers:
 
@@ -122,6 +124,18 @@ The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PR
 and `OT_PROXY_PORT` environment variables.
 
 Finally update `api.baseUrl` in your config to `"http://0.0.0.0:8888/https://owntracks.example.com"`.
+
+### I18n
+
+This project uses [Vue I18n](https://kazupon.github.io/vue-i18n/). To see missing and
+unused i18n entries, run:
+
+```console
+$ yarn i18n:report
+```
+
+To add a new locale, copy `en.json` to `<locale>.json` in [`src/locales`](src/locales)
+and start translating the individual strings. Make sure to add the new locale to the docs!
 
 ## Screenshots
 

@@ -8,15 +8,15 @@
         id="option-minify-json"
       />
       <label for="option-minify-json">
-        Minify JSON
+        {{ $t("Minify JSON") }}
       </label>
     </div>
     <div class="buttons">
       <button class="button button-outline button-primary" @click="copy">
-        Copy to Clipboard
+        {{ $t("Copy to clipboard") }}
       </button>
       <button class="button button-primary" @click="download">
-        Download
+        {{ $t("Download") }}
       </button>
     </div>
   </modal>

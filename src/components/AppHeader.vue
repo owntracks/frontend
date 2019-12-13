@@ -4,15 +4,17 @@
       <div class="nav-item">
         <button
           class="button button-outline"
-          title="Automatically center the map view and zoom in to relevant data"
+          :title="
+            $t('Automatically center the map view and zoom in to relevant data')
+          "
           @click="$root.$emit('fitView')"
         >
-          Fit View
+          {{ $t("Fit view") }}
         </button>
       </div>
       <div class="nav-item">
         <LayersIcon size="1x" />
-        <Dropdown label="Layer Settings" title="Show/hide layers">
+        <Dropdown :label="$t('Layer settings')" :title="$t('Show/hide layers')">
           <label v-for="option in layerSettingsOptions" :key="option.layer">
             <input
               type="checkbox"
@@ -34,14 +36,14 @@
           v-model="startDate"
           :use-utc="true"
           :disabled-dates="startDateDisabledDates"
-          title="Select start date"
+          :title="$t('Select start date')"
         />
         to
         <Datepicker
           v-model="endDate"
           :use-utc="true"
           :disabled-dates="endDateDisabledDates"
-          title="Select end date"
+          :title="$t('Select end date')"
         />
       </div>
       <div class="nav-item">
@@ -49,10 +51,10 @@
         <select
           v-model="selectedUser"
           class="dropdown-button button"
-          title="Select user"
+          :title="$t('Select user')"
         >
           <option :value="null">
-            Show All
+            {{ $t("Show all") }}
           </option>
           <option v-for="user in users" :value="user" :key="user">
             {{ user }}
@@ -64,10 +66,10 @@
         <select
           v-model="selectedDevice"
           class="dropdown-button button"
-          title="Select device"
+          :title="$t('Select device')"
         >
           <option :value="null">
-            Show All
+            {{ $t("Show all") }}
           </option>
           <option
             v-for="device in devices[selectedUser]"
@@ -83,7 +85,7 @@
       <div class="nav-item">
         <button
           class="button button-flat button-icon"
-          title="Download raw data"
+          :title="$t('Download raw data')"
           @click="$modal.show('download')"
         >
           <DownloadIcon size="1x" />
@@ -92,7 +94,7 @@
       <div class="nav-item">
         <button
           class="button button-flat button-icon"
-          title="Information"
+          :title="$t('Information')"
           @click="$modal.show('information')"
         >
           <InfoIcon size="1x" />
@@ -131,10 +133,10 @@ export default {
   data() {
     return {
       layerSettingsOptions: [
-        { layer: "last", label: "Show last known locations" },
-        { layer: "line", label: "Show location history (line)" },
-        { layer: "points", label: "Show location history (points)" },
-        { layer: "heatmap", label: "Show location heatmap" },
+        { layer: "last", label: this.$t("Show last known locations") },
+        { layer: "line", label: this.$t("Show location history (line)") },
+        { layer: "points", label: this.$t("Show location history (points)") },
+        { layer: "heatmap", label: this.$t("Show location heatmap") },
       ],
     };
   },

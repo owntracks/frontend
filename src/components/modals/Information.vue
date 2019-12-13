@@ -18,19 +18,19 @@
       <li>
         <GlobeIcon size="1x" />
         <a href="https://owntracks.org">
-          OwnTracks Website
+          {{ $t("OwnTracks website") }}
         </a>
       </li>
       <li>
         <BookIcon size="1x" />
         <a href="https://owntracks.org/booklet/">
-          OwnTracks Documentation
+          {{ $t("OwnTracks documentation") }}
         </a>
       </li>
       <li>
         <TwitterIcon size="1x" />
         <a href="https://twitter.com/OwnTracks">
-          OwnTracks on Twitter
+          {{ $t("OwnTracks on Twitter") }}
         </a>
       </li>
     </ul>

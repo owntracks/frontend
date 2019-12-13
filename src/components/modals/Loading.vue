@@ -1,7 +1,7 @@
 <template>
   <modal name="loading" :click-to-close="false" adaptive>
     <LoaderIcon class="loader" size="1.5x" />
-    Loading data, please wait...
+    {{ $t("Loading data, please wait...") }}
   </modal>
 </template>
 

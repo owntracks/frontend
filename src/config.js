@@ -12,6 +12,7 @@ const DEFAULT_CONFIG = {
   },
   endDate,
   ignorePingLocation: true,
+  locale: "en",
   map: {
     attribution:
       '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
