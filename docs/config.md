@@ -123,7 +123,7 @@ Remove the `ping/ping` location from the fetched data. This is useful when using
 
 ### `locale`
 
-The language to use for the user interface. Available: `en` (English).
+The language to use for the user interface. Available: `de` (German), `en` (English).
 
 - Type: [`String`]
 - Default: `"en"`
