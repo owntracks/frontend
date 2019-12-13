@@ -61,6 +61,9 @@ services:
     restart: unless-stopped
 ```
 
+To change the port on which the nginx server will listen on, set the
+`LISTEN_PORT` enviroment variable - default is 80.
+
 To build the image from source replace `image:` with:
 
 ```yaml
