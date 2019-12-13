@@ -1,4 +1,16 @@
-# 2.0.0-beta.1 (2019-11-02)
+# 2.0.0-beta.3 (2019-12-13)
+
+- Add i18 support (currently English and German, `locale` config option)
+- Add custom checkbox focus style
+- Fix layer dropdown issues
+- Fix checkbox style issues
+- Fix hover/focus inconsistencies
+- Fix Docker image labels
+- `README.md` enhancements
+- Upgrade dependencies
+
+
+# 2.0.0-beta.2 (2019-11-02)
 
 - Add `onLocationChange.reloadHistory` config option
 - Add Travis CI config
