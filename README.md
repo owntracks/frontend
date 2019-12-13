@@ -135,7 +135,7 @@ $ yarn i18n:report
 ```
 
 To add a new locale, copy `en.json` to `<locale>.json` in [`src/locales`](src/locales)
-and start translating the individual strings. Make sure to add the new locale to the docs!
+and start translating the individual strings. Make sure to [mention the new locale to the docs](docs/config.md#locale)!
 
 ## Screenshots
 
