@@ -12,65 +12,21 @@
       </div>
       <div class="nav-item">
         <LayersIcon size="1x" />
-        <div class="dropdown">
-          <button class="dropdown-button button" title="Show/hide layers">
-            Layer Settings
-          </button>
-          <div class="dropdown-body">
-            <label tabindex="0">
-              <input
-                type="checkbox"
-                :checked="map.layers.last"
-                @change="
-                  setMapLayerVisibility({
-                    layer: 'last',
-                    visibility: $event.target.checked,
-                  })
-                "
-              />
-              Show last known locations
-            </label>
-            <label tabindex="0">
-              <input
-                type="checkbox"
-                :checked="map.layers.line"
-                @change="
-                  setMapLayerVisibility({
-                    layer: 'line',
-                    visibility: $event.target.checked,
-                  })
-                "
-              />
-              Show location history (line)
-            </label>
-            <label tabindex="0">
-              <input
-                type="checkbox"
-                :checked="map.layers.points"
-                @change="
-                  setMapLayerVisibility({
-                    layer: 'points',
-                    visibility: $event.target.checked,
-                  })
-                "
-              />
-              Show location history (points)
-            </label>
-            <label tabindex="0">
-              <input
-                type="checkbox"
-                :checked="map.layers.heatmap"
-                @change="
-                  setMapLayerVisibility({
-                    layer: 'heatmap',
-                    visibility: $event.target.checked,
-                  })
-                "
-              />
-              Show location heatmap
-            </label>
-          </div>
-        </div>
+        <Dropdown label="Layer Settings" title="Show/hide layers">
+          <label v-for="option in layerSettingsOptions" :key="option.layer">
+            <input
+              type="checkbox"
+              :checked="map.layers[option.layer]"
+              @change="
+                setMapLayerVisibility({
+                  layer: option.layer,
+                  visibility: $event.target.checked,
+                })
+              "
+            />
+            {{ option.label }}
+          </label>
+        </Dropdown>
       </div>
       <div class="nav-item">
         <CalendarIcon size="1x" />
@@ -158,6 +114,7 @@ import {
 } from "vue-feather-icons";
 import Datepicker from "vuejs-datepicker";
 
+import Dropdown from "@/components/Dropdown";
 import * as types from "@/store/mutation-types";
 
 export default {
@@ -169,6 +126,17 @@ export default {
     SmartphoneIcon,
     UserIcon,
     Datepicker,
+    Dropdown,
+  },
+  data() {
+    return {
+      layerSettingsOptions: [
+        { layer: "last", label: "Show last known locations" },
+        { layer: "line", label: "Show location history (line)" },
+        { layer: "points", label: "Show location history (points)" },
+        { layer: "heatmap", label: "Show location heatmap" },
+      ],
+    };
   },
   computed: {
     ...mapState(["users", "devices", "map"]),

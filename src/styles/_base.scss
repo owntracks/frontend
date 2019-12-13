@@ -236,7 +236,6 @@ pre {
 }
 
 .dropdown-body {
-  display: none;
   position: absolute;
   margin-top: 12px;
   padding: 8px 0;
@@ -267,10 +266,6 @@ pre {
   position: absolute;
   top: -20px;
   left: 20px;
-}
-
-.dropdown:focus-within .dropdown-body {
-  display: block;
 }
 
 .feather {
