@@ -32,19 +32,35 @@
       </div>
       <div class="nav-item">
         <CalendarIcon size="1x" />
-        <Datepicker
-          v-model="startDate"
-          :use-utc="true"
-          :disabled-dates="startDateDisabledDates"
-          :title="$t('Select start date')"
-        />
+        <VueCtkDateTimePicker
+          v-model="startDateTime"
+          :format="DATE_TIME_FORMAT"
+          :color="config.primaryColor"
+          :locale="config.locale"
+          :max-date="endDateTime"
+          :button-now-translation="$t('Now')"
+        >
+          <button
+            type="button"
+            class="dropdown-button button"
+            :title="$t('Select start date')"
+          />
+        </VueCtkDateTimePicker>
         {{ $t("to") }}
-        <Datepicker
-          v-model="endDate"
-          :use-utc="true"
-          :disabled-dates="endDateDisabledDates"
-          :title="$t('Select end date')"
-        />
+        <VueCtkDateTimePicker
+          v-model="endDateTime"
+          :format="DATE_TIME_FORMAT"
+          :color="config.primaryColor"
+          :locale="config.locale"
+          :min-date="startDateTime"
+          :button-now-translation="$t('Now')"
+        >
+          <button
+            type="button"
+            class="dropdown-button button"
+            :title="$t('Select end date')"
+          />
+        </VueCtkDateTimePicker>
       </div>
       <div class="nav-item">
         <UserIcon size="1x" />
@@ -105,6 +121,7 @@
 </template>
 
 <script>
+import moment from "moment";
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import {
   CalendarIcon,
@@ -114,9 +131,12 @@ import {
   SmartphoneIcon,
   UserIcon,
 } from "vue-feather-icons";
-import Datepicker from "vuejs-datepicker";
+import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
+import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
 import Dropdown from "@/components/Dropdown";
+import config from "@/config";
+import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
 
 export default {
@@ -127,11 +147,13 @@ export default {
     LayersIcon,
     SmartphoneIcon,
     UserIcon,
-    Datepicker,
+    VueCtkDateTimePicker,
     Dropdown,
   },
   data() {
     return {
+      DATE_TIME_FORMAT,
+      config,
       layerSettingsOptions: [
         { layer: "last", label: this.$t("Show last known locations") },
         { layer: "line", label: this.$t("Show location history (line)") },
@@ -142,7 +164,6 @@ export default {
   },
   computed: {
     ...mapState(["users", "devices", "map"]),
-    ...mapGetters(["startDateDisabledDates", "endDateDisabledDates"]),
     selectedUser: {
       get() {
         return this.$store.state.selectedUser;
@@ -159,20 +180,35 @@ export default {
         this.setSelectedDevice(value);
       },
     },
-    startDate: {
+    startDateTime: {
       get() {
-        return this.$store.state.startDate;
+        return moment
+          .utc(this.$store.state.startDateTime, DATE_TIME_FORMAT)
+          .local()
+          .format(DATE_TIME_FORMAT);
       },
       set(value) {
-        this.setStartDate(value);
+        this.setStartDateTime(
+          moment(value, DATE_TIME_FORMAT)
+            .utc()
+            .format(DATE_TIME_FORMAT)
+        );
       },
     },
-    endDate: {
+    endDateTime: {
       get() {
-        return this.$store.state.endDate;
+        return moment
+          .utc(this.$store.state.endDateTime, DATE_TIME_FORMAT)
+          .local()
+          .format(DATE_TIME_FORMAT);
       },
       set(value) {
-        this.setEndDate(value);
+        this.setEndDateTime(
+          moment(value, DATE_TIME_FORMAT)
+            .set("seconds", 59)
+            .utc()
+            .format(DATE_TIME_FORMAT)
+        );
       },
     },
   },
@@ -183,8 +219,8 @@ export default {
     ...mapActions([
       "setSelectedUser",
       "setSelectedDevice",
-      "setStartDate",
-      "setEndDate",
+      "setStartDateTime",
+      "setEndDateTime",
     ]),
   },
 };

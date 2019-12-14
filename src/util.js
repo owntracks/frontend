@@ -1,5 +1,7 @@
+import moment from "moment";
+
 import config from "@/config";
-import { ISO_DATE_REGEXP, EARTH_RADIUS_IN_KM } from "@/constants";
+import { DATE_TIME_FORMAT, EARTH_RADIUS_IN_KM } from "@/constants";
 
 /** @typedef {import("./types").Coordinate} Coordinate */
 
@@ -19,12 +21,12 @@ export const getApiUrl = path => {
 };
 
 /**
- * Check if the given string is an ISO 8601 YYYY-MM-DD date.
+ * Check if the given string is an ISO 8601 YYYY-MM-DDTHH:MM:SS datetime.
  *
  * @param {String} s Input value to be tested
- * @return {Boolean} Whether the input is an ISO 8601 date
+ * @return {Boolean} Whether the input matches the expected format
  */
-export const isIsoDate = s => ISO_DATE_REGEXP.test(s);
+export const isIsoDateTime = s => moment(s, DATE_TIME_FORMAT, true).isValid();
 
 /**
  * Convert degrees to radians.

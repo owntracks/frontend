@@ -19,8 +19,9 @@ export default new Vuex.Store({
     locationHistory: {},
     selectedUser: config.selectedUser,
     selectedDevice: config.selectedUser !== null ? config.selectedDevice : null,
-    startDate: config.startDate,
-    endDate: config.endDate,
+    // Convert to UTC and get rid of milliseconds
+    startDateTime: config.startDateTime.toISOString().slice(0, 19),
+    endDateTime: config.endDateTime.toISOString().slice(0, 19),
     map: {
       center: config.map.center,
       zoom: config.map.zoom,

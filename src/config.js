@@ -1,16 +1,17 @@
 import deepmerge from "deepmerge";
 
-const endDate = new Date();
-endDate.setUTCHours(0, 0, 0, 0);
+const endDateTime = new Date();
+endDateTime.setHours(23, 59, 59, 0);
 
-const startDate = new Date(endDate);
-startDate.setUTCMonth(startDate.getMonth() - 1);
+const startDateTime = new Date(endDateTime);
+startDateTime.setMonth(startDateTime.getMonth() - 1);
+startDateTime.setHours(0, 0, 0, 0);
 
 const DEFAULT_CONFIG = {
   api: {
     baseUrl: `${window.location.protocol}//${window.location.host}`,
   },
-  endDate,
+  endDateTime,
   ignorePingLocation: true,
   locale: "en",
   map: {
@@ -72,7 +73,7 @@ const DEFAULT_CONFIG = {
   primaryColor: "#3f51b5",
   selectedDevice: null,
   selectedUser: null,
-  startDate,
+  startDateTime,
   verbose: false,
 };
 

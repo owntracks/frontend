@@ -144,8 +144,8 @@ describe("API", () => {
     const locationHistory = await api.getUserDeviceLocationHistory(
       "foo",
       "phone",
-      new Date(Date.UTC(1970, 0, 1)),
-      new Date(Date.UTC(1970, 11, 31))
+      "1970-01-01T00:00:00",
+      "1970-12-31T23:59:59"
     );
     expect(locationHistory).toEqual(response.data);
 
@@ -194,8 +194,8 @@ describe("API", () => {
 
     const locationHistory = await api.getLocationHistory(
       { foo: ["phone", "tablet"], bar: ["laptop"] },
-      new Date(Date.UTC(1970, 0, 1)),
-      new Date(Date.UTC(1970, 11, 31))
+      "1970-01-01T00:00:00",
+      "1970-12-31T23:59:59"
     );
     expect(locationHistory).toEqual({
       foo: {

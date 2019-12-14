@@ -95,8 +95,8 @@ export const getLastLocations = async (user, device) => {
  *
  * @param {User} user Username
  * @param {Device} device Device name
- * @param {Date} start Start date
- * @param {Date} end End date
+ * @param {String} start Start date and time in UTC
+ * @param {String} end End date and time in UTC
  * @return {LocationHistory} Array of location history objects
  */
 export const getUserDeviceLocationHistory = async (
@@ -105,11 +105,9 @@ export const getUserDeviceLocationHistory = async (
   start,
   end
 ) => {
-  const startDate = start.toISOString().split("T")[0];
-  const endDate = end.toISOString().split("T")[0];
   const response = await fetchApi("/api/0/locations", {
-    from: `${startDate}T00:00:00`,
-    to: `${endDate}T23:59:59`,
+    from: start,
+    to: end,
     user,
     device,
     format: "json",
@@ -122,8 +120,8 @@ export const getUserDeviceLocationHistory = async (
  * Get the location history of multiple devices.
  *
  * @param {Object.<User, Array.<Device>>} devices Devices of which the history should be fetched
- * @param {Date} start Start date
- * @param {Date} end End date
+ * @param {String} start Start date and time in UTC
+ * @param {String} end End date and time in UTC
  * @return {Object.<User, Object.<Device, LocationHistory>>} Array of location history objects
  */
 export const getLocationHistory = async (devices, start, end) => {

@@ -24,7 +24,7 @@ window.owntracks.config = {};
 
 - `api`
   - [`baseUrl`](#apibaseurl)
-- [`endDate`](#enddate)
+- [`endDateTime`](#enddatetime)
 - [`ignorePingLocation`](#ignorepinglocation)
 - [`locale`](#locale)
 - `map`
@@ -65,7 +65,7 @@ window.owntracks.config = {};
 - [`primaryColor`](#primarycolor)
 - [`selectedDevice`](#selecteddevice)
 - [`selectedUser`](#selecteduser)
-- [`startDate`](#startdate)
+- [`startDateTime`](#startdatetime)
 - [`verbose`](#verbose)
 
 ### `api.baseUrl`
@@ -92,17 +92,17 @@ Base URL for the recorder's HTTP and WebSocket API. Keep CORS in mind.
   };
   ```
 
-### `endDate`
+### `endDateTime`
 
-Initial end date for fetched data.
+Initial end date and time (browser timezone) for fetched data.
 
 - Type: [`Date`]
-- Default: today
+- Default: today, 23:59:59
 - Example:
   ```js
   // Data will be fetched up to 1970-01-01
   window.owntracks.config = {
-    endDate: new Date(1970, 1, 1)
+    endDateTime: new Date(1970, 1, 1)
   };
   ```
 
@@ -432,20 +432,20 @@ amount of data fetched after page load.
   };
   ```
 
-### `startDate`
+### `startDateTime`
 
-Initial start date for fetched data.
+Initial start date and time (browser timezone) for fetched data.
 
 - Type: [`Date`]
-- Default: one month ago
+- Default: one month ago, 00:00:00
 - Example:
   ```js
   // Data will be fetched from the first day of the current month
-  const startDate = new Date();
-  startDate.setUTCHours(0, 0, 0, 0);
-  startDate.setUTCDate(1);
+  const startDateTime = new Date();
+  startDateTime.setHours(0, 0, 0, 0);
+  startDateTime.setDate(1);
   window.owntracks.config = {
-    startDate
+    startDateTime
   };
   ```
 

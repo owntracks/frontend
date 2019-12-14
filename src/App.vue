@@ -40,8 +40,8 @@ export default {
         [
           types.SET_SELECTED_USER,
           types.SET_SELECTED_DEVICE,
-          types.SET_START_DATE,
-          types.SET_END_DATE,
+          types.SET_START_DATE_TIME,
+          types.SET_END_DATE_TIME,
           types.SET_MAP_CENTER,
           types.SET_MAP_ZOOM,
           types.SET_MAP_LAYER_VISIBILITY,
@@ -68,8 +68,8 @@ export default {
     updateUrlQuery() {
       const {
         map,
-        startDate: start,
-        endDate: end,
+        startDateTime: start,
+        endDateTime: end,
         selectedUser: user,
         selectedDevice: device,
       } = this.$store.state;
@@ -80,8 +80,8 @@ export default {
         lat: map.center.lat,
         lng: map.center.lng,
         zoom: map.zoom,
-        start: start.toISOString().split("T")[0],
-        end: end.toISOString().split("T")[0],
+        start,
+        end,
         ...(user !== null && { user }),
         ...(user !== null && device !== null && { device }),
         ...(activeLayers.length > 0 && { layers: activeLayers.join(",") }),

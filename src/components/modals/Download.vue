@@ -65,8 +65,8 @@ export default {
   },
   computed: {
     ...mapState([
-      "startDate",
-      "endDate",
+      "startDateTime",
+      "endDateTime",
       "selectedUser",
       "selectedDevice",
       "locationHistory",
@@ -90,8 +90,8 @@ export default {
         null,
         this.options.minifyJson ? 0 : 2
       );
-      const start = this.startDate.toISOString().split("T")[0];
-      const end = this.endDate.toISOString().split("T")[0];
+      const start = this.startDateTime;
+      const end = this.endDateTime;
       const user = this.selectedUser ? `_${this.selectedUser}` : "";
       const device = this.selectedDevice ? `_${this.selectedDevice}` : "";
       const filename = `data_${start}_${end}${user}${device}.json`;

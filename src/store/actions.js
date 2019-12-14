@@ -1,7 +1,7 @@
 import * as types from "@/store/mutation-types";
 import * as api from "@/api";
 import config from "@/config";
-import { isIsoDate } from "@/util";
+import { isIsoDateTime } from "@/util";
 
 /** @typedef {import("./types").QueryParams} QueryParams */
 /** @typedef {import("./types").User} User */
@@ -28,11 +28,11 @@ const populateStateFromQuery = ({ state, commit }, query) => {
   if (query.zoom && !isNaN(parseInt(query.zoom))) {
     commit(types.SET_MAP_ZOOM, parseInt(query.zoom));
   }
-  if (query.start && isIsoDate(query.start)) {
-    commit(types.SET_START_DATE, new Date(query.start));
+  if (query.start && isIsoDateTime(query.start)) {
+    commit(types.SET_START_DATE_TIME, query.start);
   }
-  if (query.end && isIsoDate(query.end)) {
-    commit(types.SET_END_DATE, new Date(query.end));
+  if (query.end && isIsoDateTime(query.end)) {
+    commit(types.SET_END_DATE_TIME, query.end);
   }
   if (query.user) {
     commit(types.SET_SELECTED_USER, query.user);
@@ -138,7 +138,11 @@ const getLocationHistory = async ({ commit, state }) => {
   }
   commit(
     types.SET_LOCATION_HISTORY,
-    await api.getLocationHistory(devices, state.startDate, state.endDate)
+    await api.getLocationHistory(
+      devices,
+      state.startDateTime,
+      state.endDateTime
+    )
   );
   commit(types.SET_IS_LOADING, false);
 };
@@ -172,22 +176,22 @@ const setSelectedDevice = async ({ commit, dispatch }, device) => {
 };
 
 /**
- * Set the start date for loading data and reload the location history.
+ * Set the start date and time for loading data and reload the location history.
  *
- * @param {Date} startDate Start date for loading data
+ * @param {String} startDateTime Start date and time in UTC for loading data
  */
-const setStartDate = async ({ commit, dispatch }, startDate) => {
-  commit(types.SET_START_DATE, startDate);
+const setStartDateTime = async ({ commit, dispatch }, startDateTime) => {
+  commit(types.SET_START_DATE_TIME, startDateTime);
   await dispatch("reloadData");
 };
 
 /**
- * Set the end date for loading data and reload the location history.
+ * Set the end date and time for loading data and reload the location history.
  *
- * @param {Date} endDate End date for loading data
+ * @param {String} endDateTime End date and time in UTC for loading data
  */
-const setEndDate = async ({ commit, dispatch }, endDate) => {
-  commit(types.SET_END_DATE, endDate);
+const setEndDateTime = async ({ commit, dispatch }, endDateTime) => {
+  commit(types.SET_END_DATE_TIME, endDateTime);
   await dispatch("reloadData");
 };
 
@@ -203,6 +207,6 @@ export default {
   getRecorderVersion,
   setSelectedUser,
   setSelectedDevice,
-  setStartDate,
-  setEndDate,
+  setStartDateTime,
+  setEndDateTime,
 };

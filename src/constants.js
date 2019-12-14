@@ -1,8 +1,7 @@
-// Regular expression for an ISO 8601 YYYY-MM-DD date.
-// Used to validate dates from URL query parameters.
-export const ISO_DATE_REGEXP = new RegExp(
-  /^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/
-);
+// date and time format as expected by the OwnTracks recorder,
+// using moment.js formatting tokens.
+// https://momentjs.com/docs/#/displaying/format/
+export const DATE_TIME_FORMAT = "YYYY-MM-DDTHH:mm:ss";
 
 // https://en.wikipedia.org/wiki/Earth_radius
 // Used to calculate the distance between two coordinates.

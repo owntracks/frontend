@@ -25,11 +25,11 @@ export default {
   [types.SET_SELECTED_DEVICE](state, selectedDevice) {
     state.selectedDevice = selectedDevice;
   },
-  [types.SET_START_DATE](state, startDate) {
-    state.startDate = startDate;
+  [types.SET_START_DATE_TIME](state, startDateTime) {
+    state.startDateTime = startDateTime;
   },
-  [types.SET_END_DATE](state, endDate) {
-    state.endDate = endDate;
+  [types.SET_END_DATE_TIME](state, endDateTime) {
+    state.endDateTime = endDateTime;
   },
   [types.SET_MAP_CENTER](state, center) {
     state.map.center = center;

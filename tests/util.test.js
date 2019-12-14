@@ -1,7 +1,7 @@
 import config from "@/config";
 import {
   getApiUrl,
-  isIsoDate,
+  isIsoDateTime,
   degreesToRadians,
   distanceBetweenCoordinates,
 } from "@/util";
@@ -24,26 +24,36 @@ describe("getApiUrl", () => {
   });
 });
 
-describe("isIsoDate", () => {
+describe("isIsoDateTime", () => {
   test("no match", () => {
-    expect(isIsoDate("foo")).toBe(false);
-    expect(isIsoDate("2019")).toBe(false);
-    expect(isIsoDate("2019-09")).toBe(false);
-    expect(isIsoDate("2019.09.27")).toBe(false);
-    expect(isIsoDate("2019_09_27")).toBe(false);
-    expect(isIsoDate("2019/09/27")).toBe(false);
-    expect(isIsoDate("27-09-2019")).toBe(false);
-    expect(isIsoDate("27.09.2019")).toBe(false);
-    expect(isIsoDate("27_09_2019")).toBe(false);
-    expect(isIsoDate("27/09/2019")).toBe(false);
-    expect(isIsoDate("0000-00-00")).toBe(false);
-    expect(isIsoDate("1234-56-78")).toBe(false);
+    expect(isIsoDateTime("foo")).toBe(false);
+    expect(isIsoDateTime("2019")).toBe(false);
+    expect(isIsoDateTime("2019-09")).toBe(false);
+    expect(isIsoDateTime("2019.09.27")).toBe(false);
+    expect(isIsoDateTime("2019_09_27")).toBe(false);
+    expect(isIsoDateTime("2019/09/27")).toBe(false);
+    expect(isIsoDateTime("27-09-2019")).toBe(false);
+    expect(isIsoDateTime("27.09.2019")).toBe(false);
+    expect(isIsoDateTime("27_09_2019")).toBe(false);
+    expect(isIsoDateTime("27/09/2019")).toBe(false);
+    expect(isIsoDateTime("0000-00-00")).toBe(false);
+    expect(isIsoDateTime("1234-56-78")).toBe(false);
+    expect(isIsoDateTime("0000-00-00T00:00:00")).toBe(false);
+    expect(isIsoDateTime("0000-01-01T25:60:60")).toBe(false);
+    expect(isIsoDateTime("2019-12-14T99:00:00")).toBe(false);
+    expect(isIsoDateTime("2019-12-14 25:60:60")).toBe(false);
   });
 
   test("match", () => {
-    expect(isIsoDate("0000-01-01")).toBe(true);
-    expect(isIsoDate("2019-09-27")).toBe(true);
-    expect(isIsoDate("9999-12-31")).toBe(true);
+    expect(isIsoDateTime("0000-01-01T00:00:00")).toBe(true);
+    expect(isIsoDateTime("0000-01-01T12:34:56")).toBe(true);
+    expect(isIsoDateTime("0000-01-01T23:59:59")).toBe(true);
+    expect(isIsoDateTime("2019-09-27T00:00:00")).toBe(true);
+    expect(isIsoDateTime("2019-09-27T12:34:56")).toBe(true);
+    expect(isIsoDateTime("2019-09-27T23:59:59")).toBe(true);
+    expect(isIsoDateTime("9999-12-31T00:00:00")).toBe(true);
+    expect(isIsoDateTime("9999-12-31T12:34:56")).toBe(true);
+    expect(isIsoDateTime("9999-12-31T23:59:59")).toBe(true);
   });
 });
 

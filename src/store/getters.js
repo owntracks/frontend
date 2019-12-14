@@ -65,37 +65,7 @@ const locationHistoryLatLngGroups = state => {
   return groups;
 };
 
-/**
- * For the start date selector, disable all dates above the end date
- * or current date.
- *
- * @param {State} state
- * @param {Date} state.endDate End date
- * @return {DatepickerConfig} Configuration for the `disabled-dates` prop of the `vuejs-datepicker` component
- */
-const startDateDisabledDates = state => {
-  return {
-    customPredictor: date => date > state.endDate || date > new Date(),
-  };
-};
-
-/**
- * For the end date selector, disable all dates below the start date
- * or above the current date.
- *
- * @param {State} state
- * @param {Date} state.startDate Start date
- * @return {DatepickerConfig} Configuration for the `disabled-dates` prop of the `vuejs-datepicker` component
- */
-const endDateDisabledDates = state => {
-  return {
-    customPredictor: date => date < state.startDate || date > new Date(),
-  };
-};
-
 export default {
   locationHistoryLatLngs,
   locationHistoryLatLngGroups,
-  startDateDisabledDates,
-  endDateDisabledDates,
 };

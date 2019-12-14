@@ -102,7 +102,6 @@ pre {
     display: flex;
     padding: 20px;
     white-space: nowrap;
-    overflow-x: auto;
     color: var(--color-primary-text);
     background: var(--color-primary);
 
@@ -163,16 +162,6 @@ pre {
   }
 }
 
-.vdp-datepicker input {
-  cursor: pointer;
-  color: var(--color-text);
-  background: var(--color-background);
-  border: 0;
-  border-radius: 18px;
-  padding: 8px 16px;
-  min-width: 130px;
-}
-
 .button {
   cursor: pointer;
   color: var(--color-text);
@@ -229,12 +218,11 @@ pre {
 
 .dropdown {
   display: inline-block;
+  position: relative;
 }
 
-.dropdown-button,
-.vdp-datepicker input {
-  -webkit-appearance: none;
-  -moz-appearance: none;
+// Not nested so it works as the button alone
+.dropdown-button {
   appearance: none;
   background-image: var(--dropdown-arrow);
   background-repeat: no-repeat;
@@ -253,6 +241,17 @@ pre {
   filter: var(--drop-shadow);
   z-index: 1;
 
+  &::before {
+    content: "";
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid var(--color-background);
+    position: absolute;
+    top: -20px;
+    left: 20px;
+  }
+
   label {
     cursor: pointer;
     display: block;
@@ -262,18 +261,6 @@ pre {
       background: rgba(0, 0, 0, 0.2);
     }
   }
-}
-
-.dropdown-body::before,
-.vdp-datepicker .vdp-datepicker__calendar::before {
-  content: "";
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-top: 10px solid transparent;
-  border-bottom: 10px solid var(--color-background);
-  position: absolute;
-  top: -20px;
-  left: 20px;
 }
 
 .feather {
