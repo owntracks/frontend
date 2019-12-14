@@ -13,7 +13,7 @@
         </button>
       </div>
       <div class="nav-item">
-        <LayersIcon size="1x" />
+        <LayersIcon size="1x" aria-hidden="true" role="img" />
         <Dropdown :label="$t('Layer settings')" :title="$t('Show/hide layers')">
           <label v-for="option in layerSettingsOptions" :key="option.layer">
             <input
@@ -31,7 +31,7 @@
         </Dropdown>
       </div>
       <div class="nav-item">
-        <CalendarIcon size="1x" />
+        <CalendarIcon size="1x" aria-hidden="true" role="img" />
         <VueCtkDateTimePicker
           v-model="startDateTime"
           :format="DATE_TIME_FORMAT"
@@ -63,7 +63,7 @@
         </VueCtkDateTimePicker>
       </div>
       <div class="nav-item">
-        <UserIcon size="1x" />
+        <UserIcon size="1x" aria-hidden="true" role="img" />
         <select
           v-model="selectedUser"
           class="dropdown-button button"
@@ -78,7 +78,7 @@
         </select>
       </div>
       <div v-if="selectedUser" class="nav-item">
-        <SmartphoneIcon size="1x" />
+        <SmartphoneIcon size="1x" aria-hidden="true" role="img" />
         <select
           v-model="selectedDevice"
           class="dropdown-button button"
@@ -104,7 +104,11 @@
           :title="$t('Download raw data')"
           @click="$modal.show('download')"
         >
-          <DownloadIcon size="1x" />
+          <DownloadIcon
+            size="1x"
+            :aria-label="$t('Download raw data')"
+            role="img"
+          />
         </button>
       </div>
       <div class="nav-item">
@@ -113,7 +117,7 @@
           :title="$t('Information')"
           @click="$modal.show('information')"
         >
-          <InfoIcon size="1x" />
+          <InfoIcon size="1x" :aria-label="$t('Information')" role="img" />
         </button>
       </div>
     </nav>

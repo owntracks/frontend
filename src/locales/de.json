@@ -22,5 +22,10 @@
   "OwnTracks website": "OwnTracks Webseite",
   "OwnTracks documentation": "OwnTracks Dokumentation",
   "OwnTracks on Twitter": "OwnTracks auf Twitter",
-  "Loading data, please wait...": "Daten werden geladen, bitte warten..."
+  "Loading data, please wait...": "Daten werden geladen, bitte warten...",
+  "Timestamp": "Zeitstempel",
+  "Location": "Standort",
+  "Address": "Adresse",
+  "Battery": "Akku",
+  "Speed": "Geschwindigkeit"
 }

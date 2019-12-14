@@ -2,33 +2,33 @@
   <modal name="information" adaptive>
     <ul class="info-list">
       <li>
-        <GithubIcon size="1x" />
+        <GithubIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://github.com/owntracks/frontend">
           owntracks/frontend
         </a>
         ({{ frontendVersion }})
       </li>
       <li>
-        <GithubIcon size="1x" />
+        <GithubIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://github.com/owntracks/recorder">
           owntracks/recorder
         </a>
         ({{ recorderVersion || "Loading version..." }})
       </li>
       <li>
-        <GlobeIcon size="1x" />
+        <GlobeIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://owntracks.org">
           {{ $t("OwnTracks website") }}
         </a>
       </li>
       <li>
-        <BookIcon size="1x" />
+        <BookIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://owntracks.org/booklet/">
           {{ $t("OwnTracks documentation") }}
         </a>
       </li>
       <li>
-        <TwitterIcon size="1x" />
+        <TwitterIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://twitter.com/OwnTracks">
           {{ $t("OwnTracks on Twitter") }}
         </a>

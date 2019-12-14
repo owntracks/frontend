@@ -35,4 +35,12 @@
   .leaflet-popup-tip {
     box-shadow: none;
   }
+
+  .leaflet-control-container .leaflet-control-attribution {
+    background: var(--color-background);
+
+    a {
+      color: var(--color-primary);
+    }
+  }
 }

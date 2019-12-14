@@ -12,10 +12,18 @@
       </label>
     </div>
     <div class="buttons">
-      <button class="button button-outline button-primary" @click="copy">
+      <button
+        class="button button-outline button-primary"
+        :title="$t('Copy to clipboard')"
+        @click="copy"
+      >
         {{ $t("Copy to clipboard") }}
       </button>
-      <button class="button button-primary" @click="download">
+      <button
+        class="button button-primary"
+        :title="$t('Download')"
+        @click="download"
+      >
         {{ $t("Download") }}
       </button>
     </div>

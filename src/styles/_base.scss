@@ -172,14 +172,20 @@ pre {
   padding: 8px 16px;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: box-shadow 0.2s;
+
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  &:focus::-moz-focus-inner {
+    border-color: transparent;
+  }
 
   &.button-primary {
     color: var(--color-primary-text);
     background: var(--color-primary);
-
-    &:focus::-moz-focus-inner {
-      border-color: var(--color-primary-text)e;
-    }
   }
 
   &.button-outline {
@@ -204,7 +210,8 @@ pre {
 
   &.button-outline,
   &.button-flat {
-    transition: background 0.2s;
+    transition: background-color 0.2s, box-shadow 0.2s;
+
     &:hover,
     &:focus {
       background: rgba(0, 0, 0, 0.2);
