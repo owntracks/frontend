@@ -1,3 +1,11 @@
+# 2.0.0-beta.5 (2019-12-14)
+
+- Add Leaflet popup close button background color transition
+- Add $config Vue instance property
+- Improve accessibility
+- Use configured locale for timestamp formatting
+- Upgrade dependencies
+
 # 2.0.0-beta.4 (2019-12-14)
 
 - Add support for time selection
