@@ -1,3 +1,12 @@
+# 2.0.0-beta.4 (2019-12-14)
+
+- Add support for time selection
+  - New date/time picker component is properly translated/localised and keyboard accessible
+  - Config options are now `startDateTime`/`endDateTime` and format of URL parameters changed
+- Changed default start/end date and time to use local timezone
+- Fix missing translation of "[date] to [date]"
+- Update i18n development notes in `README.md`
+
 # 2.0.0-beta.3 (2019-12-13)
 
 - Add i18 support (currently English and German, `locale` config option)
@@ -8,7 +17,6 @@
 - Fix Docker image labels
 - `README.md` enhancements
 - Upgrade dependencies
-
 
 # 2.0.0-beta.2 (2019-11-02)
 
