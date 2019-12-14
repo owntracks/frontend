@@ -38,7 +38,7 @@
           :disabled-dates="startDateDisabledDates"
           :title="$t('Select start date')"
         />
-        to
+        {{ $t("to") }}
         <Datepicker
           v-model="endDate"
           :use-utc="true"
