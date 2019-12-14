@@ -35,8 +35,8 @@
         <VueCtkDateTimePicker
           v-model="startDateTime"
           :format="DATE_TIME_FORMAT"
-          :color="config.primaryColor"
-          :locale="config.locale"
+          :color="$config.primaryColor"
+          :locale="$config.locale"
           :max-date="endDateTime"
           :button-now-translation="$t('Now')"
         >
@@ -50,8 +50,8 @@
         <VueCtkDateTimePicker
           v-model="endDateTime"
           :format="DATE_TIME_FORMAT"
-          :color="config.primaryColor"
-          :locale="config.locale"
+          :color="$config.primaryColor"
+          :locale="$config.locale"
           :min-date="startDateTime"
           :button-now-translation="$t('Now')"
         >
@@ -139,7 +139,6 @@ import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
 import Dropdown from "@/components/Dropdown";
-import config from "@/config";
 import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
 
@@ -157,7 +156,6 @@ export default {
   data() {
     return {
       DATE_TIME_FORMAT,
-      config,
       layerSettingsOptions: [
         { layer: "last", label: this.$t("Show last known locations") },
         { layer: "line", label: this.$t("Show location history (line)") },

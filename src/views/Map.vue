@@ -118,7 +118,6 @@ import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
 
 import * as types from "@/store/mutation-types";
-import config from "@/config";
 import LHeatmap from "@/components/LHeatmap";
 import LDeviceLocationPopup from "@/components/LDeviceLocationPopup";
 
@@ -145,26 +144,27 @@ export default {
   },
   data() {
     return {
-      attribution: config.map.attribution,
+      attribution: this.$config.map.attribution,
       center: this.$store.state.map.center,
-      controls: config.map.controls,
-      heatmap: config.map.heatmap,
-      maxZoom: config.map.maxZoom,
-      maxNativeZoom: config.map.maxNativeZoom,
-      url: config.map.url,
+      controls: this.$config.map.controls,
+      heatmap: this.$config.map.heatmap,
+      maxZoom: this.$config.map.maxZoom,
+      maxNativeZoom: this.$config.map.maxNativeZoom,
+      url: this.$config.map.url,
       zoom: this.$store.state.map.zoom,
       circle: {
-        ...config.map.circle,
-        color: config.map.circle.color || config.primaryColor,
-        fillColor: config.map.circle.fillColor || config.primaryColor,
+        ...this.$config.map.circle,
+        color: this.$config.map.circle.color || this.$config.primaryColor,
+        fillColor:
+          this.$config.map.circle.fillColor || this.$config.primaryColor,
       },
       circleMarker: {
-        ...config.map.circleMarker,
-        color: config.map.circleMarker.color || config.primaryColor,
+        ...this.$config.map.circleMarker,
+        color: this.$config.map.circleMarker.color || this.$config.primaryColor,
       },
       polyline: {
-        ...config.map.polyline,
-        color: config.map.polyline.color || config.primaryColor,
+        ...this.$config.map.polyline,
+        color: this.$config.map.polyline.color || this.$config.primaryColor,
       },
     };
   },

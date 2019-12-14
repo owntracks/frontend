@@ -7,7 +7,7 @@
       <ul class="info-list">
         <li :title="$t('Timestamp')">
           <ClockIcon size="1x" aria-hidden="true" role="img" />
-          {{ new Date(timestamp * 1000).toLocaleString(locale) }}
+          {{ new Date(timestamp * 1000).toLocaleString($config.locale) }}
         </li>
         <li :title="$t('Location')">
           <MapPinIcon size="1x" aria-hidden="true" role="img" />
@@ -64,8 +64,6 @@ import {
 } from "vue-feather-icons";
 import { LPopup } from "vue2-leaflet";
 
-import config from "@/config";
-
 export default {
   name: "LDeviceLocationPopup",
   components: {
@@ -121,11 +119,6 @@ export default {
       type: Number,
       default: null,
     },
-  },
-  data() {
-    return {
-      locale: config.locale,
-    };
   },
   computed: {
     /**

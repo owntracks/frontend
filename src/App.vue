@@ -17,7 +17,6 @@
 <script>
 import { mapActions } from "vuex";
 
-import config from "@/config";
 import * as types from "@/store/mutation-types";
 import { log } from "@/logging";
 import AppHeader from "@/components/AppHeader";
@@ -30,7 +29,7 @@ export default {
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",
-      config.primaryColor
+      this.$config.primaryColor
     );
     this.populateStateFromQuery(this.$route.query);
     this.loadData();
