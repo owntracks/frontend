@@ -1,7 +1,11 @@
+# 2.0.0-beta.6 (2019-12-14)
+
+- Fix heatmap - the upgrade of `vue2-leaflet` from 2.2.1 to 2.3.0 added an `activated` attribute to layers causing the heatmap to not show
+
 # 2.0.0-beta.5 (2019-12-14)
 
 - Add Leaflet popup close button background color transition
-- Add $config Vue instance property
+- Add `$config` Vue instance property
 - Improve accessibility
 - Use configured locale for timestamp formatting
 - Upgrade dependencies
