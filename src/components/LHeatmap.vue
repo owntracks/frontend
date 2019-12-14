@@ -58,6 +58,11 @@ const props = {
     custom: true,
     default: true,
   },
+  activated: {
+    type: Boolean,
+    custom: true,
+    default: true,
+  },
 };
 
 export default {
