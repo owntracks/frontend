@@ -95,8 +95,10 @@ See [`docs/config.md`](docs/config.md) for all available options.
 
 - Run `yarn install` to install dependencies
 - Run `yarn serve` to compile for development and start the hot-reload server
-- Run `yarn lint:js` to lint and fix JavaScript/Vue files
-- Run `yarn lint:md` to lint and fix Markdown files
+- Run `yarn lint:js` to lint JavaScript/Vue files
+- Run `yarn lint:md` to lint Markdown files
+- Run `yarn format:js` to format JavaScript/Vue files
+- Run `yarn format:md` to format Markdown files
 - Run `yarn test` to run unit tests
 
 ### CORS-Proxy

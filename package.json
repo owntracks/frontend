@@ -8,8 +8,10 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint:js": "vue-cli-service lint",
-    "lint:md": "prettier --write '{*.md,docs/**/*.md,src/**/*.md}'",
+    "lint:js": "vue-cli-service lint --no-fix",
+    "lint:md": "prettier --check '{*.md,docs/**/*.md,src/**/*.md}'",
+    "format:js": "vue-cli-service lint",
+    "format:md": "prettier --write '{*.md,docs/**/*.md,src/**/*.md}'",
     "cors-proxy": "node scripts/corsProxy.js",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "test": "vue-cli-service test:unit"
