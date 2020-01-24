@@ -1,8 +1,22 @@
-# 2.0.0-beta.6 (2019-12-14)
+# Changelog
+
+## 2.0.0-beta.7 (2020-01-24)
+
+This release doesn't really affect end-users but greatly improves the development experience.
+
+- Add `jsconfig.json`
+- Set `no-console`/`no-debugger` to `"warn"` in dev mode
+- Linting and formatting:
+  - Separate npm scripts for linting and formatting
+  - Lint/format Markdown files
+  - Run lint on Travis CI
+- Upgrade dependencies
+
+## 2.0.0-beta.6 (2019-12-14)
 
 - Fix heatmap - the upgrade of `vue2-leaflet` from 2.2.1 to 2.3.0 added an `activated` attribute to layers causing the heatmap to not show
 
-# 2.0.0-beta.5 (2019-12-14)
+## 2.0.0-beta.5 (2019-12-14)
 
 - Add Leaflet popup close button background color transition
 - Add `$config` Vue instance property
@@ -10,7 +24,7 @@
 - Use configured locale for timestamp formatting
 - Upgrade dependencies
 
-# 2.0.0-beta.4 (2019-12-14)
+## 2.0.0-beta.4 (2019-12-14)
 
 - Add support for time selection
   - New date/time picker component is properly translated/localised and keyboard accessible
@@ -19,7 +33,7 @@
 - Fix missing translation of "[date] to [date]"
 - Update i18n development notes in `README.md`
 
-# 2.0.0-beta.3 (2019-12-13)
+## 2.0.0-beta.3 (2019-12-13)
 
 - Add i18 support (currently English and German, `locale` config option)
 - Add custom checkbox focus style
@@ -30,7 +44,7 @@
 - `README.md` enhancements
 - Upgrade dependencies
 
-# 2.0.0-beta.2 (2019-11-02)
+## 2.0.0-beta.2 (2019-11-02)
 
 - Add `onLocationChange.reloadHistory` config option
 - Add Travis CI config
@@ -39,7 +53,7 @@
 - Fix table of content links in config documentation
 - Upgrade dependencies
 
-# 2.0.0-beta.1 (2019-10-26)
+## 2.0.0-beta.1 (2019-10-26)
 
 - Convert codebase to Node.js based development workflow, including:
   - Package management using yarn
@@ -65,12 +79,12 @@
 - Add documentation for all configuration options.
 - Add more configuration options, including setting the API base URL ([#4](https://github.com/owntracks/frontend/issues/4)) and hiding the `ping/ping` location ([#12](https://github.com/owntracks/frontend/issues/12)).
 
-# 1.1.0 (2019-10-26)
+## 1.1.0 (2019-10-26)
 
 - Add support for Docker. [#7](https://github.com/owntracks/frontend/pull/7), [@sharkoz](https://github.com/sharkoz)
 - Move project to the OwnTracks organisation on GitHub. [#8](https://github.com/owntracks/frontend/pull/8), [@jpmens](https://github.com/jpmens)
 - Enable compression in nginx configuration used in Docker image. [#11](https://github.com/owntracks/frontend/pull/11), [@sharkoz](https://github.com/sharkoz)
 
-# 1.0.0 (2019-06-18)
+## 1.0.0 (2019-06-18)
 
 - Initial release
