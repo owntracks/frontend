@@ -3,8 +3,6 @@ import moment from "moment";
 import config from "@/config";
 import { DATE_TIME_FORMAT, EARTH_RADIUS_IN_KM } from "@/constants";
 
-/** @typedef {import("./types").Coordinate} Coordinate */
-
 /**
  * Get a complete URL for any API resource, taking the
  * base URL configuration into account.

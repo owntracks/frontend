@@ -1,12 +1,6 @@
 import { log, logLevels } from "@/logging";
 import { getApiUrl } from "@/util";
 
-/** @typedef {import("./types").QueryParams} QueryParams */
-/** @typedef {import("./types").User} User */
-/** @typedef {import("./types").Device} Device */
-/** @typedef {import("./types").LastLocation} LastLocation */
-/** @typedef {import("./types").LocationHistory} LocationHistory */
-
 /**
  * Callback for new WebSocket location messages.
  *
@@ -17,7 +11,7 @@ import { getApiUrl } from "@/util";
  * Fetch an API resource.
  *
  * @param {String} path API resource path
- * @param {QueryParams} [params] Query parameters
+ * @param {Object} [params] Query parameters
  * @return {Promise} Promise returned by the fetch function
  */
 const fetchApi = (path, params = {}) => {

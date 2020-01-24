@@ -3,10 +3,6 @@ import L from "leaflet";
 import config from "@/config";
 import { distanceBetweenCoordinates } from "@/util";
 
-/** @typedef {import("./types").State} State */
-/** @typedef {import("./types").MultiLocationHistory} MultiLocationHistory */
-/** @typedef {import("./types").DatepickerConfig} DatepickerConfig */
-
 /**
  * From the selected users' and devices' location histories, create an
  * array of all coordinates.
