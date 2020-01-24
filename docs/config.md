@@ -362,7 +362,8 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
   // Use dark HDPI tiles from Mapbox
   window.owntracks.config = {
     map: {
-      url: "https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}@2x.png?access_token=xxxxxxxxxxxxxxxx"
+      url:
+        "https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}@2x.png?access_token=xxxxxxxxxxxxxxxx"
     }
   };
   ```
@@ -456,9 +457,9 @@ Whether to enable verbose mode or not.
 - Type: [`Boolean`]
 - Default: `false`
 
-[`Boolean`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
-[`Date`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
-[`Number`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
-[`Object`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
-[`String`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
-[CSS `<color>`]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+[`boolean`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean
+[`date`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
+[`number`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number
+[`object`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
+[`string`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
+[css `<color>`]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value

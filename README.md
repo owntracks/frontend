@@ -46,7 +46,7 @@ Or you can use `docker-compose` (if you also run the OwnTracks Recorder with the
 compose config, and the service is named `otrecorder`):
 
 ```yaml
-version: '3'
+version: "3"
 
 services:
   owntracks-ui:
@@ -95,7 +95,10 @@ See [`docs/config.md`](docs/config.md) for all available options.
 
 - Run `yarn install` to install dependencies
 - Run `yarn serve` to compile for development and start the hot-reload server
-- Run `yarn lint` to lint and fix files
+- Run `yarn lint:js` to lint JavaScript/Vue files
+- Run `yarn lint:md` to lint Markdown files
+- Run `yarn format:js` to format JavaScript/Vue files
+- Run `yarn format:md` to format Markdown files
 - Run `yarn test` to run unit tests
 
 ### CORS-Proxy
@@ -106,6 +109,7 @@ instance of OwnTracks for development without making changes to its CORS-Headers
 ```console
 $ yarn cors-proxy
 ```
+
 If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme)
 enabled, create a `.env` file with your credentials:
 
@@ -151,7 +155,6 @@ where German translations were added.
   <br>
   <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/info.png" alt="Info">
 </p>
-
 
 ## Contributing
 

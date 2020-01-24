@@ -24,7 +24,7 @@ const fetchApi = (path, params = {}) => {
   const url = getApiUrl(path);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   log("HTTP", `GET ${url.href}`);
-  return fetch(url).catch(error => log("HTTP", error, logLevels.ERROR));
+  return fetch(url.href).catch(error => log("HTTP", error, logLevels.ERROR));
 };
 
 /**

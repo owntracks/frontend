@@ -12,9 +12,7 @@ describe("API", () => {
     expect(version).toBe("1.2.3");
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual(
-      "http://localhost/api/0/version"
-    );
+    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/version");
   });
 
   test("getUsers", async () => {
@@ -24,7 +22,7 @@ describe("API", () => {
     expect(users).toEqual(["foo", "bar"]);
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual("http://localhost/api/0/list");
+    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/list");
   });
 
   test("getDevices", async () => {
@@ -37,10 +35,10 @@ describe("API", () => {
     expect(devices).toEqual({ foo: ["phone", "tablet"], bar: ["laptop"] });
 
     expect(fetch.mock.calls.length).toEqual(2);
-    expect(fetch.mock.calls[0][0].href).toEqual(
+    expect(fetch.mock.calls[0][0]).toEqual(
       "http://localhost/api/0/list?user=foo"
     );
-    expect(fetch.mock.calls[1][0].href).toEqual(
+    expect(fetch.mock.calls[1][0]).toEqual(
       "http://localhost/api/0/list?user=bar"
     );
   });
@@ -68,7 +66,7 @@ describe("API", () => {
     expect(lastLocation).toEqual(response);
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual("http://localhost/api/0/last");
+    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/last");
   });
 
   test("getLastLocations with user", async () => {
@@ -89,7 +87,7 @@ describe("API", () => {
     expect(lastLocation).toEqual(response);
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual(
+    expect(fetch.mock.calls[0][0]).toEqual(
       "http://localhost/api/0/last?user=foo"
     );
   });
@@ -108,7 +106,7 @@ describe("API", () => {
     expect(lastLocation).toEqual(response);
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual(
+    expect(fetch.mock.calls[0][0]).toEqual(
       "http://localhost/api/0/last?user=foo&device=phone"
     );
   });
@@ -150,7 +148,7 @@ describe("API", () => {
     expect(locationHistory).toEqual(response.data);
 
     expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0].href).toEqual(
+    expect(fetch.mock.calls[0][0]).toEqual(
       "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
   });
@@ -206,13 +204,13 @@ describe("API", () => {
     });
 
     expect(fetch.mock.calls.length).toEqual(3);
-    expect(fetch.mock.calls[0][0].href).toEqual(
+    expect(fetch.mock.calls[0][0]).toEqual(
       "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
-    expect(fetch.mock.calls[1][0].href).toEqual(
+    expect(fetch.mock.calls[1][0]).toEqual(
       "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=tablet&format=json"
     );
-    expect(fetch.mock.calls[2][0].href).toEqual(
+    expect(fetch.mock.calls[2][0]).toEqual(
       "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=bar&device=laptop&format=json"
     );
   });
