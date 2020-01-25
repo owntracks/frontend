@@ -2,7 +2,12 @@
   <LPopup>
     <div class="device">{{ deviceName }}</div>
     <div class="wrapper">
-      <img v-if="face" :src="faceImageDataURI" alt="" />
+      <img
+        v-if="face"
+        :src="faceImageDataURI"
+        :alt="$t('Image of {deviceName}', { deviceName })"
+        :title="$t('Image of {deviceName}', { deviceName })"
+      />
       <ul class="info-list">
         <li :title="$t('Timestamp')">
           <ClockIcon size="1x" aria-hidden="true" role="img" />
