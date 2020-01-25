@@ -1,7 +1,6 @@
 <template>
   <LPopup>
-    <div v-if="name" class="device">{{ name }}</div>
-    <div v-else class="device">{{ user }}/{{ device }}</div>
+    <div class="device">{{ deviceName }}</div>
     <div class="wrapper">
       <img v-if="face" :src="faceImageDataURI" alt="" />
       <ul class="info-list">
@@ -122,12 +121,20 @@ export default {
   },
   computed: {
     /**
-     * Return the face image as a data URI string which can be used for an image's src attribute
+     * Return the face image as a data URI string which can be used for an image's src attribute.
      *
      * @return {String} base64-encoded face image data URI
      */
     faceImageDataURI() {
       return `data:image/png;base64,${this.face}`;
+    },
+    /**
+     * Return the device name for displaying with <user identifier>/<device identifier> as fallback.
+     *
+     * @return {String} device name for displaying
+     */
+    deviceName() {
+      return this.name ? this.name : `${this.user}/${this.device}`;
     },
   },
 };
