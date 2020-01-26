@@ -128,7 +128,7 @@ export default {
     /**
      * Return the face image as a data URI string which can be used for an image's src attribute.
      *
-     * @return {String} base64-encoded face image data URI
+     * @returns {String} base64-encoded face image data URI
      */
     faceImageDataURI() {
       return `data:image/png;base64,${this.face}`;
@@ -136,7 +136,7 @@ export default {
     /**
      * Return the device name for displaying with <user identifier>/<device identifier> as fallback.
      *
-     * @return {String} device name for displaying
+     * @returns {String} device name for displaying
      */
     deviceName() {
       return this.name ? this.name : `${this.user}/${this.device}`;
