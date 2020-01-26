@@ -7,6 +7,12 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "error" : "warn",
     "no-debugger": process.env.NODE_ENV === "production" ? "error" : "warn",
+    "max-len": [
+      "error",
+      {
+        ignoreUrls: true,
+      },
+    ],
     "prettier/prettier": [
       "error",
       {

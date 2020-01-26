@@ -1,3 +1,5 @@
+/* eslint max-len: 0 */
+
 /**
  * A coordinate with latitude and longitude.
  *

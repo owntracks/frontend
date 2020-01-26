@@ -55,7 +55,8 @@ export const getUsers = async () => {
  * Get all devices for the provided users.
  *
  * @param {Array.<User>} users Array of usernames
- * @returns {Object.<User, Array.<Device>>} Object mapping each username to an array of device names
+ * @returns {Object.<User, Array.<Device>>}
+ *   Object mapping each username to an array of device names
  */
 export const getDevices = async users => {
   const devices = {};
@@ -119,10 +120,12 @@ export const getUserDeviceLocationHistory = async (
 /**
  * Get the location history of multiple devices.
  *
- * @param {Object.<User, Array.<Device>>} devices Devices of which the history should be fetched
+ * @param {Object.<User, Array.<Device>>} devices
+ *   Devices of which the history should be fetched
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
- * @returns {Object.<User, Object.<Device, LocationHistory>>} Array of location history objects
+ * @returns {Object.<User, Object.<Device, LocationHistory>>}
+ *   Array of location history objects
  */
 export const getLocationHistory = async (devices, start, end) => {
   const locationHistory = {};
@@ -145,7 +148,8 @@ export const getLocationHistory = async (devices, start, end) => {
 };
 
 /**
- * Connect to the WebSocket API, reconnect when necessary and handle received messages.
+ * Connect to the WebSocket API, reconnect when necessary and handle received
+ * messages.
  *
  * @param {webSocketLocationCallback} [callback] Callback for location messages
  */
