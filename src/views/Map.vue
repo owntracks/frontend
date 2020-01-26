@@ -66,7 +66,11 @@
       <template v-for="(userDevices, user) in locationHistory">
         <template v-for="(deviceLocations, device) in userDevices">
           <LCircleMarker
-            v-for="(l, n) in deviceLocations"
+            v-for="(l, n) in deviceLocationsWithNameAndFace(
+              user,
+              device,
+              deviceLocations
+            )"
             :key="`${user}-${device}-${n}`"
             :lat-lng="[l.lat, l.lon]"
             v-bind="circleMarker"
@@ -74,6 +78,8 @@
             <LDeviceLocationPopup
               :user="user"
               :device="device"
+              :name="l.name"
+              :face="l.face"
               :timestamp="l.tst"
               :lat="l.lat"
               :lon="l.lon"
@@ -201,6 +207,29 @@ export default {
           maxZoom: this.maxNativeZoom,
         });
       }
+    },
+    /**
+     * Find a the last location object for a user/device combination from the
+     * local cache and backfill name and face attributes to each item from the
+     * passed array of location objects.
+     *
+     * @param {User} user Username
+     * @param {Device} device Device name
+     * @param {LocationHistory} deviceLocations Device name
+     * @returns {LocationHistory} Updated location history
+     */
+    deviceLocationsWithNameAndFace(user, device, deviceLocations) {
+      const lastLocation = this.lastLocations.find(
+        l => l.username === user && l.device === device
+      );
+      if (!lastLocation) {
+        return deviceLocations;
+      }
+      return deviceLocations.map(l => ({
+        ...l,
+        name: lastLocation.name,
+        face: lastLocation.face,
+      }));
     },
   },
 };
