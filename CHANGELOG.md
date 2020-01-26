@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.0-beta.8 (2020-01-26)
+
+- Add friendly device name and face images to location history popups
+- Add missing `alt`/`title` to device face image
+- Fix all JSDoc `@return` directives to `@returns`
+- Use computed prop for device name in location popup
+- Enable ESLint `max-len` rule
+
 ## 2.0.0-beta.7 (2020-01-24)
 
 This release doesn't really affect end-users but greatly improves the development experience.
