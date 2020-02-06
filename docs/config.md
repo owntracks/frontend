@@ -400,7 +400,7 @@ Primary color for the user interface (navigation bar and various map elements).
 ### `selectedDevice`
 
 Initial selected device. All devices will be shown by default if `null`. Will be ignored
-if [`selectedUser`](#selectedUser) is `null`;
+if [`selectedUser`](#selectedUser) is `null`.
 
 Only data for the selected user/device will be fetched, so you can use this to limit the
 amount of data fetched after page load.
