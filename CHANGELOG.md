@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0-beta.9 (2020-02-06)
+
+- Support locale with language and region part (`en-GB`)
+- Update docs (screenshot, changelog improvements, typo fix)
+- Add funding information
+
 ## 2.0.0-beta.8 (2020-01-26)
 
 - Add friendly device name and face images to location history popups
