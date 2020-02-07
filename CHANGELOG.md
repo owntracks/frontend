@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.0-beta.10 (2020-02-07)
+
+- Add "distance travelled" feature
+
 ## 2.0.0-beta.9 (2020-02-06)
 
 - Support locale with language and region part (`en-GB`)
