@@ -91,7 +91,7 @@ export const download = (text, filename, mimeType = "text/plain") => {
  * ft / mi.
  *
  * @param {Number} distance Distance in meters
- * @param {String} [mimeType] Formatted string including unit
+ * @returns {String} Formatted string including unit
  */
 export const humanReadableDistance = distance => {
   let unit = "m";
