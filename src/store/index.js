@@ -27,6 +27,7 @@ export default new Vuex.Store({
       zoom: config.map.zoom,
       layers: config.map.layers,
     },
+    distanceTravelled: null,
   },
   getters,
   mutations,

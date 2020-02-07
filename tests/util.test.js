@@ -4,6 +4,7 @@ import {
   isIsoDateTime,
   degreesToRadians,
   distanceBetweenCoordinates,
+  humanReadableDistance,
 } from "@/util";
 
 describe("getApiUrl", () => {
@@ -100,5 +101,24 @@ describe("distanceBetweenCoordinates", () => {
       )
       // 9,102.73km according to Google Maps
     ).toBe(9105627.810109457);
+  });
+});
+
+describe("humanReadableDistance", () => {
+  test("expected results", () => {
+    expect(humanReadableDistance(0)).toBe("0 m");
+    expect(humanReadableDistance(1)).toBe("1 m");
+    expect(humanReadableDistance(123)).toBe("123 m");
+    expect(humanReadableDistance(123.4567)).toBe("123.5 m");
+    expect(humanReadableDistance(999)).toBe("999 m");
+    expect(humanReadableDistance(1000)).toBe("1 km");
+    expect(humanReadableDistance(9000)).toBe("9 km");
+    expect(humanReadableDistance(9900)).toBe("9.9 km");
+    expect(humanReadableDistance(9990)).toBe("10 km");
+    expect(humanReadableDistance(9999)).toBe("10 km");
+    expect(humanReadableDistance(9999.0)).toBe("10 km");
+    expect(humanReadableDistance(9999.9999)).toBe("10 km");
+    expect(humanReadableDistance(100000)).toBe("100 km");
+    expect(humanReadableDistance(-42)).toBe("-42 m");
   });
 });

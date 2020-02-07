@@ -40,4 +40,7 @@ export default {
   [types.SET_MAP_LAYER_VISIBILITY](state, { layer, visibility }) {
     state.map.layers[layer] = visibility;
   },
+  [types.SET_DISTANCE_TRAVELLED](state, distanceTravelled) {
+    state.distanceTravelled = distanceTravelled;
+  },
 };

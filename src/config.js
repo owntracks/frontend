@@ -73,6 +73,7 @@ const DEFAULT_CONFIG = {
   primaryColor: "#3f51b5",
   selectedDevice: null,
   selectedUser: null,
+  showDistanceTravelled: true,
   startDateTime,
   verbose: false,
 };

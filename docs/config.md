@@ -65,6 +65,7 @@ window.owntracks.config = {};
 - [`primaryColor`](#primarycolor)
 - [`selectedDevice`](#selecteddevice)
 - [`selectedUser`](#selecteduser)
+- [`showDistanceTravelled`](#showdistancetravelled)
 - [`startDateTime`](#startdatetime)
 - [`verbose`](#verbose)
 
@@ -434,6 +435,16 @@ amount of data fetched after page load.
     selectedUser: "foo"
   };
   ```
+
+### `showDistanceTravelled`
+
+Whether to calculate and show the travelled distance of the last fetched data in the
+header bar. `maxPointDistance` is being takein into account, if a distance between two
+subsequent points is greater than `maxPointDistance`, it will not contibute to the
+calculated travelled distance.
+
+- Type: [`Boolean`]
+- Default: `true`
 
 ### `startDateTime`
 

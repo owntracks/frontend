@@ -47,7 +47,11 @@ const locationHistoryLatLngGroups = state => {
         const latLng = L.latLng(coordinate.lat, coordinate.lon);
         // Skip if group splitting is disabled or this is the first
         // coordinate in the current group
-        if (config.map.maxPointDistance !== null && latLngs.length > 0) {
+        if (
+          typeof config.map.maxPointDistance === "number" &&
+          config.map.maxPointDistance > 0 &&
+          latLngs.length > 0
+        ) {
           const lastLatLng = latLngs.slice(-1)[0];
           if (
             distanceBetweenCoordinates(lastLatLng, latLng) >

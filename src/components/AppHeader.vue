@@ -98,6 +98,16 @@
       </div>
     </nav>
     <nav class="nav-shrink">
+      <div
+        class="nav-item"
+        v-if="$config.showDistanceTravelled && distanceTravelled"
+      >
+        {{
+          $t("Distance travelled: {distance}", {
+            distance: humanReadableDistance(distanceTravelled),
+          })
+        }}
+      </div>
       <div class="nav-item">
         <button
           class="button button-flat button-icon"
@@ -141,6 +151,7 @@ import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 import Dropdown from "@/components/Dropdown";
 import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
+import { humanReadableDistance } from "@/util";
 
 export default {
   components: {
@@ -165,7 +176,7 @@ export default {
     };
   },
   computed: {
-    ...mapState(["users", "devices", "map"]),
+    ...mapState(["users", "devices", "map", "distanceTravelled"]),
     selectedUser: {
       get() {
         return this.$store.state.selectedUser;
@@ -224,6 +235,7 @@ export default {
       "setStartDateTime",
       "setEndDateTime",
     ]),
+    humanReadableDistance,
   },
 };
 </script>

@@ -1,7 +1,7 @@
 import * as types from "@/store/mutation-types";
 import * as api from "@/api";
 import config from "@/config";
-import { isIsoDateTime } from "@/util";
+import { distanceBetweenCoordinates, isIsoDateTime } from "@/util";
 
 /** @typedef {import("./types").QueryParams} QueryParams */
 /** @typedef {import("./types").User} User */
@@ -121,6 +121,35 @@ const getLastLocations = async ({ commit, state }) => {
   commit(types.SET_LAST_LOCATIONS, lastLocations);
 };
 
+const _getDistanceTravelled = locationHistory => {
+  let distanceTravelled = 0;
+  Object.keys(locationHistory).forEach(user => {
+    Object.keys(locationHistory[user]).forEach(device => {
+      let lastLatLng = null;
+      locationHistory[user][device].forEach(coordinate => {
+        const latLng = L.latLng(coordinate.lat, coordinate.lon);
+        if (lastLatLng !== null) {
+          const distance = distanceBetweenCoordinates(lastLatLng, latLng);
+          if (
+            typeof config.map.maxPointDistance === "number" &&
+            config.map.maxPointDistance > 0
+          ) {
+            if (distance <= config.map.maxPointDistance) {
+              // Part of the current group, add calculated distance to total
+              distanceTravelled += distance;
+            }
+          } else {
+            // If grouping is disabled always add calculated distance to total
+            distanceTravelled += distance;
+          }
+        }
+        lastLatLng = latLng;
+      });
+    });
+  });
+  return distanceTravelled;
+};
+
 /**
  * Load location history of all devices, in the selected date range.
  */
@@ -136,15 +165,19 @@ const getLocationHistory = async ({ commit, state }) => {
   } else {
     devices = state.devices;
   }
-  commit(
-    types.SET_LOCATION_HISTORY,
-    await api.getLocationHistory(
-      devices,
-      state.startDateTime,
-      state.endDateTime
-    )
+  const locationHistory = await api.getLocationHistory(
+    devices,
+    state.startDateTime,
+    state.endDateTime
   );
   commit(types.SET_IS_LOADING, false);
+  commit(types.SET_LOCATION_HISTORY, locationHistory);
+  if (config.showDistanceTravelled) {
+    commit(
+      types.SET_DISTANCE_TRAVELLED,
+      _getDistanceTravelled(locationHistory)
+    );
+  }
 };
 
 /**

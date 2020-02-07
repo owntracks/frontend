@@ -83,3 +83,23 @@ export const download = (text, filename, mimeType = "text/plain") => {
   element.click();
   document.body.removeChild(element);
 };
+
+/**
+ * Format a distance in meters into a human-readable string with unit.
+ *
+ * This only supports m / km for now, but could read a config option and return
+ * ft / mi.
+ *
+ * @param {Number} distance Distance in meters
+ * @param {String} [mimeType] Formatted string including unit
+ */
+export const humanReadableDistance = distance => {
+  let unit = "m";
+  if (Math.abs(distance) >= 1000) {
+    distance = distance / 1000;
+    unit = "km";
+  }
+  return `${distance.toLocaleString(config.locale, {
+    maximumFractionDigits: 1,
+  })} ${unit}`;
+};
