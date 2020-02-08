@@ -99,14 +99,11 @@
     </nav>
     <nav class="nav-shrink">
       <div
-        class="nav-item"
         v-if="$config.showDistanceTravelled && distanceTravelled"
+        class="nav-item"
+        :title="$t('Distance travelled')"
       >
-        {{
-          $t("Distance travelled: {distance}", {
-            distance: humanReadableDistance(distanceTravelled),
-          })
-        }}
+        {{ humanReadableDistance(distanceTravelled) }}
       </div>
       <div class="nav-item">
         <button
