@@ -125,8 +125,15 @@ Remove the `ping/ping` location from the fetched data. This is useful when using
 ### `locale`
 
 The locale to use for the user interface, this affects the language and date/time
-formats. Available languages are `de` (German), `en` (English). You can use formats
-like `en-GB`, `en-US`, `de-DE`.
+formats.
+
+Available languages:
+
+- `de` (German)
+- `en` (English)
+- `es` (Spanish)
+
+You can use formats like `en-GB`, `en-US`, `de-DE`.
 
 - Type: [`String`]
 - Default: `"en"`
