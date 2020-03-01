@@ -8,8 +8,9 @@ import { distanceBetweenCoordinates } from "@/util";
  * array of all coordinates.
  *
  * @param {State} state
- * @param {MultiLocationHistory} state.locationHistory Location history of selected users and devices
- * @return {Array.<L.LatLng>} All coordinates
+ * @param {MultiLocationHistory} state.locationHistory
+ *   Location history of selected users and devices
+ * @returns {Array.<L.LatLng>} All coordinates
  */
 const locationHistoryLatLngs = state => {
   const latLngs = [];
@@ -29,8 +30,9 @@ const locationHistoryLatLngs = state => {
  * coordinates does not exceed `config.map.maxPointDistance`.
  *
  * @param {State} state
- * @param {MultiLocationHistory} state.locationHistory Location history of selected users and devices
- * @return {Array.<Array.<L.LatLng>>} Groups of coherent coordinates
+ * @param {MultiLocationHistory} state.locationHistory
+ *   Location history of selected users and devices
+ * @returns {Array.<Array.<L.LatLng>>} Groups of coherent coordinates
  */
 const locationHistoryLatLngGroups = state => {
   const groups = [];
@@ -41,7 +43,11 @@ const locationHistoryLatLngGroups = state => {
         const latLng = L.latLng(coordinate.lat, coordinate.lon);
         // Skip if group splitting is disabled or this is the first
         // coordinate in the current group
-        if (config.map.maxPointDistance !== null && latLngs.length > 0) {
+        if (
+          typeof config.map.maxPointDistance === "number" &&
+          config.map.maxPointDistance > 0 &&
+          latLngs.length > 0
+        ) {
           const lastLatLng = latLngs.slice(-1)[0];
           if (
             distanceBetweenCoordinates(lastLatLng, latLng) >

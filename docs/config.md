@@ -29,9 +29,6 @@ window.owntracks.config = {};
 - [`locale`](#locale)
 - `map`
   - [`attribution`](#mapattribution)
-  - `center`
-    - [`lat`](#mapcenterlat)
-    - [`lng`](#mapcenterlng)
   - [`circle`](#mapcircle)
   - [`circleMarker`](#mapcirclemarker)
   - `controls`
@@ -59,12 +56,12 @@ window.owntracks.config = {};
   - [`maxZoom`](#mapmaxzoom)
   - [`polyline`](#mappolyline)
   - [`url`](#mapurl)
-  - [`zoom`](#mapzoom)
 - `onLocationChange`
   - [`reloadHistory`](#onlocationchangereloadhistory)
 - [`primaryColor`](#primarycolor)
 - [`selectedDevice`](#selecteddevice)
 - [`selectedUser`](#selecteduser)
+- [`showDistanceTravelled`](#showdistancetravelled)
 - [`startDateTime`](#startdatetime)
 - [`verbose`](#verbose)
 
@@ -123,7 +120,16 @@ Remove the `ping/ping` location from the fetched data. This is useful when using
 
 ### `locale`
 
-The language to use for the user interface. Available: `de` (German), `en` (English).
+The locale to use for the user interface, this affects the language and date/time
+formats.
+
+Available languages:
+
+- `de` (German)
+- `en` (English)
+- `es` (Spanish)
+
+You can use formats like `en-GB`, `en-US`, `de-DE`.
 
 - Type: [`String`]
 - Default: `"en"`
@@ -143,20 +149,6 @@ Attribution for map tiles.
     }
   };
   ```
-
-### `map.center.lat`
-
-Initial map center latitude.
-
-- Type: [`Number`]
-- Default: `0`
-
-### `map.center.lng`
-
-Initial map center longitude.
-
-- Type: [`Number`]
-- Default: `0`
 
 ### `map.circle`
 
@@ -368,13 +360,6 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
   };
   ```
 
-### `map.zoom`
-
-Initial map zoom level.
-
-- Type: [`Number`]
-- Default: `19`
-
 ### `onLocationChange.reloadHistory`
 
 Whether to reload the location history (of selected date range) or not when a location
@@ -400,7 +385,7 @@ Primary color for the user interface (navigation bar and various map elements).
 ### `selectedDevice`
 
 Initial selected device. All devices will be shown by default if `null`. Will be ignored
-if [`selectedUser`](#selectedUser) is `null`;
+if [`selectedUser`](#selectedUser) is `null`.
 
 Only data for the selected user/device will be fetched, so you can use this to limit the
 amount of data fetched after page load.
@@ -432,6 +417,16 @@ amount of data fetched after page load.
     selectedUser: "foo"
   };
   ```
+
+### `showDistanceTravelled`
+
+Whether to calculate and show the travelled distance of the last fetched data in the
+header bar. `maxPointDistance` is being takein into account, if a distance between two
+subsequent points is greater than `maxPointDistance`, it will not contibute to the
+calculated travelled distance.
+
+- Type: [`Boolean`]
+- Default: `true`
 
 ### `startDateTime`
 

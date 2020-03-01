@@ -23,10 +23,14 @@ export default new Vuex.Store({
     startDateTime: config.startDateTime.toISOString().slice(0, 19),
     endDateTime: config.endDateTime.toISOString().slice(0, 19),
     map: {
-      center: config.map.center,
-      zoom: config.map.zoom,
+      center: {
+        lat: 0,
+        lng: 0,
+      },
+      zoom: 19,
       layers: config.map.layers,
     },
+    distanceTravelled: null,
   },
   getters,
   mutations,

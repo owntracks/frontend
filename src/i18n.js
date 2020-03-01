@@ -16,7 +16,7 @@ locales.keys().forEach(key => {
 });
 
 export default new VueI18n({
-  locale: config.locale,
+  locale: config.locale.split("-")[0],
   fallbackLocale: "en",
   formatFallbackMessages: true,
   messages,

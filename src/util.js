@@ -8,7 +8,7 @@ import { DATE_TIME_FORMAT, EARTH_RADIUS_IN_KM } from "@/constants";
  * base URL configuration into account.
  *
  * @param {String} path Path to the API resource
- * @return {URL} Final API URL
+ * @returns {URL} Final API URL
  */
 export const getApiUrl = path => {
   const normalizedBaseUrl = config.api.baseUrl.endsWith("/")
@@ -22,7 +22,7 @@ export const getApiUrl = path => {
  * Check if the given string is an ISO 8601 YYYY-MM-DDTHH:MM:SS datetime.
  *
  * @param {String} s Input value to be tested
- * @return {Boolean} Whether the input matches the expected format
+ * @returns {Boolean} Whether the input matches the expected format
  */
 export const isIsoDateTime = s => moment(s, DATE_TIME_FORMAT, true).isValid();
 
@@ -30,7 +30,7 @@ export const isIsoDateTime = s => moment(s, DATE_TIME_FORMAT, true).isValid();
  * Convert degrees to radians.
  *
  * @param {Number} degrees Angle in degrees
- * @return {Number} Angle in radians
+ * @returns {Number} Angle in radians
  */
 export const degreesToRadians = degrees => (degrees * Math.PI) / 180;
 
@@ -42,7 +42,7 @@ export const degreesToRadians = degrees => (degrees * Math.PI) / 180;
  *
  * @param {Coordinate} c1 First coordinate
  * @param {Coordinate} c2 Second coordinate
- * @return {Number} Distance in meters
+ * @returns {Number} Distance in meters
  */
 export const distanceBetweenCoordinates = (c1, c2) => {
   const r = EARTH_RADIUS_IN_KM * 1000;
@@ -80,4 +80,24 @@ export const download = (text, filename, mimeType = "text/plain") => {
   document.body.appendChild(element);
   element.click();
   document.body.removeChild(element);
+};
+
+/**
+ * Format a distance in meters into a human-readable string with unit.
+ *
+ * This only supports m / km for now, but could read a config option and return
+ * ft / mi.
+ *
+ * @param {Number} distance Distance in meters
+ * @returns {String} Formatted string including unit
+ */
+export const humanReadableDistance = distance => {
+  let unit = "m";
+  if (Math.abs(distance) >= 1000) {
+    distance = distance / 1000;
+    unit = "km";
+  }
+  return `${distance.toLocaleString(config.locale, {
+    maximumFractionDigits: 1,
+  })} ${unit}`;
 };
