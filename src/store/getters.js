@@ -3,10 +3,6 @@ import L from "leaflet";
 import config from "@/config";
 import { distanceBetweenCoordinates } from "@/util";
 
-/** @typedef {import("./types").State} State */
-/** @typedef {import("./types").MultiLocationHistory} MultiLocationHistory */
-/** @typedef {import("./types").DatepickerConfig} DatepickerConfig */
-
 /**
  * From the selected users' and devices' location histories, create an
  * array of all coordinates.
@@ -14,7 +10,7 @@ import { distanceBetweenCoordinates } from "@/util";
  * @param {State} state
  * @param {MultiLocationHistory} state.locationHistory
  *   Location history of selected users and devices
- * @returns {Array.<L.LatLng>} All coordinates
+ * @returns {L.LatLng[]} All coordinates
  */
 const locationHistoryLatLngs = state => {
   const latLngs = [];
@@ -36,7 +32,7 @@ const locationHistoryLatLngs = state => {
  * @param {State} state
  * @param {MultiLocationHistory} state.locationHistory
  *   Location history of selected users and devices
- * @returns {Array.<Array.<L.LatLng>>} Groups of coherent coordinates
+ * @returns {L.LatLng[][]} Groups of coherent coordinates
  */
 const locationHistoryLatLngGroups = state => {
   const groups = [];

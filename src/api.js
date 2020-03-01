@@ -1,23 +1,11 @@
 import { log, logLevels } from "@/logging";
 import { getApiUrl } from "@/util";
 
-/** @typedef {import("./types").QueryParams} QueryParams */
-/** @typedef {import("./types").User} User */
-/** @typedef {import("./types").Device} Device */
-/** @typedef {import("./types").LastLocation} LastLocation */
-/** @typedef {import("./types").LocationHistory} LocationHistory */
-
-/**
- * Callback for new WebSocket location messages.
- *
- * @callback webSocketLocationCallback
- */
-
 /**
  * Fetch an API resource.
  *
  * @param {String} path API resource path
- * @param {QueryParams} [params] Query parameters
+ * @param {Object} [params] Query parameters
  * @returns {Promise} Promise returned by the fetch function
  */
 const fetchApi = (path, params = {}) => {
@@ -42,7 +30,7 @@ export const getVersion = async () => {
 /**
  * Get all users.
  *
- * @returns {Array.<User>} Array of usernames
+ * @returns {User[]} Array of usernames
  */
 export const getUsers = async () => {
   const response = await fetchApi("/api/0/list");
@@ -54,8 +42,8 @@ export const getUsers = async () => {
 /**
  * Get all devices for the provided users.
  *
- * @param {Array.<User>} users Array of usernames
- * @returns {Object.<User, Array.<Device>>}
+ * @param {User[]} users Array of usernames
+ * @returns {{User: Device[]}}
  *   Object mapping each username to an array of device names
  */
 export const getDevices = async users => {
@@ -76,7 +64,7 @@ export const getDevices = async users => {
  *
  * @param {User} [user] Get last locations of all devices from this user
  * @param {Device} [device] Get last location of specific device
- * @returns {Array.<LastLocation>} Array of last location objects
+ * @returns {OTLocation[]} Array of last location objects
  */
 export const getLastLocations = async (user, device) => {
   const params = {};
@@ -98,7 +86,7 @@ export const getLastLocations = async (user, device) => {
  * @param {Device} device Device name
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
- * @returns {LocationHistory} Array of location history objects
+ * @returns {OTLocation[]} Array of location history objects
  */
 export const getUserDeviceLocationHistory = async (
   user,
@@ -120,12 +108,11 @@ export const getUserDeviceLocationHistory = async (
 /**
  * Get the location history of multiple devices.
  *
- * @param {Object.<User, Array.<Device>>} devices
+ * @param {{User: Device[]}} devices
  *   Devices of which the history should be fetched
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
- * @returns {Object.<User, Object.<Device, LocationHistory>>}
- *   Array of location history objects
+ * @returns {LocationHistory} Location history
  */
 export const getLocationHistory = async (devices, start, end) => {
   const locationHistory = {};
@@ -151,7 +138,7 @@ export const getLocationHistory = async (devices, start, end) => {
  * Connect to the WebSocket API, reconnect when necessary and handle received
  * messages.
  *
- * @param {webSocketLocationCallback} [callback] Callback for location messages
+ * @param {WebSocketLocationCallback} [callback] Callback for location messages
  */
 export const connectWebsocket = async callback => {
   let url = getApiUrl("/ws/last");

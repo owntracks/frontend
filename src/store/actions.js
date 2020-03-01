@@ -3,10 +3,6 @@ import * as api from "@/api";
 import config from "@/config";
 import { distanceBetweenCoordinates, isIsoDateTime } from "@/util";
 
-/** @typedef {import("./types").QueryParams} QueryParams */
-/** @typedef {import("./types").User} User */
-/** @typedef {import("./types").Device} Device */
-
 /**
  * Populate the state from URL query parameters.
  *
