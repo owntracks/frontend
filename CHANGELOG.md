@@ -1,5 +1,15 @@
 # Changelog
 
+Dates are in UTC.
+
+## 2.0.0-beta.11 (2020-03-01)
+
+- Add Spanish translations ([#25](https://github.com/owntracks/frontend/pull/25), [@dtorner](https://github.com/dtorner))
+- Change "distance travelled" label to `title`
+- Replace map initial center/zoom config with auto fitting ([#23](https://github.com/owntracks/frontend/issues/23))
+- Enhance code type definitions using TypeScript features ([#20](https://github.com/owntracks/frontend/pull/20))
+- Upgrade dependencies
+
 ## 2.0.0-beta.10 (2020-02-07)
 
 - Add "distance travelled" feature
