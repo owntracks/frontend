@@ -8,10 +8,6 @@ interface Config {
     locale: string;
     map: {
         attribution: string;
-        center: {
-          lat: number;
-          lng: number;
-        };
         circle: {
           color: OptionalColor;
           fillColor: OptionalColor;
@@ -56,7 +52,6 @@ interface Config {
           fillColor: OptionalColor;
         };
         url: string;
-        zoom: number;
     };
     onLocationChange: {
         reloadHistory: boolean;
