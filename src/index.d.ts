@@ -201,6 +201,9 @@ interface QueryParams {
     layers?: string;
 }
 
+/** Callback for new WebSocket location messages. */
+interface WebSocketLocationCallback { (): void }
+
 /** A CSS color. */
 type Color = string;
 

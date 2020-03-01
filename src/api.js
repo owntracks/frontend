@@ -2,12 +2,6 @@ import { log, logLevels } from "@/logging";
 import { getApiUrl } from "@/util";
 
 /**
- * Callback for new WebSocket location messages.
- *
- * @callback webSocketLocationCallback
- */
-
-/**
  * Fetch an API resource.
  *
  * @param {String} path API resource path
@@ -145,7 +139,7 @@ export const getLocationHistory = async (devices, start, end) => {
  * Connect to the WebSocket API, reconnect when necessary and handle received
  * messages.
  *
- * @param {webSocketLocationCallback} [callback] Callback for location messages
+ * @param {WebSocketLocationCallback} [callback] Callback for location messages
  */
 export const connectWebsocket = async callback => {
   let url = getApiUrl("/ws/last");
