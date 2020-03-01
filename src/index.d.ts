@@ -138,7 +138,7 @@ interface OTLocation {
      * https://en.wikipedia.org/wiki/Geohash
      */
     ghash?: string;
-    /** Regions the device is currently in (e.g. `["Home"; "Garage"]`). Might be empty. */
+    /** Regions the device is currently in (e.g. `["Home", "Garage"]`). Might be empty. */
     inregions?: string[];
     /**
      * No idea; some kind of timestamp as well - figure it out yourself. :)
