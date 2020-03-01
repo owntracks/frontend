@@ -232,5 +232,13 @@ export default {
       }));
     },
   },
+  watch: {
+    lastLocations() {
+      this.fitView();
+    },
+    locationHistory() {
+      this.fitView();
+    },
+  },
 };
 </script>

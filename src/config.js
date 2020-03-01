@@ -17,10 +17,6 @@ const DEFAULT_CONFIG = {
   map: {
     attribution:
       '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
-    center: {
-      lat: 0,
-      lng: 0,
-    },
     circle: {
       color: null,
       fillColor: null,
@@ -65,7 +61,6 @@ const DEFAULT_CONFIG = {
       fillColor: "transparent",
     },
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-    zoom: 19,
   },
   onLocationChange: {
     reloadHistory: false,

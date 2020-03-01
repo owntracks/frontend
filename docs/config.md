@@ -29,9 +29,6 @@ window.owntracks.config = {};
 - [`locale`](#locale)
 - `map`
   - [`attribution`](#mapattribution)
-  - `center`
-    - [`lat`](#mapcenterlat)
-    - [`lng`](#mapcenterlng)
   - [`circle`](#mapcircle)
   - [`circleMarker`](#mapcirclemarker)
   - `controls`
@@ -59,7 +56,6 @@ window.owntracks.config = {};
   - [`maxZoom`](#mapmaxzoom)
   - [`polyline`](#mappolyline)
   - [`url`](#mapurl)
-  - [`zoom`](#mapzoom)
 - `onLocationChange`
   - [`reloadHistory`](#onlocationchangereloadhistory)
 - [`primaryColor`](#primarycolor)
@@ -153,20 +149,6 @@ Attribution for map tiles.
     }
   };
   ```
-
-### `map.center.lat`
-
-Initial map center latitude.
-
-- Type: [`Number`]
-- Default: `0`
-
-### `map.center.lng`
-
-Initial map center longitude.
-
-- Type: [`Number`]
-- Default: `0`
 
 ### `map.circle`
 
@@ -377,13 +359,6 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
     }
   };
   ```
-
-### `map.zoom`
-
-Initial map zoom level.
-
-- Type: [`Number`]
-- Default: `19`
 
 ### `onLocationChange.reloadHistory`
 
