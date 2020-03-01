@@ -30,7 +30,7 @@ export const getVersion = async () => {
 /**
  * Get all users.
  *
- * @returns {Array.<User>} Array of usernames
+ * @returns {User[]} Array of usernames
  */
 export const getUsers = async () => {
   const response = await fetchApi("/api/0/list");
@@ -42,8 +42,8 @@ export const getUsers = async () => {
 /**
  * Get all devices for the provided users.
  *
- * @param {Array.<User>} users Array of usernames
- * @returns {Object.<User, Array.<Device>>}
+ * @param {User[]} users Array of usernames
+ * @returns {{User: Device[]}}
  *   Object mapping each username to an array of device names
  */
 export const getDevices = async users => {
@@ -64,7 +64,7 @@ export const getDevices = async users => {
  *
  * @param {User} [user] Get last locations of all devices from this user
  * @param {Device} [device] Get last location of specific device
- * @returns {Array.<LastLocation>} Array of last location objects
+ * @returns {OTLocation[]} Array of last location objects
  */
 export const getLastLocations = async (user, device) => {
   const params = {};
@@ -86,7 +86,7 @@ export const getLastLocations = async (user, device) => {
  * @param {Device} device Device name
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
- * @returns {LocationHistory} Array of location history objects
+ * @returns {OTLocation[]} Array of location history objects
  */
 export const getUserDeviceLocationHistory = async (
   user,
@@ -108,12 +108,11 @@ export const getUserDeviceLocationHistory = async (
 /**
  * Get the location history of multiple devices.
  *
- * @param {Object.<User, Array.<Device>>} devices
+ * @param {{User: Device[]}} devices
  *   Devices of which the history should be fetched
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
- * @returns {Object.<User, Object.<Device, LocationHistory>>}
- *   Array of location history objects
+ * @returns {LocationHistory} Location history
  */
 export const getLocationHistory = async (devices, start, end) => {
   const locationHistory = {};

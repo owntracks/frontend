@@ -10,7 +10,7 @@ import { distanceBetweenCoordinates } from "@/util";
  * @param {State} state
  * @param {MultiLocationHistory} state.locationHistory
  *   Location history of selected users and devices
- * @returns {Array.<L.LatLng>} All coordinates
+ * @returns {L.LatLng[]} All coordinates
  */
 const locationHistoryLatLngs = state => {
   const latLngs = [];
@@ -32,7 +32,7 @@ const locationHistoryLatLngs = state => {
  * @param {State} state
  * @param {MultiLocationHistory} state.locationHistory
  *   Location history of selected users and devices
- * @returns {Array.<Array.<L.LatLng>>} Groups of coherent coordinates
+ * @returns {L.LatLng[][]} Groups of coherent coordinates
  */
 const locationHistoryLatLngGroups = state => {
   const groups = [];
