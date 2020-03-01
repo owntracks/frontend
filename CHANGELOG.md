@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.0.0 (2020-03-01)
+
+Stable release of v2, finally! 🎉
+
+_This is just a version bump, see all the beta releases below, esspecially the first one, for a list of changes._
+
 ## 2.0.0-beta.11 (2020-03-01)
 
 - Add Spanish translations ([#25](https://github.com/owntracks/frontend/pull/25), [@dtorner](https://github.com/dtorner))
