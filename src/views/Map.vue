@@ -37,6 +37,7 @@
         v-for="l in lastLocations"
         :key="`${l.topic}-marker`"
         :lat-lng="[l.lat, l.lon]"
+        :icon="markerIcon"
       >
         <LDeviceLocationPopup
           :user="l.username"
@@ -119,21 +120,10 @@ import {
   LPolyline,
 } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
-import markerIcon from "leaflet/dist/images/marker-icon.png";
-import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
-import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
 import * as types from "@/store/mutation-types";
+import LCustomMarker from "@/components/LCustomMarker";
 import LHeatmap from "@/components/LHeatmap";
 import LDeviceLocationPopup from "@/components/LDeviceLocationPopup";
-
-// See https://github.com/KoRiGaN/Vue2Leaflet/issues/28#issuecomment-299038157
-delete L.Icon.Default.prototype._getIconUrl;
-L.Icon.Default.mergeOptions({
-  iconUrl: markerIcon,
-  iconRetinaUrl: markerIcon2x,
-  shadowUrl: markerShadow,
-});
 
 export default {
   components: {
@@ -154,6 +144,7 @@ export default {
       center: this.$store.state.map.center,
       controls: this.$config.map.controls,
       heatmap: this.$config.map.heatmap,
+      markerIcon: LCustomMarker,
       maxZoom: this.$config.map.maxZoom,
       maxNativeZoom: this.$config.map.maxNativeZoom,
       url: this.$config.map.url,

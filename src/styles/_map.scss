@@ -4,7 +4,7 @@
 
   .leaflet-popup {
     filter: var(--drop-shadow);
-    margin-bottom: 25px;
+    margin-bottom: calc(var(--pin-width) * 1.5 + 20px);
 
     .leaflet-popup-content-wrapper {
       border-radius: 3px;
@@ -42,6 +42,40 @@
 
     a {
       color: var(--color-primary);
+    }
+  }
+
+  .leaflet-marker-icon {
+    width: 0 !important;
+    height: 0 !important;
+    margin: 0 !important;
+
+    .pin {
+      display: block;
+      margin-left: calc(-1 * var(--pin-width) / 2);
+      margin-top: calc(-1 * var(--pin-width) * 1.5);
+      position: relative;
+      width: var(--pin-width);
+
+      &::before {
+        background: var(--color-background);
+        border-radius: 100%;
+        content: "";
+        position: absolute;
+        width: calc(var(--pin-width) / 2);
+        height: calc(var(--pin-width) / 2);
+        top: calc(var(--pin-width) / 4);
+        left: calc(var(--pin-width) / 4);
+      }
+
+      svg {
+        height: auto;
+        width: 100%;
+
+        path {
+          fill: var(--color-primary);
+        }
+      }
     }
   }
 }
