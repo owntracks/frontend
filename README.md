@@ -77,7 +77,7 @@ directory as `docker-compose.yml`)
 
 ### Manually
 
-- Run `yarn install --production` to install dependencies
+- Run `yarn install` to install dependencies
 - Run `yarn build` to compile and minify for production
 - Copy the content of the `dist/` directory to your webroot
 
