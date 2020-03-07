@@ -206,8 +206,8 @@ export default {
      *
      * @param {User} user Username
      * @param {Device} device Device name
-     * @param {LocationHistory} deviceLocations Device name
-     * @returns {LocationHistory} Updated location history
+     * @param {OTLocation[]} deviceLocations Device name
+     * @returns {OTLocation[]} Updated locations
      */
     deviceLocationsWithNameAndFace(user, device, deviceLocations) {
       const lastLocation = this.lastLocations.find(

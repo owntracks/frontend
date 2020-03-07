@@ -8,7 +8,7 @@ import { distanceBetweenCoordinates } from "@/util";
  * array of all coordinates.
  *
  * @param {State} state
- * @param {MultiLocationHistory} state.locationHistory
+ * @param {LocationHistory} state.locationHistory
  *   Location history of selected users and devices
  * @returns {L.LatLng[]} All coordinates
  */
@@ -30,7 +30,7 @@ const locationHistoryLatLngs = state => {
  * coordinates does not exceed `config.map.maxPointDistance`.
  *
  * @param {State} state
- * @param {MultiLocationHistory} state.locationHistory
+ * @param {LocationHistory} state.locationHistory
  *   Location history of selected users and devices
  * @returns {L.LatLng[][]} Groups of coherent coordinates
  */
