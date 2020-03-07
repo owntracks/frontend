@@ -204,6 +204,9 @@ interface QueryParams {
 /** Callback for new WebSocket location messages. */
 interface WebSocketLocationCallback { (): void }
 
+/** Function for lazy evaluation of log messages. */
+interface LogMessageFunction { (): string }
+
 /** A CSS color. */
 type Color = string;
 

@@ -1,6 +1,7 @@
 import Vue from "vue";
 import App from "@/App.vue";
 import config from "@/config";
+import { log } from "@/logging";
 import i18n from "@/i18n";
 import router from "@/router";
 import store from "@/store";
@@ -11,6 +12,8 @@ Vue.use(VModal);
 Vue.use(VOutsideEvents);
 
 Vue.config.productionTip = false;
+
+log("CONFIG", config);
 
 Vue.prototype.$config = config;
 

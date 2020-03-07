@@ -1,7 +1,12 @@
 import * as types from "@/store/mutation-types";
 import * as api from "@/api";
 import config from "@/config";
-import { distanceBetweenCoordinates, isIsoDateTime } from "@/util";
+import { log } from "@/logging";
+import {
+  distanceBetweenCoordinates,
+  isIsoDateTime,
+  getLocationHistoryCount,
+} from "@/util";
 
 /**
  * Populate the state from URL query parameters.
@@ -118,6 +123,7 @@ const getLastLocations = async ({ commit, state }) => {
 };
 
 const _getDistanceTravelled = locationHistory => {
+  const start = Date.now();
   let distanceTravelled = 0;
   Object.keys(locationHistory).forEach(user => {
     Object.keys(locationHistory[user]).forEach(device => {
@@ -142,6 +148,15 @@ const _getDistanceTravelled = locationHistory => {
         lastLatLng = latLng;
       });
     });
+  });
+  const end = Date.now();
+  log("DISTANCE", () => {
+    const locationHistoryCount = getLocationHistoryCount(locationHistory);
+    const duration = (end - start) / 1000;
+    return (
+      `[_getDistanceTravelled] Took ${duration} seconds to ` +
+      `calculate distance of ${locationHistoryCount} locations`
+    );
   });
   return distanceTravelled;
 };

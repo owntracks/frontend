@@ -20,6 +20,16 @@ const logColors = {
   [logLevels.ERROR]: "#ad1515",
 };
 
+/**
+ * Log a message to the browser's console.
+ *
+ * Convenience wrapper for `console.{info,warn,error}` doing some formatting
+ * and taking the `verbose` config option into account.
+ *
+ * @param {String} label Log message label, useful for filtering
+ * @param {String|LogMessageFunction} message Log message
+ * @param {String} [level] Log level, use `logLevels` constants
+ */
 export const log = (label, message, level = logLevels.INFO) => {
   if (!Object.keys(logLevels).includes(level)) {
     log("WARNING", `invalid log level: ${level}`, logLevels.WARNING);
@@ -35,5 +45,9 @@ export const log = (label, message, level = logLevels.INFO) => {
   padding: 3px;
   `;
   const logFunc = logFunctions[level];
-  logFunc(`%c${label}`, css, message);
+  logFunc(
+    `%c${label}`,
+    css,
+    typeof message === "function" ? message() : message
+  );
 };

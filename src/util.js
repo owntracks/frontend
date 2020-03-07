@@ -101,3 +101,18 @@ export const humanReadableDistance = distance => {
     maximumFractionDigits: 1,
   })} ${unit}`;
 };
+
+/**
+ * Get the total number of locations from a nested location history.
+ *
+ * @param {LocationHistory} locationHistory Location history
+ * @returns {Number} Total number of locations
+ */
+export const getLocationHistoryCount = locationHistory =>
+  Object.keys(locationHistory)
+    .map(user =>
+      Object.keys(locationHistory[user])
+        .map(device => locationHistory[user][device].length)
+        .reduce((a, b) => a + b, 0)
+    )
+    .reduce((a, b) => a + b, 0);

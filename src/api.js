@@ -1,5 +1,5 @@
 import { log, logLevels } from "@/logging";
-import { getApiUrl } from "@/util";
+import { getApiUrl, getLocationHistoryCount } from "@/util";
 
 /**
  * Fetch an API resource.
@@ -24,6 +24,7 @@ export const getVersion = async () => {
   const response = await fetchApi("/api/0/version");
   const json = await response.json();
   const version = json.version;
+  log("API", () => `[getVersion] ${version}`);
   return version;
 };
 
@@ -36,6 +37,7 @@ export const getUsers = async () => {
   const response = await fetchApi("/api/0/list");
   const json = await response.json();
   const users = json.results;
+  log("API", () => `[getUsers] Fetched ${users.length} users`);
   return users;
 };
 
@@ -56,6 +58,15 @@ export const getDevices = async users => {
       devices[user] = userDevices;
     })
   );
+  log("API", () => {
+    const devicesCount = Object.keys(devices)
+      .map(user => devices[user].length)
+      .reduce((a, b) => a + b, 0);
+    return (
+      `[getDevices] Fetched ${devicesCount} ` +
+      `devices for ${users.length} users`
+    );
+  });
   return devices;
 };
 
@@ -76,7 +87,12 @@ export const getLastLocations = async (user, device) => {
   }
   const response = await fetchApi("/api/0/last", params);
   const json = await response.json();
-  return json;
+  const lastLocations = json;
+  log(
+    "API",
+    () => `[getLastLocations] Fetched ${lastLocations.length} last locations`
+  );
+  return lastLocations;
 };
 
 /**
@@ -102,7 +118,15 @@ export const getUserDeviceLocationHistory = async (
     format: "json",
   });
   const json = await response.json();
-  return json.data;
+  const userDeviceLocationHistory = json.data;
+  log(
+    "API",
+    () =>
+      `[getUserDeviceLocationHistory] Fetched ` +
+      `${userDeviceLocationHistory.length} locations for ` +
+      `${user}/${device} from ${start} - ${end}`
+  );
+  return userDeviceLocationHistory;
 };
 
 /**
@@ -131,6 +155,13 @@ export const getLocationHistory = async (devices, start, end) => {
       );
     })
   );
+  log("API", () => {
+    const locationHistoryCount = getLocationHistoryCount(locationHistory);
+    return (
+      "[getLocationHistory] Fetched " +
+      `${locationHistoryCount} locations in total`
+    );
+  });
   return locationHistory;
 };
 
