@@ -2,6 +2,13 @@
 
 Dates are in UTC.
 
+## 2.2.0 (2020-03-18)
+
+- Improve mobile layout further:
+  - Reduce header paddings
+  - Align buttons/dropdowns
+- Upgrade dependencies
+
 ## 2.1.0 (2020-03-18)
 
 - Replace default Leaflet marker with a custom one ([#2](https://github.com/owntracks/frontend/issues/2))
