@@ -2,6 +2,13 @@
 
 Dates are in UTC.
 
+## 2.1.0 (2020-03-18)
+
+- Replace default Leaflet marker with a custom one ([#2](https://github.com/owntracks/frontend/issues/2))
+- Improve verbose mode logging
+- Improve mobile usability ([#19](https://github.com/owntracks/frontend/issues/19))
+- Upgrade dependencies
+
 ## 2.0.0 (2020-03-01)
 
 Stable release of v2, finally! 🎉
