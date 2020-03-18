@@ -1,15 +1,23 @@
 import Vue from "vue";
+import VueModal from "vue-js-modal";
+import VueOutsideEvents from "vue-outside-events";
+import VueMq from "vue-mq";
+
 import App from "@/App.vue";
 import config from "@/config";
 import { log } from "@/logging";
 import i18n from "@/i18n";
 import router from "@/router";
 import store from "@/store";
-import VModal from "vue-js-modal";
-import VOutsideEvents from "vue-outside-events";
 
-Vue.use(VModal);
-Vue.use(VOutsideEvents);
+Vue.use(VueModal);
+Vue.use(VueOutsideEvents);
+Vue.use(VueMq, {
+  breakpoints: {
+    sm: 1300,
+    lg: Infinity,
+  },
+});
 
 Vue.config.productionTip = false;
 

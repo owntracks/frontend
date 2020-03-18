@@ -1,7 +1,25 @@
 <template>
   <header>
-    <nav>
+    <div v-if="$mq === 'sm'" class="header-item">
+      <button
+        class="button button-flat button-icon"
+        @click="showMobileNav = !showMobileNav"
+      >
+        <MenuIcon size="1x" aria-hidden="true" role="img" />
+      </button>
+    </div>
+    <nav
+      v-if="$mq === 'sm' ? showMobileNav : true"
+      class="header-item header-item-grow"
+      :class="$mq === 'sm' ? 'nav-sm' : null"
+    >
       <div class="nav-item">
+        <CrosshairIcon
+          v-if="$mq === 'sm'"
+          size="1x"
+          aria-hidden="true"
+          role="img"
+        />
         <button
           class="button button-outline"
           :title="
@@ -46,7 +64,7 @@
             :title="$t('Select start date')"
           />
         </VueCtkDateTimePicker>
-        {{ $t("to") }}
+        <span>{{ $t("to") }}</span>
         <VueCtkDateTimePicker
           v-model="endDateTime"
           :format="DATE_TIME_FORMAT"
@@ -97,7 +115,7 @@
         </select>
       </div>
     </nav>
-    <nav class="nav-shrink">
+    <nav class="header-item header-item-right">
       <div
         v-if="$config.showDistanceTravelled && distanceTravelled"
         class="nav-item"
@@ -136,9 +154,11 @@ import moment from "moment";
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import {
   CalendarIcon,
+  CrosshairIcon,
   DownloadIcon,
   InfoIcon,
   LayersIcon,
+  MenuIcon,
   SmartphoneIcon,
   UserIcon,
 } from "vue-feather-icons";
@@ -153,9 +173,11 @@ import { humanReadableDistance } from "@/util";
 export default {
   components: {
     CalendarIcon,
+    CrosshairIcon,
     DownloadIcon,
     InfoIcon,
     LayersIcon,
+    MenuIcon,
     SmartphoneIcon,
     UserIcon,
     VueCtkDateTimePicker,
@@ -170,6 +192,7 @@ export default {
         { layer: "points", label: this.$t("Show location history (points)") },
         { layer: "heatmap", label: this.$t("Show location heatmap") },
       ],
+      showMobileNav: false,
     };
   },
   computed: {

@@ -106,30 +106,75 @@ pre {
     color: var(--color-primary-text);
     background: var(--color-primary);
 
-    nav {
+    .header-item {
       display: flex;
-      flex: 1;
       align-items: center;
 
       &:not(:first-child) {
         margin-left: 20px;
       }
 
-      &.nav-shrink {
-        flex: 0 1 auto;
+      &-grow {
+        flex: 1;
       }
 
-      .nav-item:not(:first-child) {
-        margin-left: 20px;
+      &-right {
+        margin-left: auto !important;
       }
 
       .feather {
         font-size: 20px;
-        margin-right: 10px;
       }
 
-      .button-icon .feather {
+      .nav-item {
+        &:not(:first-child) {
+          margin-left: 20px;
+        }
+
+        > span {
+          margin: 0 5px;
+        }
+
+        .feather {
+          margin-right: 10px;
+        }
+
+        .button-icon .feather {
+          margin: 0;
+        }
+      }
+
+      &.nav-sm {
+        background: var(--color-primary);
+        border-top: 1px solid rgba(0, 0, 0, 0.2);
+        bottom: 0;
+        display: block;
+        left: 0;
         margin: 0;
+        overflow-x: auto;
+        padding: 30px;
+        position: absolute;
+        right: 0;
+        top: 76px;
+        z-index: 1;
+
+        .nav-item {
+          &:not(:first-child) {
+            margin-left: 0;
+            margin-top: 20px;
+          }
+
+          > span {
+            margin: 0;
+          }
+
+          // THIS IS TERRIBLE (but it works for now)
+          > :not(:nth-child(1)):not(:nth-child(2)) {
+            display: block;
+            margin-left: 30px;
+            margin-top: 5px;
+          }
+        }
       }
     }
   }
@@ -173,8 +218,8 @@ pre {
   overflow: hidden;
   padding: 8px 16px;
   text-overflow: ellipsis;
-  white-space: nowrap;
   transition: box-shadow 0.2s;
+  white-space: nowrap;
 
   &:focus {
     outline: none;
