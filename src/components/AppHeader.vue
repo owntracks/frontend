@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <header :class="$mq === 'sm' ? 'header-sm' : null">
     <div v-if="$mq === 'sm'" class="header-item">
       <button
         class="button button-flat button-icon"

@@ -106,6 +106,14 @@ pre {
     color: var(--color-primary-text);
     background: var(--color-primary);
 
+    &.header-sm {
+      padding: 10px;
+
+      .header-item:not(.nav-sm) .nav-item:not(:first-child) {
+        margin-left: 10px;
+      }
+    }
+
     .header-item {
       display: flex;
       align-items: center;
@@ -152,19 +160,42 @@ pre {
         left: 0;
         margin: 0;
         overflow-x: auto;
-        padding: 30px;
+        padding: 20px;
         position: absolute;
         right: 0;
-        top: 76px;
+        top: 56px;
         z-index: 1;
 
         .nav-item {
+          align-items: center;
+          display: flex;
+          flex-wrap: wrap;
+          margin-left: auto;
+          margin-right: auto;
+          max-width: 400px;
+
           &:not(:first-child) {
-            margin-left: 0;
             margin-top: 20px;
           }
 
+          > .button,
+          > .dropdown,
+          > .date-time-picker {
+            flex: 1;
+          }
+
+          > .dropdown .dropdown-button,
+          > .date-time-picker .dropdown-button {
+            width: 100%;
+          }
+
+          > .date-time-picker {
+            margin-left: 0;
+            margin-right: 0;
+          }
+
           > span {
+            flex-basis: 100%;
             margin: 0;
           }
 
