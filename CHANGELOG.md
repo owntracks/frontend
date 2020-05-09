@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.3.1 (2020-05-09)
+
+- Fix linting issue in `config.md`
+
 ## 2.3.0 (2020-05-09)
 
 - Add `api.fetchOptions` config option - this allows sending custom HTTP headers or including
