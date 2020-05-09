@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.3.0 (2020-05-09)
+
+- Add `api.fetchOptions` config option - this allows sending custom HTTP headers or including
+  cookies in the request
+- Upgrade dependencies
+
 ## 2.2.0 (2020-03-18)
 
 - Improve mobile layout further:
