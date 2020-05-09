@@ -479,4 +479,4 @@ Whether to enable verbose mode or not.
 [`object`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [`string`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [css `<color>`]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-[`fetch()` docs on MDN]: https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters
+[`fetch()` docs on mdn]: https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters
