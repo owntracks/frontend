@@ -10,6 +10,7 @@ startDateTime.setHours(0, 0, 0, 0);
 const DEFAULT_CONFIG = {
   api: {
     baseUrl: `${window.location.protocol}//${window.location.host}`,
+    fetchOptions: {},
   },
   endDateTime,
   ignorePingLocation: true,

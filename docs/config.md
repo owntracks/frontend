@@ -24,6 +24,7 @@ window.owntracks.config = {};
 
 - `api`
   - [`baseUrl`](#apibaseurl)
+  - [`fetchOptions`](#apifetchoptions)
 - [`endDateTime`](#enddatetime)
 - [`ignorePingLocation`](#ignorepinglocation)
 - [`locale`](#locale)
@@ -85,6 +86,26 @@ Base URL for the recorder's HTTP and WebSocket API. Keep CORS in mind.
   window.owntracks.config = {
     api: {
       baseUrl: "https://example.com/owntracks/"
+    }
+  };
+  ```
+
+### `api.fetchOptions`
+
+Options for API requests (made with `fetch()`). See [`fetch()` docs on MDN] for details.
+
+You can use this for example to send custom HTTP headers or to include cookies in the request.
+
+- Type: [`Object`]
+- Default: `{}`
+- Example:
+  ```js
+  // Include credentials (e.g. cookies)
+  window.owntracks.config = {
+    api: {
+      fetchOptions: {
+        credentials: "include"
+      }
     }
   };
   ```
@@ -458,3 +479,4 @@ Whether to enable verbose mode or not.
 [`object`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [`string`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [css `<color>`]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
+[`fetch()` docs on MDN]: https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters

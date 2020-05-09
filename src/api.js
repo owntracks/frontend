@@ -1,3 +1,4 @@
+import config from "@/config";
 import { log, logLevels } from "@/logging";
 import { getApiUrl, getLocationHistoryCount } from "@/util";
 
@@ -12,7 +13,9 @@ const fetchApi = (path, params = {}) => {
   const url = getApiUrl(path);
   Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
   log("HTTP", `GET ${url.href}`);
-  return fetch(url.href).catch(error => log("HTTP", error, logLevels.ERROR));
+  return fetch(url.href, config.api.fetchOptions).catch(error =>
+    log("HTTP", error, logLevels.ERROR)
+  );
 };
 
 /**
