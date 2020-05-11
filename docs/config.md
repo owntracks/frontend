@@ -138,7 +138,7 @@ distance calculation.
 - Default: `null`
 - Example:
   ```js
-  // Don't include location points with an accuracy of less than 100 meters
+  // Don't include location points with an accuracy exceeding 100 meters
   window.owntracks.config = {
     filters: {
       minAccuracy: 100
