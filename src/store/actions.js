@@ -128,8 +128,13 @@ const _getDistanceTravelled = locationHistory => {
   Object.keys(locationHistory).forEach(user => {
     Object.keys(locationHistory[user]).forEach(device => {
       let lastLatLng = null;
-      locationHistory[user][device].forEach(coordinate => {
-        const latLng = L.latLng(coordinate.lat, coordinate.lon);
+      locationHistory[user][device].forEach(location => {
+        if (
+          config.minAccurac !== null &&
+          location.acc > config.filters.minAccuracy
+        )
+          return;
+        const latLng = L.latLng(location.lat, location.lon);
         if (lastLatLng !== null) {
           const distance = distanceBetweenCoordinates(lastLatLng, latLng);
           if (

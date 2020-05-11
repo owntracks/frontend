@@ -13,6 +13,9 @@ const DEFAULT_CONFIG = {
     fetchOptions: {},
   },
   endDateTime,
+  filters: {
+    minAccuracy: null,
+  },
   ignorePingLocation: true,
   locale: "en",
   map: {

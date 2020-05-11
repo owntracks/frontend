@@ -4,20 +4,46 @@ import config from "@/config";
 import { distanceBetweenCoordinates } from "@/util";
 
 /**
- * From the selected users' and devices' location histories, create an
- * array of all coordinates.
+ * Apply filters to the selected users' and devices' location histories.
  *
  * @param {State} state
  * @param {LocationHistory} state.locationHistory
  *   Location history of selected users and devices
+ * @returns {LocationHistory} Filtered location history
+ */
+const filteredLocationHistory = state => {
+  const locationHistory = {};
+  Object.keys(state.locationHistory).forEach(user => {
+    locationHistory[user] = {};
+    Object.keys(state.locationHistory[user]).forEach(device => {
+      locationHistory[user][device] = [];
+      state.locationHistory[user][device].forEach(location => {
+        if (
+          config.minAccurac !== null &&
+          location.acc > config.filters.minAccuracy
+        )
+          return;
+        locationHistory[user][device].push(location);
+      });
+    });
+  });
+  return locationHistory;
+};
+
+/**
+ * From the selected users' and devices' location histories, create an
+ * array of all coordinates.
+ *
+ * @param {State} state
  * @returns {L.LatLng[]} All coordinates
  */
-const locationHistoryLatLngs = state => {
+const filteredLocationHistoryLatLngs = state => {
   const latLngs = [];
-  Object.keys(state.locationHistory).forEach(user => {
-    Object.keys(state.locationHistory[user]).forEach(device => {
-      state.locationHistory[user][device].forEach(coordinate => {
-        latLngs.push(L.latLng(coordinate.lat, coordinate.lon));
+  const locationHistory = filteredLocationHistory(state);
+  Object.keys(locationHistory).forEach(user => {
+    Object.keys(locationHistory[user]).forEach(device => {
+      locationHistory[user][device].forEach(location => {
+        latLngs.push(L.latLng(location.lat, location.lon));
       });
     });
   });
@@ -30,17 +56,16 @@ const locationHistoryLatLngs = state => {
  * coordinates does not exceed `config.map.maxPointDistance`.
  *
  * @param {State} state
- * @param {LocationHistory} state.locationHistory
- *   Location history of selected users and devices
  * @returns {L.LatLng[][]} Groups of coherent coordinates
  */
-const locationHistoryLatLngGroups = state => {
+const filteredLocationHistoryLatLngGroups = state => {
   const groups = [];
-  Object.keys(state.locationHistory).forEach(user => {
-    Object.keys(state.locationHistory[user]).forEach(device => {
+  const locationHistory = filteredLocationHistory(state);
+  Object.keys(locationHistory).forEach(user => {
+    Object.keys(locationHistory[user]).forEach(device => {
       let latLngs = [];
-      state.locationHistory[user][device].forEach(coordinate => {
-        const latLng = L.latLng(coordinate.lat, coordinate.lon);
+      locationHistory[user][device].forEach(location => {
+        const latLng = L.latLng(location.lat, location.lon);
         // Skip if group splitting is disabled or this is the first
         // coordinate in the current group
         if (
@@ -68,6 +93,7 @@ const locationHistoryLatLngGroups = state => {
 };
 
 export default {
-  locationHistoryLatLngs,
-  locationHistoryLatLngGroups,
+  filteredLocationHistory,
+  filteredLocationHistoryLatLngs,
+  filteredLocationHistoryLatLngGroups,
 };

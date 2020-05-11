@@ -26,6 +26,8 @@ window.owntracks.config = {};
   - [`baseUrl`](#apibaseurl)
   - [`fetchOptions`](#apifetchoptions)
 - [`endDateTime`](#enddatetime)
+- `filters`
+  - [`minAccuracy`](#filtersminaccuracy)
 - [`ignorePingLocation`](#ignorepinglocation)
 - [`locale`](#locale)
 - `map`
@@ -121,6 +123,26 @@ Initial end date and time (browser timezone) for fetched data.
   // Data will be fetched up to 1970-01-01
   window.owntracks.config = {
     endDateTime: new Date(1970, 1, 1)
+  };
+  ```
+
+### `filters.minAccuracy`
+
+Minimum accuracy in meters for location points to be rendered & included in the travelled distance.
+
+This filter is disabled by default as accuracies can vary across devices an locations, but you're
+encouraged to set it as it can be a simple way to remove outliers and vastly improve the travelled
+distance calculation.
+
+- Type: [`Number`] or `null`
+- Default: `null`
+- Example:
+  ```js
+  // Don't include location points with an accuracy of less than 100 meters
+  window.owntracks.config = {
+    filters: {
+      minAccuracy: 100
+    }
   };
   ```
 

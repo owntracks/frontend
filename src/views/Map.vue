@@ -56,7 +56,7 @@
 
     <template v-if="map.layers.line">
       <LPolyline
-        v-for="(group, i) in locationHistoryLatLngGroups"
+        v-for="(group, i) in filteredLocationHistoryLatLngGroups"
         :key="i"
         :lat-lngs="group"
         v-bind="polyline"
@@ -64,7 +64,7 @@
     </template>
 
     <template v-if="map.layers.points">
-      <template v-for="(userDevices, user) in locationHistory">
+      <template v-for="(userDevices, user) in filteredLocationHistory">
         <template v-for="(deviceLocations, device) in userDevices">
           <LCircleMarker
             v-for="(l, n) in deviceLocationsWithNameAndFace(
@@ -95,8 +95,8 @@
 
     <template v-if="map.layers.heatmap">
       <LHeatmap
-        v-if="locationHistoryLatLngs.length"
-        :lat-lng="locationHistoryLatLngs"
+        v-if="filteredLocationHistoryLatLngs.length"
+        :lat-lng="filteredLocationHistoryLatLngs"
         :max="heatmap.max"
         :radius="heatmap.radius"
         :blur="heatmap.blur"
@@ -171,8 +171,12 @@ export default {
     });
   },
   computed: {
-    ...mapGetters(["locationHistoryLatLngs", "locationHistoryLatLngGroups"]),
-    ...mapState(["lastLocations", "locationHistory", "map"]),
+    ...mapGetters([
+      "filteredLocationHistory",
+      "filteredLocationHistoryLatLngs",
+      "filteredLocationHistoryLatLngGroups",
+    ]),
+    ...mapState(["lastLocations", "map"]),
   },
   methods: {
     ...mapMutations({
@@ -187,10 +191,10 @@ export default {
         (this.map.layers.line ||
           this.map.layers.points ||
           this.map.layers.heatmap) &&
-        this.locationHistoryLatLngs.length > 0
+        this.filteredLocationHistoryLatLngs.length > 0
       ) {
         this.$refs.map.mapObject.fitBounds(
-          new L.LatLngBounds(this.locationHistoryLatLngs)
+          new L.LatLngBounds(this.filteredLocationHistoryLatLngs)
         );
       } else if (this.map.layers.last && this.lastLocations.length > 0) {
         const locations = this.lastLocations.map(l => L.latLng(l.lat, l.lon));
@@ -227,7 +231,7 @@ export default {
     lastLocations() {
       this.fitView();
     },
-    locationHistory() {
+    filteredLocationHistory() {
       this.fitView();
     },
   },
