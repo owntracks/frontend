@@ -19,7 +19,7 @@ const filteredLocationHistory = state => {
       locationHistory[user][device] = [];
       state.locationHistory[user][device].forEach(location => {
         if (
-          config.minAccurac !== null &&
+          config.filters.minAccuracy !== null &&
           location.acc > config.filters.minAccuracy
         )
           return;
