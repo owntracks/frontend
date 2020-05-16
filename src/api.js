@@ -11,9 +11,11 @@ import { getApiUrl, getLocationHistoryCount } from "@/util";
  */
 const fetchApi = (path, params = {}) => {
   const url = getApiUrl(path);
-  Object.keys(params).forEach(key => url.searchParams.append(key, params[key]));
+  Object.keys(params).forEach((key) =>
+    url.searchParams.append(key, params[key])
+  );
   log("HTTP", `GET ${url.href}`);
-  return fetch(url.href, config.api.fetchOptions).catch(error =>
+  return fetch(url.href, config.api.fetchOptions).catch((error) =>
     log("HTTP", error, logLevels.ERROR)
   );
 };
@@ -51,10 +53,10 @@ export const getUsers = async () => {
  * @returns {{User: Device[]}}
  *   Object mapping each username to an array of device names
  */
-export const getDevices = async users => {
+export const getDevices = async (users) => {
   const devices = {};
   await Promise.all(
-    users.map(async user => {
+    users.map(async (user) => {
       const response = await fetchApi(`/api/0/list`, { user });
       const json = await response.json();
       const userDevices = json.results;
@@ -63,7 +65,7 @@ export const getDevices = async users => {
   );
   log("API", () => {
     const devicesCount = Object.keys(devices)
-      .map(user => devices[user].length)
+      .map((user) => devices[user].length)
       .reduce((a, b) => a + b, 0);
     return (
       `[getDevices] Fetched ${devicesCount} ` +
@@ -144,10 +146,10 @@ export const getUserDeviceLocationHistory = async (
 export const getLocationHistory = async (devices, start, end) => {
   const locationHistory = {};
   await Promise.all(
-    Object.keys(devices).map(async user => {
+    Object.keys(devices).map(async (user) => {
       locationHistory[user] = {};
       await Promise.all(
-        devices[user].map(async device => {
+        devices[user].map(async (device) => {
           locationHistory[user][device] = await getUserDeviceLocationHistory(
             user,
             device,
@@ -174,7 +176,7 @@ export const getLocationHistory = async (devices, start, end) => {
  *
  * @param {WebSocketLocationCallback} [callback] Callback for location messages
  */
-export const connectWebsocket = async callback => {
+export const connectWebsocket = async (callback) => {
   let url = getApiUrl("/ws/last");
   url.protocol = url.protocol.replace("http", "ws");
   url = url.href;
@@ -184,16 +186,17 @@ export const connectWebsocket = async callback => {
     log("WS", "Connected");
     ws.send("LAST");
   };
-  ws.onclose = event => {
+  ws.onclose = (event) => {
     log(
       "WS",
-      `Disconnected unexpectedly (reason: ${event.reason ||
-        "unknown"}). Reconnecting in one second.`,
+      `Disconnected unexpectedly (reason: ${
+        event.reason || "unknown"
+      }). Reconnecting in one second.`,
       logLevels.WARNING
     );
     setTimeout(connectWebsocket, 1000);
   };
-  ws.onmessage = async msg => {
+  ws.onmessage = async (msg) => {
     if (msg.data) {
       try {
         const data = JSON.parse(msg.data);

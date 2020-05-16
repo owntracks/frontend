@@ -222,9 +222,7 @@ export default {
       },
       set(value) {
         this.setStartDateTime(
-          moment(value, DATE_TIME_FORMAT)
-            .utc()
-            .format(DATE_TIME_FORMAT)
+          moment(value, DATE_TIME_FORMAT).utc().format(DATE_TIME_FORMAT)
         );
       },
     },

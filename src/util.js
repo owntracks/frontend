@@ -10,7 +10,7 @@ import { DATE_TIME_FORMAT, EARTH_RADIUS_IN_KM } from "@/constants";
  * @param {String} path Path to the API resource
  * @returns {URL} Final API URL
  */
-export const getApiUrl = path => {
+export const getApiUrl = (path) => {
   const normalizedBaseUrl = config.api.baseUrl.endsWith("/")
     ? config.api.baseUrl.slice(1)
     : config.api.baseUrl;
@@ -24,7 +24,7 @@ export const getApiUrl = path => {
  * @param {String} s Input value to be tested
  * @returns {Boolean} Whether the input matches the expected format
  */
-export const isIsoDateTime = s => moment(s, DATE_TIME_FORMAT, true).isValid();
+export const isIsoDateTime = (s) => moment(s, DATE_TIME_FORMAT, true).isValid();
 
 /**
  * Convert degrees to radians.
@@ -32,7 +32,7 @@ export const isIsoDateTime = s => moment(s, DATE_TIME_FORMAT, true).isValid();
  * @param {Number} degrees Angle in degrees
  * @returns {Number} Angle in radians
  */
-export const degreesToRadians = degrees => (degrees * Math.PI) / 180;
+export const degreesToRadians = (degrees) => (degrees * Math.PI) / 180;
 
 /**
  * Calculate the distance between two coordinates. Uses the haversine formula,
@@ -91,7 +91,7 @@ export const download = (text, filename, mimeType = "text/plain") => {
  * @param {Number} distance Distance in meters
  * @returns {String} Formatted string including unit
  */
-export const humanReadableDistance = distance => {
+export const humanReadableDistance = (distance) => {
   let unit = "m";
   if (Math.abs(distance) >= 1000) {
     distance = distance / 1000;
@@ -108,11 +108,11 @@ export const humanReadableDistance = distance => {
  * @param {LocationHistory} locationHistory Location history
  * @returns {Number} Total number of locations
  */
-export const getLocationHistoryCount = locationHistory =>
+export const getLocationHistoryCount = (locationHistory) =>
   Object.keys(locationHistory)
-    .map(user =>
+    .map((user) =>
       Object.keys(locationHistory[user])
-        .map(device => locationHistory[user][device].length)
+        .map((device) => locationHistory[user][device].length)
         .reduce((a, b) => a + b, 0)
     )
     .reduce((a, b) => a + b, 0);

@@ -94,7 +94,7 @@ export default {
     this.parentContainer.addLayer(this, !this.visible);
     this.$watch(
       "latLng",
-      newVal => {
+      (newVal) => {
         this.mapObject.setLatLngs(newVal);
       },
       { deep: true }

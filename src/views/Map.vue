@@ -197,7 +197,7 @@ export default {
           new L.LatLngBounds(this.filteredLocationHistoryLatLngs)
         );
       } else if (this.map.layers.last && this.lastLocations.length > 0) {
-        const locations = this.lastLocations.map(l => L.latLng(l.lat, l.lon));
+        const locations = this.lastLocations.map((l) => L.latLng(l.lat, l.lon));
         this.$refs.map.mapObject.fitBounds(new L.LatLngBounds(locations), {
           maxZoom: this.maxNativeZoom,
         });
@@ -215,12 +215,12 @@ export default {
      */
     deviceLocationsWithNameAndFace(user, device, deviceLocations) {
       const lastLocation = this.lastLocations.find(
-        l => l.username === user && l.device === device
+        (l) => l.username === user && l.device === device
       );
       if (!lastLocation) {
         return deviceLocations;
       }
-      return deviceLocations.map(l => ({
+      return deviceLocations.map((l) => ({
         ...l,
         name: lastLocation.name,
         face: lastLocation.face,

@@ -43,7 +43,7 @@ const populateStateFromQuery = ({ state, commit }, query) => {
   }
   if (query.layers) {
     const activeLayers = query.layers.split(",");
-    Object.keys(state.map.layers).forEach(layer => {
+    Object.keys(state.map.layers).forEach((layer) => {
       const visibility = activeLayers.includes(layer);
       if (state.map.layers[layer] !== visibility) {
         commit(types.SET_MAP_LAYER_VISIBILITY, { layer, visibility });
@@ -116,19 +116,19 @@ const getLastLocations = async ({ commit, state }) => {
     // Remove ping/ping from the owntracks/recorder Docker image
     // https://github.com/owntracks/frontend/issues/12
     lastLocations = lastLocations.filter(
-      l => !(l.username === "ping" && l.device === "ping")
+      (l) => !(l.username === "ping" && l.device === "ping")
     );
   }
   commit(types.SET_LAST_LOCATIONS, lastLocations);
 };
 
-const _getDistanceTravelled = locationHistory => {
+const _getDistanceTravelled = (locationHistory) => {
   const start = Date.now();
   let distanceTravelled = 0;
-  Object.keys(locationHistory).forEach(user => {
-    Object.keys(locationHistory[user]).forEach(device => {
+  Object.keys(locationHistory).forEach((user) => {
+    Object.keys(locationHistory[user]).forEach((device) => {
       let lastLatLng = null;
-      locationHistory[user][device].forEach(location => {
+      locationHistory[user][device].forEach((location) => {
         if (
           config.filters.minAccuracy !== null &&
           location.acc > config.filters.minAccuracy

@@ -79,16 +79,16 @@ Base URL for the recorder's HTTP and WebSocket API. Keep CORS in mind.
   // API requests will be made to https://owntracks.example.com/api/0/...
   window.owntracks.config = {
     api: {
-      baseUrl: "https://owntracks.example.com"
-    }
+      baseUrl: "https://owntracks.example.com",
+    },
   };
   ```
   ```js
   // API requests will be made to https://example.com/owntracks/api/0/...
   window.owntracks.config = {
     api: {
-      baseUrl: "https://example.com/owntracks/"
-    }
+      baseUrl: "https://example.com/owntracks/",
+    },
   };
   ```
 
@@ -106,9 +106,9 @@ You can use this for example to send custom HTTP headers or to include cookies i
   window.owntracks.config = {
     api: {
       fetchOptions: {
-        credentials: "include"
-      }
-    }
+        credentials: "include",
+      },
+    },
   };
   ```
 
@@ -122,7 +122,7 @@ Initial end date and time (browser timezone) for fetched data.
   ```js
   // Data will be fetched up to 1970-01-01
   window.owntracks.config = {
-    endDateTime: new Date(1970, 1, 1)
+    endDateTime: new Date(1970, 1, 1),
   };
   ```
 
@@ -141,8 +141,8 @@ distance calculation.
   // Don't include location points with an accuracy exceeding 100 meters
   window.owntracks.config = {
     filters: {
-      minAccuracy: 100
-    }
+      minAccuracy: 100,
+    },
   };
   ```
 
@@ -157,7 +157,7 @@ Remove the `ping/ping` location from the fetched data. This is useful when using
   ```js
   // Don't ignore ping/ping location. Not sure why you'd do this :)
   window.owntracks.config = {
-    ignorePingLocation: false
+    ignorePingLocation: false,
   };
   ```
 
@@ -188,8 +188,8 @@ Attribution for map tiles.
   // Make sure to add proper attribution!
   window.owntracks.config = {
     map: {
-      attribution: "Map tiles &copy; MyTileServerProvider"
-    }
+      attribution: "Map tiles &copy; MyTileServerProvider",
+    },
   };
   ```
 
@@ -356,8 +356,8 @@ splitting into separate lines.
   // Don't connect points with a distance of more than 1km
   window.owntracks.config = {
     map: {
-      maxPointDistance: 1000
-    }
+      maxPointDistance: 1000,
+    },
   };
   ```
 
@@ -398,8 +398,8 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
   window.owntracks.config = {
     map: {
       url:
-        "https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}@2x.png?access_token=xxxxxxxxxxxxxxxx"
-    }
+        "https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}@2x.png?access_token=xxxxxxxxxxxxxxxx",
+    },
   };
   ```
 
@@ -421,7 +421,7 @@ Primary color for the user interface (navigation bar and various map elements).
   ```js
   // Set the UI's primary color to 'rebeccapurple'
   window.owntracks.config = {
-    primaryColor: "rebeccapurple"
+    primaryColor: "rebeccapurple",
   };
   ```
 
@@ -440,7 +440,7 @@ amount of data fetched after page load.
   // Select the device 'phone' from user 'foo' by default
   window.owntracks.config = {
     selectedUser: "foo",
-    selectedDevice: "phone"
+    selectedDevice: "phone",
   };
   ```
 
@@ -457,7 +457,7 @@ amount of data fetched after page load.
   ```js
   // Select all devices from user 'foo' by default
   window.owntracks.config = {
-    selectedUser: "foo"
+    selectedUser: "foo",
   };
   ```
 
@@ -484,7 +484,7 @@ Initial start date and time (browser timezone) for fetched data.
   startDateTime.setHours(0, 0, 0, 0);
   startDateTime.setDate(1);
   window.owntracks.config = {
-    startDateTime
+    startDateTime,
   };
   ```
 

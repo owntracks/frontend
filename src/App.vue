@@ -34,7 +34,7 @@ export default {
     this.populateStateFromQuery(this.$route.query);
     this.loadData();
     // Update URL query params when relevant values changes
-    this.$store.subscribe(mutation => {
+    this.$store.subscribe((mutation) => {
       if (
         [
           types.SET_SELECTED_USER,
@@ -73,7 +73,7 @@ export default {
         selectedDevice: device,
       } = this.$store.state;
       const activeLayers = Object.keys(map.layers).filter(
-        key => map.layers[key] === true
+        (key) => map.layers[key] === true
       );
       const query = {
         lat: map.center.lat,
