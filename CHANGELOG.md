@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.4.0 (2020-06-01)
+
+- Add `filters.minAccuracy` config option - this allows ignoring location points which do
+  not meet the configured accuracy requirement ([#35](https://github.com/owntracks/frontend/issues/35))
+- Upgrade dependencies
+
 ## 2.3.1 (2020-05-09)
 
 - Fix linting issue in `config.md`
