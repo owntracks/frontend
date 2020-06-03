@@ -144,18 +144,6 @@ and start translating the individual strings. Make sure to [mention the new loca
 For a specific example see commit [`b2edda4`](https://github.com/owntracks/frontend/commit/b2edda410f16633aa6fd9cd4e5250f2031536c7d)
 where German translations were added.
 
-## Screenshots
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/loading.gif" alt="Loading...">
-  <br>
-  <br>
-  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/downloader.png" alt="Download location data">
-  <br>
-  <br>
-  <img src="https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/info.png" alt="Info">
-</p>
-
 ## Contributing
 
 Please feel free to open an issue and discuss your ideas and report bugs. If you think
