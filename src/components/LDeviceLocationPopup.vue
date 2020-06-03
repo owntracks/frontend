@@ -1,5 +1,5 @@
 <template>
-  <LPopup>
+  <LPopup :options="options">
     <div class="device">{{ deviceName }}</div>
     <div class="wrapper">
       <img
@@ -135,6 +135,10 @@ export default {
     regions: {
       type: Array,
       default: () => [],
+    },
+    options: {
+      type: Object,
+      default: () => {},
     },
   },
   computed: {

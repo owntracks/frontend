@@ -51,6 +51,7 @@
           :battery="l.batt"
           :speed="l.vel"
           :regions="l.inregions"
+          :options="{ className: 'leaflet-popup--for-pin' }"
         />
       </LMarker>
     </template>

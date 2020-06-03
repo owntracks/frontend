@@ -4,7 +4,10 @@
 
   .leaflet-popup {
     filter: var(--drop-shadow);
-    margin-bottom: calc(var(--pin-width) * 1.5 + 20px);
+
+    &--for-pin {
+      margin-bottom: calc(var(--pin-width) * 1.5 + 20px);
+    }
 
     .leaflet-popup-content-wrapper {
       border-radius: 3px;
