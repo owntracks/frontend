@@ -20,13 +20,14 @@ pages, this is a more advanced interface with more functionality, all in one pla
 - Last known (i.e. live) locations:
   - Accuracy visualization (circle)
   - Device friendly name and icon
-  - Detailed information (if available): time, latitude, longitude, height, battery and
-    speed
+  - Detailed information (if available): time, latitude, longitude, height, battery,
+    speed and regions
 - Location history (data points, line or both)
 - Location heatmap
 - Quickly fit all shown objects on the map into view
-- Display data in a specific date range
-- Filter by user and device
+- Display data in a specific date and time range
+- Filter by user or specific device
+- Calculation of distance travelled
 - Download selected location data as JSON
 - Highly customisable
 
