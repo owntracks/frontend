@@ -29,5 +29,6 @@
   "Location": "Location",
   "Address": "Address",
   "Battery": "Battery",
-  "Speed": "Speed"
+  "Speed": "Speed",
+  "Regions:": "Regions:"
 }

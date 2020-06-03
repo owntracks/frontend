@@ -50,6 +50,7 @@
           :alt="l.alt"
           :battery="l.batt"
           :speed="l.vel"
+          :regions="l.inregions"
         />
       </LMarker>
     </template>
@@ -87,6 +88,7 @@
               :alt="l.alt"
               :battery="l.batt"
               :speed="l.vel"
+              :regions="l.inregions"
             ></LDeviceLocationPopup>
           </LCircleMarker>
         </template>

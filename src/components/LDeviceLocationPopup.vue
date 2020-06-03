@@ -35,6 +35,10 @@
         </li>
       </ul>
     </div>
+    <div v-if="regions.length" class="regions">
+      {{ $t("Regions:") }}
+      {{ regions.join(", ") }}
+    </div>
   </LPopup>
 </template>
 
@@ -55,6 +59,11 @@
     align-self: start;
     margin-right: 20px;
   }
+}
+.regions {
+  border-top: 1px solid var(--color-separator);
+  margin-top: 15px;
+  padding-top: 15px;
 }
 </style>
 
@@ -122,6 +131,10 @@ export default {
     speed: {
       type: Number,
       default: null,
+    },
+    regions: {
+      type: Array,
+      default: () => [],
     },
   },
   computed: {
