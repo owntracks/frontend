@@ -1,0 +1,21 @@
+name: Lint code
+
+on: [push]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Install dependencies
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: install
+      - name: Lint JavaScript/Vue files
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: lint:js
+      - name: Lint Markdown files
+        uses: borales/actions-yarn@v2.0.0
+        with:
+          cmd: lint:md
