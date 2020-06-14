@@ -1,4 +1,4 @@
-name: 'Build Docker images for multiple architectures'
+name: Build Docker images
 
 on:
   schedule:
