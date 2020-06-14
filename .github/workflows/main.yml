@@ -7,9 +7,13 @@ on:
     branches: master
   push:
     branches: master
+    tags:
+      - v*
   release:
     types: [published]
     branches: master
+    tags:
+      - v*
 
 jobs:
   build-docker:
@@ -29,7 +33,7 @@ jobs:
           VERSION=master
 
           if [[ $GITHUB_REF == refs/tags/* ]]; then
-            VERSION=${GITHUB_REF#refs/tags/}
+            VERSION=${GITHUB_REF#refs/tags/v}
           fi
           if [ "${{ github.event_name }}" = "schedule" ]; then
             VERSION=nightly
