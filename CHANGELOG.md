@@ -2,6 +2,16 @@
 
 Dates are in UTC.
 
+## 2.5.0 (2020-09-07)
+
+- Add `filters.fitView` config option - this will prevent the map from re-fitting automatically by default when a live location changes ([#41](https://github.com/owntracks/frontend/issues/41))
+- Show regions for location on popup
+- Fix vertical offset of non-pin popups
+- Build Docker images for multiple architectures (linux/amd64, linux/arm/v7, linux/arm64) using GitHub Actions ([#38](https://github.com/owntracks/frontend/pull/38), [@wollew](https://github.com/wollew))
+- Replace Travis CI with GitHub Actions build/lint/test workflows ([#39](https://github.com/owntracks/frontend/pull/39))
+- Replace node-sass with sass (dart-sass)
+- Upgrade dependencies
+
 ## 2.4.0 (2020-06-01)
 
 - Add `filters.minAccuracy` config option - this allows ignoring location points which do
