@@ -3,16 +3,12 @@
     <ul class="info-list">
       <li>
         <GithubIcon size="1x" aria-hidden="true" role="img" />
-        <a href="https://github.com/owntracks/frontend">
-          owntracks/frontend
-        </a>
+        <a href="https://github.com/owntracks/frontend">owntracks/frontend</a>
         ({{ frontendVersion }})
       </li>
       <li>
         <GithubIcon size="1x" aria-hidden="true" role="img" />
-        <a href="https://github.com/owntracks/recorder">
-          owntracks/recorder
-        </a>
+        <a href="https://github.com/owntracks/recorder">owntracks/recorder</a>
         ({{ recorderVersion || "Loading version..." }})
       </li>
       <li>
