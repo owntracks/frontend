@@ -67,6 +67,7 @@ const DEFAULT_CONFIG = {
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
   },
   onLocationChange: {
+    fitView: false,
     reloadHistory: false,
   },
   primaryColor: "#3f51b5",

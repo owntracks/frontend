@@ -232,7 +232,9 @@ export default {
   },
   watch: {
     lastLocations() {
-      this.fitView();
+      if (this.$config.onLocationChange.fitView) {
+        this.fitView();
+      }
     },
     filteredLocationHistory() {
       this.fitView();

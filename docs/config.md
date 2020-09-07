@@ -60,6 +60,7 @@ window.owntracks.config = {};
   - [`polyline`](#mappolyline)
   - [`url`](#mapurl)
 - `onLocationChange`
+  - [`fitView`](#onlocationchangefitview)
   - [`reloadHistory`](#onlocationchangereloadhistory)
 - [`primaryColor`](#primarycolor)
 - [`selectedDevice`](#selecteddevice)
@@ -402,6 +403,15 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
     },
   };
   ```
+
+### `onLocationChange.fitView`
+
+Whether to re-fit the map's content into view or not when a location update is received.
+
+This can be useful if you're showing live locations and don't want them to "leave" the map.
+
+- Type: [`Boolean`]
+- Default: `false`
 
 ### `onLocationChange.reloadHistory`
 
