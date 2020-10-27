@@ -2,6 +2,11 @@
 
 Dates are in UTC.
 
+## 2.5.1 (2020-10-27)
+
+- Fix incorrect handling of `api.baseUrl` with trailing slash ([#44](https://github.com/owntracks/frontend/pull/44), [@karmanyaahm](https://github.com/karmanyaahm))
+- Upgrade dependencies
+
 ## 2.5.0 (2020-09-07)
 
 - Add `filters.fitView` config option - this will prevent the map from re-fitting automatically by default when a live location changes ([#41](https://github.com/owntracks/frontend/issues/41))
