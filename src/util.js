@@ -12,7 +12,7 @@ import { DATE_TIME_FORMAT, EARTH_RADIUS_IN_KM } from "@/constants";
  */
 export const getApiUrl = (path) => {
   const normalizedBaseUrl = config.api.baseUrl.endsWith("/")
-    ? config.api.baseUrl.slice(1)
+    ? config.api.baseUrl.slice(0, -1)
     : config.api.baseUrl;
   const normalizedPath = path.startsWith("/") ? path : `/${path}`;
   return new URL(`${normalizedBaseUrl}${normalizedPath}`);
