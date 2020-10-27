@@ -22,6 +22,13 @@ describe("getApiUrl", () => {
     expect(getApiUrl("/foo/bar").href).toBe(
       "http://example.com/owntracks/foo/bar"
     );
+
+    config.api.baseUrl = "http://example.com/owntracks/";
+    expect(getApiUrl("foo").href).toBe("http://example.com/owntracks/foo");
+    expect(getApiUrl("/foo").href).toBe("http://example.com/owntracks/foo");
+    expect(getApiUrl("/foo/bar").href).toBe(
+      "http://example.com/owntracks/foo/bar"
+    );
   });
 });
 
