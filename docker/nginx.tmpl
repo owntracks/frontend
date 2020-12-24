@@ -8,6 +8,7 @@ http {
     }
     server {
         listen ${LISTEN_PORT};
+        listen [::]:${LISTEN_PORT};        
         root /usr/share/nginx/html;
         location /api {
             proxy_pass http://otrecorder/api/;
