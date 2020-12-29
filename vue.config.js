@@ -6,6 +6,7 @@ const packageJson = fs.readFileSync("./package.json");
 const version = JSON.parse(packageJson).version;
 
 module.exports = {
+  publicPath: "",
   configureWebpack: {
     plugins: [
       new webpack.DefinePlugin({
