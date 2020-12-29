@@ -2,6 +2,13 @@
 
 Dates are in UTC.
 
+## 2.6.0 (2020-12-29)
+
+- Add `router.basePath` config option for non-webroot deployments
+- Configure Vue to not assume it's on the web root ([#47](https://github.com/owntracks/frontend/pull/47), [@growse](https://github.com/growse))
+- Update Docker NGINX config to listen on IPv6 as well ([#46](https://github.com/owntracks/frontend/pull/46), [@growse](https://github.com/growse))
+- Upgrade dependencies
+
 ## 2.5.1 (2020-10-27)
 
 - Fix incorrect handling of `api.baseUrl` with trailing slash ([#44](https://github.com/owntracks/frontend/pull/44), [@karmanyaahm](https://github.com/karmanyaahm))
