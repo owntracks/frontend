@@ -71,6 +71,9 @@ const DEFAULT_CONFIG = {
     reloadHistory: false,
   },
   primaryColor: "#3f51b5",
+  router: {
+    basePath: "/",
+  },
   selectedDevice: null,
   selectedUser: null,
   showDistanceTravelled: true,

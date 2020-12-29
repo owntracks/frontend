@@ -63,6 +63,8 @@ window.owntracks.config = {};
   - [`fitView`](#onlocationchangefitview)
   - [`reloadHistory`](#onlocationchangereloadhistory)
 - [`primaryColor`](#primarycolor)
+- `router`
+  - [`basePath`](#routerbasepath)
 - [`selectedDevice`](#selecteddevice)
 - [`selectedUser`](#selecteduser)
 - [`showDistanceTravelled`](#showdistancetravelled)
@@ -432,6 +434,22 @@ Primary color for the user interface (navigation bar and various map elements).
   // Set the UI's primary color to 'rebeccapurple'
   window.owntracks.config = {
     primaryColor: "rebeccapurple",
+  };
+  ```
+
+### `router.basePath`
+
+Base path of the application deployment.
+
+- Type: [`String`]
+- Default: `"/"`
+- Example:
+  ```js
+  // Frontend will be reachable at https://example.com/owntracks
+  window.owntracks.config = {
+    router: {
+      basePath: "/owntracks",
+    },
   };
   ```
 
