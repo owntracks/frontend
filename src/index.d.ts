@@ -2,8 +2,12 @@
 interface Config {
     api: {
         baseUrl: string;
+        fetchOptions: object;
     };
     endDateTime: Date;
+    filters: {
+      minAccuracy: number | null,
+    };
     ignorePingLocation: boolean;
     locale: string;
     map: {
@@ -54,11 +58,16 @@ interface Config {
         url: string;
     };
     onLocationChange: {
+        fitView: boolean;
         reloadHistory: boolean;
     };
     primaryColor: Color;
-    selectedUser: User| null;
-    selectedDevice: Device| null;
+    router: {
+      basePath: string;
+    };
+    selectedUser: User | null;
+    selectedDevice: Device | null;
+    showDistanceTravelled: boolean;
     startDateTime: Date;
     verbose: boolean;
 }
@@ -72,8 +81,8 @@ interface State {
     devices: { User: Device[] };
     lastLocations: OTLocation[];
     locationHistory: LocationHistory;
-    selectedUser: User| null;
-    selectedDevice: Device| null;
+    selectedUser: User | null;
+    selectedDevice: Device | null;
     startDateTime: string;
     endDateTime: string;
     map: {
