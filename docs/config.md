@@ -174,8 +174,9 @@ Available languages:
 - `de` (German)
 - `en` (English)
 - `es` (Spanish)
+- `fr` (French)
 
-You can use formats like `en-GB`, `en-US`, `de-DE`.
+You can use formats like `en-GB`, `en-US`, `de-DE`, `fr-FR`.
 
 - Type: [`String`]
 - Default: `"en"`
