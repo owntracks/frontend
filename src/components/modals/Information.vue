@@ -9,7 +9,7 @@
       <li>
         <GithubIcon size="1x" aria-hidden="true" role="img" />
         <a href="https://github.com/owntracks/recorder">owntracks/recorder</a>
-        ({{ recorderVersion || "Loading version..." }})
+        ({{ recorderVersion || $t("Loading version...") }})
       </li>
       <li>
         <GlobeIcon size="1x" aria-hidden="true" role="img" />
