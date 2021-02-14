@@ -1,11 +1,11 @@
-FROM node:10 as build
+FROM node:14 as build
 WORKDIR /usr/src/app
 COPY package.json yarn.lock ./
 RUN yarn install
 COPY . ./
 RUN yarn build
 
-FROM nginx:1.17-alpine
+FROM nginx:1.18-alpine
 LABEL version="2.6.0"
 LABEL description="OwnTracks UI"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
