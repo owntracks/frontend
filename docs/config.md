@@ -172,6 +172,7 @@ formats.
 Available languages:
 
 - `de-DE` (Standard German)
+- `en-GB` (British English)
 - `en-US` (American English)
 - `es-ES` (Castilian Spanish)
 - `fr-FR` (Standard French)
