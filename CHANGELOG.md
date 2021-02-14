@@ -2,6 +2,14 @@
 
 Dates are in UTC.
 
+## 2.7.0 (2021-02-14)
+
+- Rename translation files from `xx` to `xx-XX` format to allow different language variants
+- Separate `en` translations into British English (`en-GB`) and American English (`en-US`, default)
+- Add French translations ([#49](https://github.com/owntracks/frontend/pull/49), [@Elu43](https://github.com/Elu43))
+- Update Docker image to use Node 14 and nginx 1.18
+- Upgrade dependencies
+
 ## 2.6.0 (2020-12-29)
 
 - Add `router.basePath` config option for non-webroot deployments
