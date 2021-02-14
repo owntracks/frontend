@@ -171,15 +171,16 @@ formats.
 
 Available languages:
 
-- `de` (German)
-- `en` (English)
-- `es` (Spanish)
-- `fr` (French)
+- `de-DE` (Standard German)
+- `en-US` (American English)
+- `es-ES` (Castilian Spanish)
+- `fr-FR` (Standard French)
 
-You can use formats like `en-GB`, `en-US`, `de-DE`, `fr-FR`.
+Using a locale with non-existent translations is possible and will affect date/time formats, but
+use `en-US` for translations.
 
 - Type: [`String`]
-- Default: `"en"`
+- Default: `"en-US"`
 
 ### `map.attribution`
 

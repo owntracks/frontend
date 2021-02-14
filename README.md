@@ -142,7 +142,7 @@ unused i18n entries, run:
 $ yarn i18n:report
 ```
 
-To add a new locale, copy `en.json` to `<locale>.json` in [`src/locales`](src/locales)
+To add a new locale, copy `en-US.json` to `<locale>.json` in [`src/locales`](src/locales)
 and start translating the individual strings. Make sure to [mention the new locale to the docs](docs/config.md#locale)!
 
 For a specific example see commit [`b2edda4`](https://github.com/owntracks/frontend/commit/b2edda410f16633aa6fd9cd4e5250f2031536c7d)

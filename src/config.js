@@ -17,7 +17,7 @@ const DEFAULT_CONFIG = {
     minAccuracy: null,
   },
   ignorePingLocation: true,
-  locale: "en",
+  locale: "en-US",
   map: {
     attribution:
       '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
