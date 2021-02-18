@@ -122,9 +122,11 @@ const getLastLocations = async ({ commit, state }) => {
   commit(types.SET_LAST_LOCATIONS, lastLocations);
 };
 
-const _getDistanceTravelled = (locationHistory) => {
+const _getTravelStats = (locationHistory) => {
   const start = Date.now();
   let distanceTravelled = 0;
+  let elevationGain = 0;
+  let elevationLoss = 0;
   Object.keys(locationHistory).forEach((user) => {
     Object.keys(locationHistory[user]).forEach((device) => {
       let lastLatLng = null;
@@ -134,20 +136,21 @@ const _getDistanceTravelled = (locationHistory) => {
           location.acc > config.filters.minAccuracy
         )
           return;
-        const latLng = L.latLng(location.lat, location.lon);
+        const latLng = L.latLng(location.lat, location.lon, location.alt ?? 0);
         if (lastLatLng !== null) {
           const distance = distanceBetweenCoordinates(lastLatLng, latLng);
+          const elevationChange = latLng.alt - lastLatLng.alt;
           if (
             typeof config.map.maxPointDistance === "number" &&
             config.map.maxPointDistance > 0
+              ? // If part of the current group, add to total
+                distance <= config.map.maxPointDistance
+              : // If grouping is disabled, always add to total
+                true
           ) {
-            if (distance <= config.map.maxPointDistance) {
-              // Part of the current group, add calculated distance to total
-              distanceTravelled += distance;
-            }
-          } else {
-            // If grouping is disabled always add calculated distance to total
             distanceTravelled += distance;
+            if (elevationChange >= 0) elevationGain += elevationChange;
+            else elevationLoss += -elevationChange;
           }
         }
         lastLatLng = latLng;
@@ -155,15 +158,15 @@ const _getDistanceTravelled = (locationHistory) => {
     });
   });
   const end = Date.now();
-  log("DISTANCE", () => {
+  log("PERFORMANCE", () => {
     const locationHistoryCount = getLocationHistoryCount(locationHistory);
     const duration = (end - start) / 1000;
     return (
-      `[_getDistanceTravelled] Took ${duration} seconds to ` +
-      `calculate distance of ${locationHistoryCount} locations`
+      `[_getTravelStats] Took ${duration} seconds to calculate distance ` +
+      `and elevation gain/loss of ${locationHistoryCount} locations`
     );
   });
-  return distanceTravelled;
+  return { distanceTravelled, elevationGain, elevationLoss };
 };
 
 /**
@@ -189,10 +192,12 @@ const getLocationHistory = async ({ commit, state }) => {
   commit(types.SET_IS_LOADING, false);
   commit(types.SET_LOCATION_HISTORY, locationHistory);
   if (config.showDistanceTravelled) {
-    commit(
-      types.SET_DISTANCE_TRAVELLED,
-      _getDistanceTravelled(locationHistory)
+    const { distanceTravelled, elevationGain, elevationLoss } = _getTravelStats(
+      locationHistory
     );
+    commit(types.SET_DISTANCE_TRAVELLED, distanceTravelled);
+    commit(types.SET_ELEVATION_GAIN, elevationGain);
+    commit(types.SET_ELEVATION_LOSS, elevationLoss);
   }
 };
 

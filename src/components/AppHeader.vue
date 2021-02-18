@@ -118,10 +118,19 @@
     <nav class="header-item header-item-right">
       <div
         v-if="$config.showDistanceTravelled && distanceTravelled"
-        class="nav-item"
-        :title="$t('Distance travelled')"
+        class="nav-item distance-travelled"
       >
-        {{ humanReadableDistance(distanceTravelled) }}
+        <span :title="$t('Distance travelled')">
+          {{ humanReadableDistance(distanceTravelled) }}
+        </span>
+        <br />
+        <span :title="$t('Elevation gain / loss')">
+          <ArrowUpIcon size="0.8x" role="img" />
+          {{ humanReadableDistance(elevationGain) }}
+          /
+          <ArrowDownIcon size="0.8x" role="img" />
+          {{ humanReadableDistance(elevationLoss) }}
+        </span>
       </div>
       <div class="nav-item">
         <button
@@ -153,6 +162,8 @@
 import moment from "moment";
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
 import {
+  ArrowDownIcon,
+  ArrowUpIcon,
   CalendarIcon,
   CrosshairIcon,
   DownloadIcon,
@@ -172,6 +183,8 @@ import { humanReadableDistance } from "@/util";
 
 export default {
   components: {
+    ArrowDownIcon,
+    ArrowUpIcon,
     CalendarIcon,
     CrosshairIcon,
     DownloadIcon,
@@ -196,7 +209,14 @@ export default {
     };
   },
   computed: {
-    ...mapState(["users", "devices", "map", "distanceTravelled"]),
+    ...mapState([
+      "users",
+      "devices",
+      "map",
+      "distanceTravelled",
+      "elevationGain",
+      "elevationLoss",
+    ]),
     selectedUser: {
       get() {
         return this.$store.state.selectedUser;

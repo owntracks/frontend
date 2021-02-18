@@ -43,4 +43,10 @@ export default {
   [types.SET_DISTANCE_TRAVELLED](state, distanceTravelled) {
     state.distanceTravelled = distanceTravelled;
   },
+  [types.SET_ELEVATION_GAIN](state, elevationGain) {
+    state.elevationGain = elevationGain;
+  },
+  [types.SET_ELEVATION_LOSS](state, elevationLoss) {
+    state.elevationLoss = elevationLoss;
+  },
 };

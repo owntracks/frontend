@@ -499,6 +499,8 @@ header bar. `maxPointDistance` is being takein into account, if a distance betwe
 subsequent points is greater than `maxPointDistance`, it will not contibute to the
 calculated travelled distance.
 
+This also includes a calculation of elevation gain / loss.
+
 - Type: [`Boolean`]
 - Default: `true`
 

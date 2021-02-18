@@ -151,6 +151,16 @@ pre {
         .button-icon .feather {
           margin: 0;
         }
+
+        &.distance-travelled {
+          text-align: right;
+          line-height: 1.2;
+
+          .feather {
+            margin-top: 3px;
+            margin-right: 0;
+          }
+        }
       }
 
       &.nav-sm {
