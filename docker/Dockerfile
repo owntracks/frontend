@@ -6,7 +6,7 @@ COPY . ./
 RUN yarn build
 
 FROM nginx:1.18-alpine
-LABEL version="2.7.0"
+LABEL version="2.8.0"
 LABEL description="OwnTracks UI"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 ENV LISTEN_PORT=80 \

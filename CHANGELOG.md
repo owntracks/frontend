@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.8.0 (2021-02-19)
+
+- Add elevation gain / loss to "distance travelled" calculation ([#51](https://github.com/owntracks/frontend/issues/51))
+
 ## 2.7.0 (2021-02-14)
 
 - Rename translation files from `xx` to `xx-XX` format to allow different language variants
