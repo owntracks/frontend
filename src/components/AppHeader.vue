@@ -158,6 +158,18 @@
   </header>
 </template>
 
+<style lang="scss" scoped>
+.distance-travelled {
+  text-align: right;
+  line-height: 1.2;
+
+  .feather {
+    margin-top: 3px;
+    margin-right: 0 !important;
+  }
+}
+</style>
+
 <script>
 import moment from "moment";
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
