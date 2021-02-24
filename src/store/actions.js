@@ -184,12 +184,21 @@ const getLocationHistory = async ({ commit, state }) => {
   } else {
     devices = state.devices;
   }
-  const locationHistory = await api.getLocationHistory(
-    devices,
-    state.startDateTime,
-    state.endDateTime
-  );
-  commit(types.SET_IS_LOADING, false);
+  commit(types.SET_REQUEST_ABORT_CONTROLLER, new AbortController());
+  let locationHistory;
+  try {
+    locationHistory = await api.getLocationHistory(
+      devices,
+      state.startDateTime,
+      state.endDateTime,
+      { signal: state.requestAbortController.signal }
+    );
+  } catch (error) {
+    return;
+  } finally {
+    commit(types.SET_REQUEST_ABORT_CONTROLLER, null);
+    commit(types.SET_IS_LOADING, false);
+  }
   commit(types.SET_LOCATION_HISTORY, locationHistory);
   if (config.showDistanceTravelled) {
     const { distanceTravelled, elevationGain, elevationLoss } = _getTravelStats(

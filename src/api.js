@@ -7,17 +7,24 @@ import { getApiUrl, getLocationHistoryCount } from "@/util";
  *
  * @param {String} path API resource path
  * @param {Object} [params] Query parameters
- * @returns {Promise} Promise returned by the fetch function
+ * @param {Object} [fetchOptions]
+ *   fetch() options (merged with config.api.fetchOptions)
+ * @returns {Promise<Response>} Response returned by the fetch call
  */
-const fetchApi = (path, params = {}) => {
+const fetchApi = (path, params = {}, fetchOptions = {}) => {
   const url = getApiUrl(path);
-  Object.keys(params).forEach((key) =>
-    url.searchParams.append(key, params[key])
-  );
+  Object.keys(params).forEach((key) => url.searchParams.set(key, params[key]));
   log("HTTP", `GET ${url.href}`);
-  return fetch(url.href, config.api.fetchOptions).catch((error) =>
-    log("HTTP", error, logLevels.ERROR)
-  );
+  return fetch(url.href, {
+    ...fetchOptions,
+    ...config.api.fetchOptions,
+  }).catch((error) => {
+    if (error.name === "AbortError") {
+      log("HTTP", `GET ${url.href} - Request was aborted`, logLevels.WARNING);
+    } else {
+      log("HTTP", error, logLevels.ERROR);
+    }
+  });
 };
 
 /**
@@ -107,21 +114,27 @@ export const getLastLocations = async (user, device) => {
  * @param {Device} device Device name
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
+ * @param {Object} [fetchOptions] fetch() options
  * @returns {Promise<OTLocation[]>} Array of location history objects
  */
 export const getUserDeviceLocationHistory = async (
   user,
   device,
   start,
-  end
+  end,
+  fetchOptions
 ) => {
-  const response = await fetchApi("/api/0/locations", {
-    from: start,
-    to: end,
-    user,
-    device,
-    format: "json",
-  });
+  const response = await fetchApi(
+    "/api/0/locations",
+    {
+      from: start,
+      to: end,
+      user,
+      device,
+      format: "json",
+    },
+    fetchOptions
+  );
   const json = await response.json();
   const userDeviceLocationHistory = json.data;
   log(
@@ -141,9 +154,10 @@ export const getUserDeviceLocationHistory = async (
  *   Devices of which the history should be fetched
  * @param {String} start Start date and time in UTC
  * @param {String} end End date and time in UTC
+ * @param {Object} [fetchOptions] fetch() options
  * @returns {Promise<LocationHistory>} Location history
  */
-export const getLocationHistory = async (devices, start, end) => {
+export const getLocationHistory = async (devices, start, end, fetchOptions) => {
   const locationHistory = {};
   await Promise.all(
     Object.keys(devices).map(async (user) => {
@@ -154,7 +168,8 @@ export const getLocationHistory = async (devices, start, end) => {
             user,
             device,
             start,
-            end
+            end,
+            fetchOptions
           );
         })
       );

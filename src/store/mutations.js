@@ -49,4 +49,7 @@ export default {
   [types.SET_ELEVATION_LOSS](state, elevationLoss) {
     state.elevationLoss = elevationLoss;
   },
+  [types.SET_REQUEST_ABORT_CONTROLLER](state, requestAbortController) {
+    state.requestAbortController = requestAbortController;
+  },
 };

@@ -33,6 +33,7 @@ export default new Vuex.Store({
     distanceTravelled: 0,
     elevationGain: 0,
     elevationLoss: 0,
+    requestAbortController: null,
   },
   getters,
   mutations,
