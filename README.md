@@ -1,4 +1,4 @@
-# OwnTracks UI
+# OwnTracks Frontend
 
 ![Version](https://img.shields.io/github/package-json/v/owntracks/frontend)
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
@@ -8,7 +8,7 @@
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
 [![License](https://img.shields.io/github/license/owntracks/frontend?color=d63e97)](https://github.com/owntracks/frontend/blob/master/LICENSE)
 
-![OwnTracks UI](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/owntracks-ui.png)
+![Screenshot](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/screenshot.png)
 
 ## Introduction
 
@@ -53,7 +53,7 @@ compose config, and the service is named `otrecorder`):
 version: "3"
 
 services:
-  owntracks-ui:
+  owntracks-frontend:
     image: owntracks/frontend
     ports:
       - 80:80

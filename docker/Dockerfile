@@ -7,7 +7,7 @@ RUN yarn build
 
 FROM nginx:1.18-alpine
 LABEL version="2.8.0"
-LABEL description="OwnTracks UI"
+LABEL description="OwnTracks Frontend"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 ENV LISTEN_PORT=80 \
   SERVER_HOST=otrecorder \
