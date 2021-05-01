@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.9.0 (2021-05-01)
+
+- Add a cancel button to the loading data modal
+- Replace remaining uses of "OwnTracks UI" with "OwnTracks Frontend"
+- Upgrade dependencies
+
 ## 2.8.0 (2021-02-19)
 
 - Add elevation gain / loss to "distance travelled" calculation ([#51](https://github.com/owntracks/frontend/issues/51))
