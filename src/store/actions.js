@@ -201,9 +201,8 @@ const getLocationHistory = async ({ commit, state }) => {
   }
   commit(types.SET_LOCATION_HISTORY, locationHistory);
   if (config.showDistanceTravelled) {
-    const { distanceTravelled, elevationGain, elevationLoss } = _getTravelStats(
-      locationHistory
-    );
+    const { distanceTravelled, elevationGain, elevationLoss } =
+      _getTravelStats(locationHistory);
     commit(types.SET_DISTANCE_TRAVELLED, distanceTravelled);
     commit(types.SET_ELEVATION_GAIN, elevationGain);
     commit(types.SET_ELEVATION_LOSS, elevationLoss);
