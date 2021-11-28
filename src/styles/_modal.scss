@@ -1,22 +1,20 @@
-.v--modal-overlay {
-  background: rgba(0, 0, 0, 0.5) !important;
-
-  .v--modal-background-click {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    .v--modal-box.v--modal {
-      top: initial !important;
-      left: initial !important;
-      width: auto !important;
-      height: auto !important;
-      max-width: 95vw;
-      max-height: 95vh;
-      overflow: auto;
-      padding: 30px;
-      border-radius: 3px;
-      background: var(--color-background);
-    }
+.vm--container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .vm--overlay {
+    background: rgba(0, 0, 0, 0.5) !important;
+  }
+  .vm--modal {
+    top: initial !important;
+    left: initial !important;
+    width: auto !important;
+    height: auto !important;
+    max-width: 95vw;
+    max-height: 95vh;
+    overflow: auto;
+    padding: 30px;
+    border-radius: 3px;
+    background: var(--color-background);
   }
 }
