@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.10.0 (2021-11-28)
+
+- Ensure location history line segments are drawn in chronological order ([#67](https://github.com/owntracks/frontend/issues/67))
+- Add trailing slashes to paths used by Docker nginx config ([#63](https://github.com/owntracks/frontend/pull/63), [@growse](https://github.com/growse))
+- Upgrade dependencies
+
 ## 2.9.0 (2021-05-01)
 
 - Add a cancel button to the loading data modal
