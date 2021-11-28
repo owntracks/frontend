@@ -11,9 +11,11 @@
     "cors-proxy": "node scripts/corsProxy.js",
     "format:js": "vue-cli-service lint",
     "format:md": "prettier --write '{*.md,docs/**/*.md,src/**/*.md}'",
+    "format:scss": "prettier --write 'src/**/*.scss'",
     "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
     "lint:js": "vue-cli-service lint --no-fix",
     "lint:md": "prettier --check '{*.md,docs/**/*.md,src/**/*.md}'",
+    "lint:scss": "prettier --check 'src/**/*.scss'",
     "test": "vue-cli-service test:unit"
   },
   "dependencies": {
