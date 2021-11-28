@@ -136,7 +136,11 @@ export const getUserDeviceLocationHistory = async (
     fetchOptions
   );
   const json = await response.json();
-  const userDeviceLocationHistory = json.data;
+  // We need to manually sort by timestamp, otherwise the line segments may be
+  // drawn in the wrong order. The recorder API simply returns entries in the
+  // same order in which they are in each *.rec file.
+  // See https://github.com/owntracks/frontend/issues/67.
+  const userDeviceLocationHistory = json.data.sort((a, b) => a.tst - b.tst);
   log(
     "API",
     () =>
