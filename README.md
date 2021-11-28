@@ -2,13 +2,13 @@
 
 ![Version](https://img.shields.io/github/package-json/v/owntracks/frontend)
 [![Docker Pulls](https://img.shields.io/docker/pulls/owntracks/frontend)](https://hub.docker.com/r/owntracks/frontend)
-[![Build](https://github.com/owntracks/frontend/workflows/Build/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ABuild+branch%3Amaster)
-[![Tests](https://github.com/owntracks/frontend/workflows/Tests/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ATests+branch%3Amaster)
-[![Lint](https://github.com/owntracks/frontend/workflows/Lint/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ALint+branch%3Amaster)
+[![Build](https://github.com/owntracks/frontend/workflows/Build/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ABuild+branch%3Amain)
+[![Tests](https://github.com/owntracks/frontend/workflows/Tests/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ATests+branch%3Amain)
+[![Lint](https://github.com/owntracks/frontend/workflows/Lint/badge.svg)](https://github.com/owntracks/frontend/actions?query=workflow%3ALint+branch%3Amain)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)](https://github.com/prettier/prettier)
-[![License](https://img.shields.io/github/license/owntracks/frontend?color=d63e97)](https://github.com/owntracks/frontend/blob/master/LICENSE)
+[![License](https://img.shields.io/github/license/owntracks/frontend?color=d63e97)](https://github.com/owntracks/frontend/blob/main/LICENSE)
 
-![Screenshot](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/screenshot.png)
+![Screenshot](https://raw.githubusercontent.com/owntracks/frontend/main/docs/images/screenshot.png)
 
 ## Introduction
 
@@ -16,7 +16,7 @@ This is a web interface for [OwnTracks](https://github.com/owntracks/recorder) b
 a Vue.js single page application. The recorder itself already ships with some basic web
 pages, this is a more advanced interface with more functionality, all in one place.
 
-![Map features](https://raw.githubusercontent.com/owntracks/frontend/master/docs/images/map-features.png)
+![Map features](https://raw.githubusercontent.com/owntracks/frontend/main/docs/images/map-features.png)
 
 ## Features
 
