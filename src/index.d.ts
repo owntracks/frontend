@@ -136,6 +136,8 @@ interface OTLocation {
      * - `"m"` = mobile data
      */
     conn?: string;
+    /** identifies the time at which the message is constructed (vs. `tst` which is the timestamp of the GPS fix) */
+    created_at?: string;
     /** Device name */
     device?: Device;
     /** Timestamp in a readable format */
@@ -147,8 +149,10 @@ interface OTLocation {
      * https://en.wikipedia.org/wiki/Geohash
      */
     ghash?: string;
-    /** Regions the device is currently in (e.g. `["Home", "Garage"]`). Might be empty. */
+    /** contains a list of regions the device is currently in (e.g. ["Home","Garage"]). Might be empty.  */
     inregions?: string[];
+    /** contains a list of region IDs the device is currently in (e.g. ["6da9cf","3defa7"]). Might be empty. */
+    inrids?: string[];
     /**
      * No idea; some kind of timestamp as well - figure it out yourself. :)
      * https://github.com/owntracks/recorder/blob/df009f791a845012e9cce24923e6203a079ca1ed/storage.c#L659
@@ -190,6 +194,10 @@ interface OTLocation {
     vac?: number;
     /** Velocity in km/h */
     vel?: number;
+    /** SSID, if available, is the unique name of the WLAN. */
+    SSID?: string;
+    /** BSSID, if available, identifies the access point. */
+    BSSID?: string;
 }
 
 /** URL query parameters (prior to any parsing so it's all strings). */
