@@ -21,6 +21,12 @@ module.exports = {
         htmlWhitespaceSensitivity: "ignore",
       },
     ],
+    "vue/multi-word-component-names": [
+      "error",
+      {
+        ignores: ["Map"],
+      },
+    ],
   },
   parserOptions: {
     parser: "babel-eslint",

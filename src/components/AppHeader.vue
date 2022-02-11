@@ -32,7 +32,10 @@
       </div>
       <div class="nav-item">
         <LayersIcon size="1x" aria-hidden="true" role="img" />
-        <Dropdown :label="$t('Layer settings')" :title="$t('Show/hide layers')">
+        <DropdownButton
+          :label="$t('Layer settings')"
+          :title="$t('Show/hide layers')"
+        >
           <label v-for="option in layerSettingsOptions" :key="option.layer">
             <input
               type="checkbox"
@@ -46,7 +49,7 @@
             />
             {{ option.label }}
           </label>
-        </Dropdown>
+        </DropdownButton>
       </div>
       <div class="nav-item">
         <CalendarIcon size="1x" aria-hidden="true" role="img" />
@@ -188,7 +191,7 @@ import {
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
-import Dropdown from "@/components/Dropdown";
+import DropdownButton from "@/components/DropdownButton";
 import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
 import { humanReadableDistance } from "@/util";
@@ -206,7 +209,7 @@ export default {
     SmartphoneIcon,
     UserIcon,
     VueCtkDateTimePicker,
-    Dropdown,
+    DropdownButton,
   },
   data() {
     return {
