@@ -33,6 +33,11 @@
           <ZapIcon size="1x" aria-hidden="true" role="img" />
           {{ speed }} km/h
         </li>
+        <li v-if="wifi.ssid" :title="$t('WiFi')">
+          <WifiIcon size="1x" aria-hidden="true" role="img" />
+          {{ wifi.ssid }}
+          <span v-if="wifi.bssid">({{ wifi.bssid }})</span>
+        </li>
       </ul>
     </div>
     <div v-if="regions.length" class="regions">
@@ -73,6 +78,7 @@ import {
   ClockIcon,
   HomeIcon,
   MapPinIcon,
+  WifiIcon,
   ZapIcon,
 } from "vue-feather-icons";
 import { LPopup } from "vue2-leaflet";
@@ -84,6 +90,7 @@ export default {
     ClockIcon,
     HomeIcon,
     MapPinIcon,
+    WifiIcon,
     ZapIcon,
     LPopup,
   },
@@ -135,6 +142,10 @@ export default {
     regions: {
       type: Array,
       default: () => [],
+    },
+    wifi: {
+      type: Object,
+      default: () => {},
     },
     options: {
       type: Object,

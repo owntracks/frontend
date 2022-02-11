@@ -51,6 +51,7 @@
           :battery="l.batt"
           :speed="l.vel"
           :regions="l.inregions"
+          :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
           :options="{ className: 'leaflet-popup--for-pin' }"
         />
       </LMarker>
@@ -90,6 +91,7 @@
               :battery="l.batt"
               :speed="l.vel"
               :regions="l.inregions"
+              :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
             ></LDeviceLocationPopup>
           </LCircleMarker>
         </template>
