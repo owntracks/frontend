@@ -53,6 +53,7 @@
           :regions="l.inregions"
           :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
           :options="{ className: 'leaflet-popup--for-pin' }"
+          :address="l.addr"
         />
       </LMarker>
     </template>
@@ -92,6 +93,7 @@
               :speed="l.vel"
               :regions="l.inregions"
               :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
+              :address="l.addr"
             ></LDeviceLocationPopup>
           </LCircleMarker>
         </template>
