@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.11.0 (2022-03-16)
+
+- Show WiFi SSID and BSSID in location popup, if available
+- Show address in location popup, if available ([#73](https://github.com/owntracks/frontend/pull/73), [@saesh](https://github.com/saesh))
+- Upgrade dependencies
+
 ## 2.10.0 (2021-11-28)
 
 - Ensure location history line segments are drawn in chronological order ([#67](https://github.com/owntracks/frontend/issues/67))
