@@ -21,6 +21,7 @@
     <LTileLayer
       :url="url"
       :attribution="attribution"
+      :tileSize="tileSize"
       :options="{ maxNativeZoom, maxZoom, zoomOffset }"
     />
 
@@ -154,6 +155,7 @@ export default {
       markerIcon: LCustomMarker,
       maxZoom: this.$config.map.maxZoom,
       maxNativeZoom: this.$config.map.maxNativeZoom,
+      tileSize: this.$config.map.tileSize,
       url: this.$config.map.url,
       zoom: this.$store.state.map.zoom,
       zoomOffset: this.$config.map.zoomOffset,
