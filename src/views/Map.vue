@@ -21,7 +21,7 @@
     <LTileLayer
       :url="url"
       :attribution="attribution"
-      :options="{ maxNativeZoom, maxZoom }"
+      :options="{ maxNativeZoom, maxZoom, zoomOffset }"
     />
 
     <template v-if="map.layers.last">
@@ -156,6 +156,7 @@ export default {
       maxNativeZoom: this.$config.map.maxNativeZoom,
       url: this.$config.map.url,
       zoom: this.$store.state.map.zoom,
+      zoomOffset: this.$config.map.zoomOffset,
       circle: {
         ...this.$config.map.circle,
         color: this.$config.map.circle.color || this.$config.primaryColor,

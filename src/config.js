@@ -65,6 +65,7 @@ const DEFAULT_CONFIG = {
       fillColor: "transparent",
     },
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    zoomOffset: 0,
   },
   onLocationChange: {
     fitView: false,
