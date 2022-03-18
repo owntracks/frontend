@@ -418,7 +418,7 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
 
 ### `map.zoomOffset`
 
-Offset the zoom level to account for different tile sizes. For example tiles with a 
+Offset the zoom level to account for different tile sizes. For example tiles with a
 size of 512x512 need an offset of -1 and for 1024x1024 an offset of -2.
 
 - Type: [`Number`]
