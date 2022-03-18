@@ -56,6 +56,7 @@ interface Config {
           fillColor: OptionalColor;
         };
         url: string;
+        zoomOffset: number;
     };
     onLocationChange: {
         fitView: boolean;
