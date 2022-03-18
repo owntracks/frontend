@@ -391,6 +391,14 @@ for all possible values.
   }
   ```
 
+### `map.tileSize`
+
+Size of the tiles in pixels returned by the tile server. Can be used together with
+[`map.zoomOffset`](#map.zoomOffset) to configure bigger tile sizes.
+
+- Type: [`Number`]
+- Default: `256`
+
 ### `map.url`
 
 Tile server URL. For more information see [Leaflet tile layer documentation](https://leafletjs.com/reference-1.5.0.html#tilelayer-url-template)

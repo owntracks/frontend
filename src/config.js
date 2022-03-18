@@ -64,6 +64,7 @@ const DEFAULT_CONFIG = {
       color: null,
       fillColor: "transparent",
     },
+    tileSize: 256,
     url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
     zoomOffset: 0,
   },

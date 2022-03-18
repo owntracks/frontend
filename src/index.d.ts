@@ -55,6 +55,7 @@ interface Config {
           color: OptionalColor;
           fillColor: OptionalColor;
         };
+        tileSize: number;
         url: string;
         zoomOffset: number;
     };
