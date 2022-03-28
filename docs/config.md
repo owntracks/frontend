@@ -411,7 +411,7 @@ and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
   // Use dark HDPI tiles from Mapbox
   window.owntracks.config = {
     map: {
-      url: "https://api.mapbox.com/v4/mapbox.dark/{z}/{x}/{y}@2x.png?access_token=xxxxxxxxxxxxxxxx",
+      url: "https://api.mapbox.com/styles/v1/mapbox/dark-v10/tiles/{z}/{x}/{y}@2x?access_token=xxxxxxxxxxxxxxxx",
     },
   };
   ```
