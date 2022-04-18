@@ -7,6 +7,7 @@
         :src="faceImageDataURI"
         :alt="$t('Image of {deviceName}', { deviceName })"
         :title="$t('Image of {deviceName}', { deviceName })"
+        class="face"
       />
       <ul class="info-list">
         <li :title="$t('Timestamp')">
