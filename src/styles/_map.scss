@@ -15,6 +15,11 @@
 
       .leaflet-popup-content {
         margin: 30px;
+
+        .face {
+          width: 40px;
+          border-radius: 3px;
+        }
       }
     }
 
