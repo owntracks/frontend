@@ -171,6 +171,7 @@ formats.
 
 Available languages:
 
+- `da-DK` (Standard Danish)
 - `de-DE` (Standard German)
 - `en-GB` (British English)
 - `en-US` (American English)
