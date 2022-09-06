@@ -2,6 +2,13 @@
 
 Dates are in UTC.
 
+## 2.12.0 (2022-09-06)
+
+- Add Danish translation ([#87](https://github.com/owntracks/frontend/pull/87), [@atjn](https://github.com/atjn))
+- Ensure correct display of larger (192x192) face images ([#83](https://github.com/owntracks/frontend/pull/83), [@atjn](https://github.com/atjn))
+- Add `map.tileSize` and `map.zoomOffset` options ([#75](https://github.com/owntracks/frontend/pull/75), [@saesh](https://github.com/saesh))
+- Upgrade dependencies
+
 ## 2.11.0 (2022-03-16)
 
 - Show WiFi SSID and BSSID in location popup, if available
