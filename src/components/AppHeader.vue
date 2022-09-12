@@ -53,35 +53,14 @@
       </div>
       <div class="nav-item">
         <CalendarIcon size="1x" aria-hidden="true" role="img" />
-        <VueCtkDateTimePicker
-          v-model="startDateTime"
-          :format="DATE_TIME_FORMAT"
-          :color="$config.primaryColor"
-          :locale="$config.locale"
-          :max-date="endDateTime"
-          :button-now-translation="$t('Now')"
-        >
-          <button
-            type="button"
-            class="dropdown-button button"
-            :title="$t('Select start date')"
-          />
-        </VueCtkDateTimePicker>
-        <span>{{ $t("to") }}</span>
-        <VueCtkDateTimePicker
-          v-model="endDateTime"
-          :format="DATE_TIME_FORMAT"
-          :color="$config.primaryColor"
-          :locale="$config.locale"
-          :min-date="startDateTime"
-          :button-now-translation="$t('Now')"
-        >
-          <button
-            type="button"
-            class="dropdown-button button"
-            :title="$t('Select end date')"
-          />
-        </VueCtkDateTimePicker>
+        <date-picker
+          v-model="rangeDateTime"
+          type="datetime"
+          range="true"
+          range-separator="⇨"
+          :show-second="false"
+          :confirm="true"
+        ></date-picker>
       </div>
       <div class="nav-item">
         <UserIcon size="1x" aria-hidden="true" role="img" />
@@ -191,6 +170,9 @@ import {
 import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
 import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
+
 import DropdownButton from "@/components/DropdownButton";
 import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
@@ -202,13 +184,13 @@ export default {
     ArrowUpIcon,
     CalendarIcon,
     CrosshairIcon,
+    DatePicker,
     DownloadIcon,
     InfoIcon,
     LayersIcon,
     MenuIcon,
     SmartphoneIcon,
     UserIcon,
-    VueCtkDateTimePicker,
     DropdownButton,
   },
   data() {
@@ -248,32 +230,22 @@ export default {
         this.setSelectedDevice(value);
       },
     },
-    startDateTime: {
+    rangeDateTime: {
       get() {
-        return moment
+        let startDateTime = moment
           .utc(this.$store.state.startDateTime, DATE_TIME_FORMAT)
           .local()
-          .format(DATE_TIME_FORMAT);
-      },
-      set(value) {
-        this.setStartDateTime(
-          moment(value, DATE_TIME_FORMAT).utc().format(DATE_TIME_FORMAT)
-        );
-      },
-    },
-    endDateTime: {
-      get() {
-        return moment
+          .toDate();
+        let endDateTime = moment
           .utc(this.$store.state.endDateTime, DATE_TIME_FORMAT)
           .local()
-          .format(DATE_TIME_FORMAT);
+          .toDate();
+        return [startDateTime, endDateTime];
       },
       set(value) {
+        this.setStartDateTime(moment(value[0]).utc().format(DATE_TIME_FORMAT));
         this.setEndDateTime(
-          moment(value, DATE_TIME_FORMAT)
-            .set("seconds", 59)
-            .utc()
-            .format(DATE_TIME_FORMAT)
+          moment(value[1]).set("seconds", 59).utc().format(DATE_TIME_FORMAT)
         );
       },
     },
