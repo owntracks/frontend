@@ -24,7 +24,6 @@
       :tileSize="tileSize"
       :options="{ maxNativeZoom, maxZoom, zoomOffset }"
     />
-
     <template v-if="map.layers.last">
       <LCircle
         v-for="l in lastLocations"
@@ -69,6 +68,10 @@
     </template>
 
     <template v-if="map.layers.points">
+      <LCanvasMarker :markers="markers" />
+    </template>
+
+    <!-- <template v-if="map.layers.points">
       <template v-for="(userDevices, user) in filteredLocationHistory">
         <template v-for="(deviceLocations, device) in userDevices">
           <LCircleMarker
@@ -99,7 +102,7 @@
           </LCircleMarker>
         </template>
       </template>
-    </template>
+    </template> -->
 
     <template v-if="map.layers.heatmap">
       <LHeatmap
@@ -123,13 +126,13 @@ import {
   LControlScale,
   LControlZoom,
   LMarker,
-  LCircleMarker,
   LCircle,
   LPolyline,
 } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 import * as types from "@/store/mutation-types";
 import LCustomMarker from "@/components/LCustomMarker";
+import LCanvasMarker from "@/components/LCanvasMarker";
 import LHeatmap from "@/components/LHeatmap";
 import LDeviceLocationPopup from "@/components/LDeviceLocationPopup";
 
@@ -140,11 +143,11 @@ export default {
     LControlScale,
     LControlZoom,
     LMarker,
-    LCircleMarker,
     LCircle,
     LPolyline,
     LDeviceLocationPopup,
     LHeatmap,
+    LCanvasMarker,
   },
   data() {
     return {
@@ -187,6 +190,27 @@ export default {
       "filteredLocationHistoryLatLngGroups",
     ]),
     ...mapState(["lastLocations", "map"]),
+    markers() {
+      let markers = [];
+      let counter = 0;
+      for (var user in this.filteredLocationHistory) {
+        for (var userDevice in this.filteredLocationHistory[user]) {
+          this.filteredLocationHistory[user][userDevice].forEach((element) => {
+            counter++;
+            let lat = element.lat;
+            let lng = element.lon;
+            var icon = L.icon({
+              iconUrl: "point_marker.svg",
+              iconSize: [8, 8],
+              iconAnchor: [6, 6],
+            });
+            markers.push(L.marker([lat, lng], { icon: icon }));
+          });
+        }
+      }
+      console.log("Loaded point count: " + counter);
+      return markers;
+    },
   },
   methods: {
     ...mapMutations({
