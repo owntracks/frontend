@@ -167,8 +167,6 @@ import {
   SmartphoneIcon,
   UserIcon,
 } from "vue-feather-icons";
-import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
-import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
 
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
