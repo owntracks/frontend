@@ -25,6 +25,7 @@
     "leaflet": "^1.8.0",
     "leaflet.heat": "^0.2.0",
     "moment": "^2.29.4",
+    "rbush": "^3.0.1",
     "vue": "^2.6.14",
     "vue-ctk-date-time-picker": "^2.5.0",
     "vue-feather-icons": "^5.1.0",
