@@ -5,7 +5,7 @@ RUN yarn install
 COPY . ./
 RUN yarn build
 
-FROM nginx:1.18-alpine
+FROM nginx:1.25-alpine
 LABEL version="2.12.0"
 LABEL description="OwnTracks Frontend"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
