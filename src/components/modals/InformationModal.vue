@@ -24,9 +24,9 @@
         </a>
       </li>
       <li>
-        <TwitterIcon size="1x" aria-hidden="true" role="img" />
-        <a href="https://twitter.com/OwnTracks">
-          {{ $t("OwnTracks on Twitter") }}
+        <AtSignIcon size="1x" aria-hidden="true" role="img" />
+        <a href="https://fosstodon.org/@owntracks">
+          {{ $t("OwnTracks on Mastodon") }}
         </a>
       </li>
     </ul>
@@ -35,15 +35,10 @@
 
 <script>
 import { mapState } from "vuex";
-import {
-  BookIcon,
-  GithubIcon,
-  GlobeIcon,
-  TwitterIcon,
-} from "vue-feather-icons";
+import { AtSignIcon, BookIcon, GithubIcon, GlobeIcon } from "vue-feather-icons";
 
 export default {
-  components: { BookIcon, GithubIcon, GlobeIcon, TwitterIcon },
+  components: { AtSignIcon, BookIcon, GithubIcon, GlobeIcon },
   computed: {
     ...mapState(["frontendVersion", "recorderVersion"]),
   },
