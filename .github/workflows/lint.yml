@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - run: yarn install
-      - run: yarn lint:js
-      - run: yarn lint:md
-      - run: yarn lint:scss
+      - run: npm install
+      - run: npm run lint:js
+      - run: npm run lint:md
+      - run: npm run lint:scss
