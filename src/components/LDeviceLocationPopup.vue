@@ -13,6 +13,12 @@
         <li :title="$t('Timestamp')">
           <ClockIcon size="1x" aria-hidden="true" role="img" />
           {{ new Date(timestamp * 1000).toLocaleString($config.locale) }}
+          <span v-if="isoLocal && timeZone">
+            <br />
+            <code style="font-size: 0.7rem">
+              {{ isoLocal }}[{{ timeZone }}]
+            </code>
+          </span>
         </li>
         <li :title="$t('Location')">
           <MapPinIcon size="1x" aria-hidden="true" role="img" />
@@ -59,7 +65,6 @@
 .wrapper {
   display: flex;
   margin-top: 10px;
-  margin-right: 20px;
 
   img {
     align-self: start;
@@ -115,6 +120,14 @@ export default {
     timestamp: {
       type: Number,
       default: 0,
+    },
+    isoLocal: {
+      type: String,
+      default: "",
+    },
+    timeZone: {
+      type: String,
+      default: "",
     },
     lat: {
       type: Number,

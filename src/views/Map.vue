@@ -46,6 +46,8 @@
           :name="l.name"
           :face="l.face"
           :timestamp="l.tst"
+          :iso-local="l.isolocal"
+          :time-zone="l.tzname"
           :lat="l.lat"
           :lon="l.lon"
           :alt="l.alt"
@@ -53,7 +55,7 @@
           :speed="l.vel"
           :regions="l.inregions"
           :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
-          :options="{ className: 'leaflet-popup--for-pin' }"
+          :options="{ className: 'leaflet-popup--for-pin', maxWidth: 400 }"
           :address="l.addr"
         />
       </LMarker>
@@ -87,6 +89,8 @@
               :name="l.name"
               :face="l.face"
               :timestamp="l.tst"
+              :iso-local="l.isolocal"
+              :time-zone="l.tzname"
               :lat="l.lat"
               :lon="l.lon"
               :alt="l.alt"

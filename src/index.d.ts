@@ -163,6 +163,10 @@ interface OTLocation {
     isorcv?: string;
     /** ISO 8601 timestamp */
     isotst?: string;
+    /** ISO 8601 timestamp in local time */
+    isolocal?: string;
+    /** tzdb time zone name */
+    tzname?: string;
     /** Latitude in degrees */
     lat: number;
     /** Longitude in degrees */
