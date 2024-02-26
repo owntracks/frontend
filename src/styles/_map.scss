@@ -25,12 +25,14 @@
 
     a.leaflet-popup-close-button {
       color: inherit;
-      width: auto;
-      height: auto;
-      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 30px;
+      height: 30px;
       margin-top: 15px;
       margin-right: 15px;
-      border-radius: 100px;
+      border-radius: 100%;
       transition: background-color 0.2s;
 
       &:hover,
