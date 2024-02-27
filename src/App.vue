@@ -10,19 +10,15 @@
   </div>
 </template>
 
-<style lang="scss">
-@import "styles/main";
-</style>
-
 <script>
 import { mapActions } from "vuex";
 
 import * as types from "@/store/mutation-types";
 import { log } from "@/logging";
-import AppHeader from "@/components/AppHeader";
-import DownloadModal from "@/components/modals/DownloadModal";
-import InformationModal from "@/components/modals/InformationModal";
-import LoadingModal from "@/components/modals/LoadingModal";
+import AppHeader from "@/components/AppHeader.vue";
+import DownloadModal from "@/components/modals/DownloadModal.vue";
+import InformationModal from "@/components/modals/InformationModal.vue";
+import LoadingModal from "@/components/modals/LoadingModal.vue";
 
 export default {
   components: { AppHeader, DownloadModal, InformationModal, LoadingModal },
@@ -95,3 +91,7 @@ export default {
   },
 };
 </script>
+
+<style lang="scss">
+@import "styles/main";
+</style>

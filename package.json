@@ -1,26 +1,31 @@
 {
   "name": "owntracks-frontend",
   "version": "2.12.0",
+  "license": "MIT",
   "author": {
     "name": "Linus Groh",
     "email": "mail@linusgroh.de"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/owntracks/frontend.git"
+  },
+  "type": "module",
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview",
     "cors-proxy": "node scripts/corsProxy.js",
-    "format:js": "vue-cli-service lint",
+    "format:js": "eslint --fix 'src/**/*.{js,vue}'",
     "format:md": "prettier --write '{*.md,docs/**/*.md,src/**/*.md}'",
     "format:scss": "prettier --write 'src/**/*.scss'",
-    "i18n:report": "vue-cli-service i18n:report --src './src/**/*.?(js|vue)' --locales './src/locales/**/*.json'",
-    "lint:js": "vue-cli-service lint --no-fix",
+    "lint:js": "eslint 'src/**/*.{js,vue}'",
     "lint:md": "prettier --check '{*.md,docs/**/*.md,src/**/*.md}'",
     "lint:scss": "prettier --check 'src/**/*.scss'",
-    "test": "vue-cli-service test:unit"
+    "test": "vitest run"
   },
   "dependencies": {
     "clipboard-copy": "^4.0.1",
-    "core-js": "^3.36.0",
     "deepmerge": "^4.3.1",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",
@@ -37,34 +42,21 @@
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.23.10",
-    "@vue/cli-plugin-babel": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-unit-jest": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/eslint-config-prettier": "^9.0.0",
-    "@vue/test-utils": "^1.3.6",
-    "@vue/vue2-jest": "^27.0.0",
-    "babel-core": "7.0.0-bridge.0",
-    "babel-jest": "^27.5.1",
+    "@eslint/eslintrc": "^3.0.2",
+    "@vitejs/plugin-vue2": "^2.3.1",
     "cors-anywhere": "^0.4.4",
     "eslint": "^8.57.0",
     "eslint-plugin-prettier": "^5.1.3",
     "eslint-plugin-vue": "^9.22.0",
-    "jest": "^27.5.1",
-    "jest-fetch-mock": "^3.0.3",
     "jsdom": "^24.0.0",
     "lint-staged": "^15.2.2",
     "moment-locales-webpack-plugin": "^1.2.0",
     "prettier": "^3.2.5",
     "sass": "^1.71.1",
-    "sass-loader": "^14.1.1",
-    "vue-cli-plugin-i18n": "^2.3.2",
-    "vue-template-compiler": "^2.7.16"
-  },
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/owntracks/frontend.git"
+    "vite": "^5.1.4",
+    "vite-plugin-package-version": "^1.1.0",
+    "vitest": "^1.3.1",
+    "vitest-fetch-mock": "^0.2.2",
+    "vue-eslint-parser": "^9.4.2"
   }
 }

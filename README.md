@@ -98,7 +98,7 @@ See [`docs/config.md`](docs/config.md) for all available options.
 ## Development
 
 - Run `npm install` to install dependencies
-- Run `npm run serve` to compile for development and start the hot-reload server
+- Run `npm run dev` to compile for development and start the hot-reload server
 - Run `npm run lint:js` to lint JavaScript/Vue files
 - Run `npm run lint:md` to lint Markdown files
 - Run `npm run lint:scss` to lint SCSS files

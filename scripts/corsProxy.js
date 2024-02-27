@@ -1,4 +1,4 @@
-const corsProxy = require("cors-anywhere");
+import { createServer } from "cors-anywhere";
 
 const host = process.env.OT_PROXY_HOST || "0.0.0.0";
 const port = process.env.OT_PROXY_PORT || 8888;
@@ -20,6 +20,6 @@ if (username !== null && password !== null) {
   };
 }
 
-corsProxy.createServer(options).listen(port, host, () => {
+createServer(options).listen(port, host, () => {
   console.log(`Running CORS Anywhere on http://${host}:${port}`);
 });

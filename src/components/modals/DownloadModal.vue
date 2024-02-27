@@ -3,9 +3,9 @@
     <pre class="data"><code>{{ data }}</code></pre>
     <div class="options">
       <input
+        id="option-minify-json"
         v-model="options.minifyJson"
         type="checkbox"
-        id="option-minify-json"
       />
       <label for="option-minify-json">
         {{ $t("Minify JSON") }}
@@ -29,33 +29,6 @@
     </div>
   </modal>
 </template>
-
-<style lang="scss" scoped>
-.data {
-  max-height: 300px;
-}
-
-.options {
-  margin-top: 30px;
-}
-
-.buttons {
-  display: flex;
-  margin-top: 30px;
-
-  button {
-    flex: 1;
-
-    &:first-child {
-      margin-right: 10px;
-    }
-
-    &:last-child {
-      margin-left: 10px;
-    }
-  }
-}
-</style>
 
 <script>
 import { mapState } from "vuex";
@@ -108,3 +81,30 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.data {
+  max-height: 300px;
+}
+
+.options {
+  margin-top: 30px;
+}
+
+.buttons {
+  display: flex;
+  margin-top: 30px;
+
+  button {
+    flex: 1;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+
+    &:last-child {
+      margin-left: 10px;
+    }
+  }
+}
+</style>

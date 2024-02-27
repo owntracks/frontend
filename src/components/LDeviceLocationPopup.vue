@@ -54,30 +54,6 @@
   </LPopup>
 </template>
 
-<style lang="scss" scoped>
-.device {
-  display: inline-block;
-  position: relative;
-  top: -5px;
-  color: var(--color-primary);
-  font-weight: bold;
-}
-.wrapper {
-  display: flex;
-  margin-top: 10px;
-
-  img {
-    align-self: start;
-    margin-right: 20px;
-  }
-}
-.regions {
-  border-top: 1px solid var(--color-separator);
-  margin-top: 15px;
-  padding-top: 15px;
-}
-</style>
-
 <script>
 import {
   BatteryIcon,
@@ -188,3 +164,27 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.device {
+  display: inline-block;
+  position: relative;
+  top: -5px;
+  color: var(--color-primary);
+  font-weight: bold;
+}
+.wrapper {
+  display: flex;
+  margin-top: 10px;
+
+  img {
+    align-self: start;
+    margin-right: 20px;
+  }
+}
+.regions {
+  border-top: 1px solid var(--color-separator);
+  margin-top: 15px;
+  padding-top: 15px;
+}
+</style>

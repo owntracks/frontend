@@ -1,32 +1,42 @@
+import { beforeEach, describe, expect, test, vi } from "vitest";
+import createFetchMock from "vitest-fetch-mock";
+
 import * as api from "@/api";
+
+const fetchMocker = createFetchMock(vi);
 
 describe("API", () => {
   beforeEach(() => {
-    fetch.resetMocks();
+    fetchMocker.enableMocks();
+    fetchMocker.resetMocks();
   });
 
   test("getVersion", async () => {
-    fetch.mockResponse(JSON.stringify({ version: "1.2.3" }));
+    fetchMocker.mockResponse(JSON.stringify({ version: "1.2.3" }));
 
     const version = await api.getVersion();
     expect(version).toBe("1.2.3");
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/version");
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/version"
+    );
   });
 
   test("getUsers", async () => {
-    fetch.mockResponse(JSON.stringify({ results: ["foo", "bar"] }));
+    fetchMocker.mockResponse(JSON.stringify({ results: ["foo", "bar"] }));
 
     const users = await api.getUsers();
     expect(users).toEqual(["foo", "bar"]);
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/list");
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/list"
+    );
   });
 
   test("getDevices", async () => {
-    fetch.mockResponses(
+    fetchMocker.mockResponses(
       [JSON.stringify({ results: ["phone", "tablet"] })],
       [JSON.stringify({ results: ["laptop"] })]
     );
@@ -34,12 +44,12 @@ describe("API", () => {
     const devices = await api.getDevices(["foo", "bar"]);
     expect(devices).toEqual({ foo: ["phone", "tablet"], bar: ["laptop"] });
 
-    expect(fetch.mock.calls.length).toEqual(2);
-    expect(fetch.mock.calls[0][0]).toEqual(
-      "http://localhost/api/0/list?user=foo"
+    expect(fetchMocker.mock.calls.length).toEqual(2);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/list?user=foo"
     );
-    expect(fetch.mock.calls[1][0]).toEqual(
-      "http://localhost/api/0/list?user=bar"
+    expect(fetchMocker.mock.calls[1][0]).toEqual(
+      "http://localhost:3000/api/0/list?user=bar"
     );
   });
 
@@ -60,13 +70,15 @@ describe("API", () => {
         disptst: "1970-01-01 00:00:00",
       },
     ];
-    fetch.mockResponse(JSON.stringify(response));
+    fetchMocker.mockResponse(JSON.stringify(response));
 
     const lastLocation = await api.getLastLocations();
     expect(lastLocation).toEqual(response);
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual("http://localhost/api/0/last");
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/last"
+    );
   });
 
   test("getLastLocations with user", async () => {
@@ -81,14 +93,14 @@ describe("API", () => {
         device: "tablet",
       },
     ];
-    fetch.mockResponse(JSON.stringify(response));
+    fetchMocker.mockResponse(JSON.stringify(response));
 
     const lastLocation = await api.getLastLocations("foo");
     expect(lastLocation).toEqual(response);
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual(
-      "http://localhost/api/0/last?user=foo"
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/last?user=foo"
     );
   });
 
@@ -100,14 +112,14 @@ describe("API", () => {
         device: "phone",
       },
     ];
-    fetch.mockResponse(JSON.stringify(response));
+    fetchMocker.mockResponse(JSON.stringify(response));
 
     const lastLocation = await api.getLastLocations("foo", "phone");
     expect(lastLocation).toEqual(response);
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual(
-      "http://localhost/api/0/last?user=foo&device=phone"
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/last?user=foo&device=phone"
     );
   });
 
@@ -137,7 +149,7 @@ describe("API", () => {
       ],
       status: 200,
     };
-    fetch.mockResponse(JSON.stringify(response));
+    fetchMocker.mockResponse(JSON.stringify(response));
 
     const locationHistory = await api.getUserDeviceLocationHistory(
       "foo",
@@ -147,14 +159,14 @@ describe("API", () => {
     );
     expect(locationHistory).toEqual(response.data);
 
-    expect(fetch.mock.calls.length).toEqual(1);
-    expect(fetch.mock.calls[0][0]).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
+    expect(fetchMocker.mock.calls.length).toEqual(1);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
   });
 
   test("getLocationHistory", async () => {
-    fetch.mockResponses(
+    fetchMocker.mockResponses(
       [
         JSON.stringify({
           count: 1,
@@ -203,15 +215,15 @@ describe("API", () => {
       bar: { laptop: [{ topic: "owntracks/bar/laptop" }] },
     });
 
-    expect(fetch.mock.calls.length).toEqual(3);
-    expect(fetch.mock.calls[0][0]).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
+    expect(fetchMocker.mock.calls.length).toEqual(3);
+    expect(fetchMocker.mock.calls[0][0]).toEqual(
+      "http://localhost:3000/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=phone&format=json"
     );
-    expect(fetch.mock.calls[1][0]).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=tablet&format=json"
+    expect(fetchMocker.mock.calls[1][0]).toEqual(
+      "http://localhost:3000/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=foo&device=tablet&format=json"
     );
-    expect(fetch.mock.calls[2][0]).toEqual(
-      "http://localhost/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=bar&device=laptop&format=json"
+    expect(fetchMocker.mock.calls[2][0]).toEqual(
+      "http://localhost:3000/api/0/locations?from=1970-01-01T00%3A00%3A00&to=1970-12-31T23%3A59%3A59&user=bar&device=laptop&format=json"
     );
   });
 });
