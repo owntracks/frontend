@@ -17,14 +17,14 @@ import tr_TR from "@/locales/tr-TR.json";
 Vue.use(VueI18n);
 
 const messages = {
-  da_DK: da_DK,
-  de_DE: de_DE,
-  en_GB: en_GB,
-  en_US: en_US,
-  es_ES: es_ES,
-  fr_FR: fr_FR,
-  sk_SK: sk_SK,
-  tr_TR: tr_TR,
+  "da-DK": da_DK,
+  "de-DE": de_DE,
+  "en-GB": en_GB,
+  "en-US": en_US,
+  "es-ES": es_ES,
+  "fr-FR": fr_FR,
+  "sk-SK": sk_SK,
+  "tr-TR": tr_TR,
 };
 
 export default new VueI18n({
