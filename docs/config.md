@@ -171,6 +171,7 @@ formats.
 
 Available languages:
 
+- `cs-CZ` (Standard Czech)
 - `da-DK` (Standard Danish)
 - `de-DE` (Standard German)
 - `en-GB` (British English)
