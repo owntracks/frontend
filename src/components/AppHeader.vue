@@ -72,7 +72,7 @@
           <option :value="null">
             {{ $t("Show all") }}
           </option>
-          <option v-for="user in users" :value="user" :key="user">
+          <option v-for="user in users" :key="user" :value="user">
             {{ user }}
           </option>
         </select>
@@ -89,8 +89,8 @@
           </option>
           <option
             v-for="device in devices[selectedUser]"
-            :value="device"
             :key="`${selectedUser}-${device}`"
+            :value="device"
           >
             {{ device }}
           </option>
@@ -140,18 +140,6 @@
   </header>
 </template>
 
-<style lang="scss" scoped>
-.distance-travelled {
-  text-align: right;
-  line-height: 1.2;
-
-  .feather {
-    margin-top: 3px;
-    margin-right: 0 !important;
-  }
-}
-</style>
-
 <script>
 import moment from "moment";
 import { mapActions, mapGetters, mapMutations, mapState } from "vuex";
@@ -171,7 +159,7 @@ import {
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 
-import DropdownButton from "@/components/DropdownButton";
+import DropdownButton from "@/components/DropdownButton.vue";
 import { DATE_TIME_FORMAT } from "@/constants";
 import * as types from "@/store/mutation-types";
 import { humanReadableDistance } from "@/util";
@@ -262,3 +250,15 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.distance-travelled {
+  text-align: right;
+  line-height: 1.2;
+
+  .feather {
+    margin-top: 3px;
+    margin-right: 0 !important;
+  }
+}
+</style>

@@ -81,8 +81,8 @@ directory as `docker-compose.yml`)
 
 ### Manually
 
-- Run `yarn install` to install dependencies
-- Run `yarn build` to compile and minify for production
+- Run `npm install` to install dependencies
+- Run `npm run build` to compile and minify for production
 - Copy the content of the `dist/` directory to your webroot
 
 ## Configuration
@@ -97,15 +97,15 @@ See [`docs/config.md`](docs/config.md) for all available options.
 
 ## Development
 
-- Run `yarn install` to install dependencies
-- Run `yarn serve` to compile for development and start the hot-reload server
-- Run `yarn lint:js` to lint JavaScript/Vue files
-- Run `yarn lint:md` to lint Markdown files
-- Run `yarn lint:scss` to lint SCSS files
-- Run `yarn format:js` to format JavaScript/Vue files
-- Run `yarn format:md` to format Markdown files
-- Run `yarn format:scss` to format SCSS files
-- Run `yarn test` to run unit tests
+- Run `npm install` to install dependencies
+- Run `npm run dev` to compile for development and start the hot-reload server
+- Run `npm run lint:js` to lint JavaScript/Vue files
+- Run `npm run lint:md` to lint Markdown files
+- Run `npm run lint:scss` to lint SCSS files
+- Run `npm run format:js` to format JavaScript/Vue files
+- Run `npm run format:md` to format Markdown files
+- Run `npm run format:scss` to format SCSS files
+- Run `npm test` to run unit tests
 
 ### CORS-Proxy
 
@@ -113,7 +113,7 @@ You can use the [`corsProxy.js`](scripts/corsProxy.js) script to use your produc
 instance of OwnTracks for development without making changes to its CORS-Headers:
 
 ```console
-$ yarn cors-proxy
+$ npm run cors-proxy
 ```
 
 If you have [basic authentication](https://developer.mozilla.org/en-US/docs/Web/HTTP/Authentication#Basic_authentication_scheme)
@@ -127,7 +127,7 @@ OT_BASIC_AUTH_PASSWORD='P@$$w0rd'
 Then run:
 
 ```console
-$ env $(cat .env | xargs) yarn cors-proxy
+$ env $(cat .env | xargs) npm run cors-proxy
 ```
 
 The default host and port it binds to is `0.0.0.0:8888`. Change using the `OT_PROXY_HOST`
@@ -141,7 +141,7 @@ This project uses [Vue I18n](https://kazupon.github.io/vue-i18n/). To see missin
 unused i18n entries, run:
 
 ```console
-$ yarn i18n:report
+$ npm run i18n:report
 ```
 
 To add a new locale, copy `en-US.json` to `<locale>.json` in [`src/locales`](src/locales)

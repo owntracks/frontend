@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <link rel="icon" href="/favicon.ico">
+    <link rel="manifest" crossorigin="use-credentials" href="/manifest.json">
     <title>OwnTracks Frontend</title>
   </head>
   <body>
@@ -12,7 +13,7 @@
       <strong>We're sorry but OwnTracks doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
     <div id="app"></div>
-    <script src="<%= BASE_URL %>config/config.js"></script>
-    <!-- built files will be auto injected -->
+    <script src="/config/config.js"></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

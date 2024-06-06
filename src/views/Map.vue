@@ -14,14 +14,14 @@
     <LControlScale
       v-if="controls.scale.display"
       :position="controls.scale.position"
-      :maxWidth="controls.scale.maxWidth"
+      :max-width="controls.scale.maxWidth"
       :metric="controls.scale.metric"
       :imperial="controls.scale.imperial"
     />
     <LTileLayer
       :url="url"
       :attribution="attribution"
-      :tileSize="tileSize"
+      :tile-size="tileSize"
       :options="{ maxNativeZoom, maxZoom, zoomOffset }"
     />
 
@@ -46,6 +46,8 @@
           :name="l.name"
           :face="l.face"
           :timestamp="l.tst"
+          :iso-local="l.isolocal"
+          :time-zone="l.tzname"
           :lat="l.lat"
           :lon="l.lon"
           :alt="l.alt"
@@ -53,7 +55,7 @@
           :speed="l.vel"
           :regions="l.inregions"
           :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
-          :options="{ className: 'leaflet-popup--for-pin' }"
+          :options="{ className: 'leaflet-popup--for-pin', maxWidth: 400 }"
           :address="l.addr"
         />
       </LMarker>
@@ -87,6 +89,8 @@
               :name="l.name"
               :face="l.face"
               :timestamp="l.tst"
+              :iso-local="l.isolocal"
+              :time-zone="l.tzname"
               :lat="l.lat"
               :lon="l.lon"
               :alt="l.alt"
@@ -130,8 +134,8 @@ import {
 import "leaflet/dist/leaflet.css";
 import * as types from "@/store/mutation-types";
 import LCustomMarker from "@/components/LCustomMarker";
-import LHeatmap from "@/components/LHeatmap";
-import LDeviceLocationPopup from "@/components/LDeviceLocationPopup";
+import LHeatmap from "@/components/LHeatmap.vue";
+import LDeviceLocationPopup from "@/components/LDeviceLocationPopup.vue";
 
 export default {
   components: {
@@ -175,11 +179,6 @@ export default {
       },
     };
   },
-  mounted() {
-    this.$root.$on("fitView", () => {
-      this.fitView();
-    });
-  },
   computed: {
     ...mapGetters([
       "filteredLocationHistory",
@@ -187,6 +186,21 @@ export default {
       "filteredLocationHistoryLatLngGroups",
     ]),
     ...mapState(["lastLocations", "map"]),
+  },
+  watch: {
+    lastLocations() {
+      if (this.$config.onLocationChange.fitView) {
+        this.fitView();
+      }
+    },
+    filteredLocationHistory() {
+      this.fitView();
+    },
+  },
+  mounted() {
+    this.$root.$on("fitView", () => {
+      this.fitView();
+    });
   },
   methods: {
     ...mapMutations({
@@ -235,16 +249,6 @@ export default {
         name: lastLocation.name,
         face: lastLocation.face,
       }));
-    },
-  },
-  watch: {
-    lastLocations() {
-      if (this.$config.onLocationChange.fitView) {
-        this.fitView();
-      }
-    },
-    filteredLocationHistory() {
-      this.fitView();
     },
   },
 };

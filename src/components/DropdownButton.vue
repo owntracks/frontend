@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown" v-focus-outside="hide" v-click-outside="hide">
+  <div v-focus-outside="hide" v-click-outside="hide" class="dropdown">
     <button class="dropdown-button button" :title="title" @click="toggle">
       {{ label }}
     </button>

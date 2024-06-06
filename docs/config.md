@@ -171,12 +171,15 @@ formats.
 
 Available languages:
 
+- `cs-CZ` (Standard Czech)
 - `da-DK` (Standard Danish)
 - `de-DE` (Standard German)
 - `en-GB` (British English)
 - `en-US` (American English)
 - `es-ES` (Castilian Spanish)
 - `fr-FR` (Standard French)
+- `sk-SK` (Standard Slovak)
+- `tr-TR` (Standard Turkish)
 
 Using a locale with non-existent translations is possible and will affect date/time formats, but
 use `en-US` for translations.

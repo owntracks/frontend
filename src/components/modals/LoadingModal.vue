@@ -13,6 +13,20 @@
   </modal>
 </template>
 
+<script>
+import { mapState } from "vuex";
+import { LoaderIcon } from "vue-feather-icons";
+
+export default {
+  components: {
+    LoaderIcon,
+  },
+  computed: {
+    ...mapState(["requestAbortController"]),
+  },
+};
+</script>
+
 <style scoped>
 .loader-icon {
   animation: spinning 2s linear infinite;
@@ -33,17 +47,3 @@
   }
 }
 </style>
-
-<script>
-import { mapState } from "vuex";
-import { LoaderIcon } from "vue-feather-icons";
-
-export default {
-  components: {
-    LoaderIcon,
-  },
-  computed: {
-    ...mapState(["requestAbortController"]),
-  },
-};
-</script>

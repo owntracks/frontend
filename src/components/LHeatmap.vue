@@ -2,12 +2,6 @@
   <div />
 </template>
 
-<style scoped>
-div {
-  display: none;
-}
-</style>
-
 <script>
 // See https://github.com/KoRiGaN/Vue2Leaflet/blob/e0cf0f29bc519f0a70f0f1eb6e579f947e7ea4ce/src/utils/utils.js
 // to understand the `custom` attribute of each prop, how the `set<Prop>`
@@ -136,3 +130,9 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+div {
+  display: none;
+}
+</style>

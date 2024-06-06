@@ -1,3 +1,5 @@
+import { describe, expect, test } from "vitest";
+
 import config from "@/config";
 import {
   getApiUrl,
@@ -10,9 +12,9 @@ import {
 describe("getApiUrl", () => {
   test("without base URL", () => {
     // See testURL in jest.config.js
-    expect(getApiUrl("foo").href).toBe("http://localhost/foo");
-    expect(getApiUrl("/foo").href).toBe("http://localhost/foo");
-    expect(getApiUrl("/foo/bar").href).toBe("http://localhost/foo/bar");
+    expect(getApiUrl("foo").href).toBe("http://localhost:3000/foo");
+    expect(getApiUrl("/foo").href).toBe("http://localhost:3000/foo");
+    expect(getApiUrl("/foo/bar").href).toBe("http://localhost:3000/foo/bar");
   });
 
   test("with base URL", () => {
