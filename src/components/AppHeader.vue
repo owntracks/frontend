@@ -56,11 +56,21 @@
         <date-picker
           v-model="rangeDateTime"
           type="datetime"
-          range="true"
-          range-separator="⇨"
+          format="YYYY-MM-DD HH:mm"
+          range
+          range-separator=" ~ "
           :show-second="false"
           :confirm="true"
-        ></date-picker>
+          :shortcuts="shortcuts"
+          :show-time-panel="showTimeRangePanel"
+          @change="handleChange"
+        >
+          <template v-slot:footer>
+            <button class="mx-btn toggle-date-btn" type="button" @click="toggleTimeRangePanel">
+              {{ showTimeRangePanel ? 'select date' : 'select time' }}
+            </button>
+          </template>
+        </date-picker>
       </div>
       <div class="nav-item">
         <UserIcon size="1x" aria-hidden="true" role="img" />
@@ -189,6 +199,36 @@ export default {
         { layer: "heatmap", label: this.$t("Show location heatmap") },
       ],
       showMobileNav: false,
+      shortcuts: [
+        {
+          text: "Today",
+          onClick() {
+            const end = new Date();
+            const start = new Date();
+            start.setHours(0, 0, 0, 0); // Set to midnight (00:00:00.000)
+            return [start, end];
+          }
+        },
+        {
+          text: "7 days",
+          onClick() {
+            const end = new Date();
+            const start = new Date();
+            start.setDate(end.getDate() - 7);
+            return [start, end];
+          }
+        },
+        {
+          text: "30 days",
+          onClick() {
+            const end = new Date();
+            const start = new Date();
+            start.setDate(end.getDate() - 30);
+            return [start, end];
+          }
+        }
+      ],
+      showTimeRangePanel: false,
     };
   },
   computed: {
@@ -247,6 +287,13 @@ export default {
       "setEndDateTime",
     ]),
     humanReadableDistance,
+    toggleTimeRangePanel() {
+      this.showTimeRangePanel = !this.showTimeRangePanel;
+    },
+    // Resetting to date choice after value change
+    handleChange(value, type) {
+      this.showTimeRangePanel = false;
+    },
   },
 };
 </script>

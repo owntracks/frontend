@@ -182,19 +182,33 @@ pre {
           }
 
           > .button,
-          > .dropdown,
-          > .date-time-picker {
+          > .mx-datepicker,
+          > .mx-input,
+          > .dropdown {
             flex: 1;
           }
 
-          > .dropdown .dropdown-button,
-          > .date-time-picker .dropdown-button {
+          > .dropdown .dropdown-button {
             width: 100%;
           }
 
-          > .date-time-picker {
-            margin-left: 0;
-            margin-right: 0;
+          .mx-datepicker {
+            display: flex;
+            width: auto;
+
+            .mx-datepicker-range {
+              width: auto;
+            }
+
+            .mx-input-wrapper {
+              display: flex;
+              width: 100%;
+
+              .mx-input {
+                font-size: 13px;
+                letter-spacing: -0.7px;
+              }
+            }
           }
 
           > span {

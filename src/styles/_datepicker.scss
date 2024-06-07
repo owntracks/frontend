@@ -1,10 +1,39 @@
-.date-time-picker {
-  display: inline-block;
-  width: auto;
+.mx-datepicker {
+  width: 350px;
 
-  .datepicker {
-    box-shadow: none !important;
-    filter: var(--drop-shadow);
-    margin-top: 5px;
+  .mx-input {
+    border: 0;
+    border-radius: 18px;
+    text-align: center;
+    height: 33px;
   }
+}
+
+@media screen and (max-width: 400px) {
+  .mx-datepicker-main {
+    display: flex;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100%;
+    height: 100%;
+
+    .mx-datepicker-sidebar {
+      flex: 0.7;
+    }
+
+    .mx-datepicker-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      margin-left: 0px;
+    }
+  }
+}
+
+.mx-time {
+  width: 100%;
+}
+
+.toggle-date-btn {
+  margin-right: 10px;
 }
