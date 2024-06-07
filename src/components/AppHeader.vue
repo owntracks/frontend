@@ -66,8 +66,12 @@
           @change="handleChange"
         >
           <template v-slot:footer>
-            <button class="mx-btn toggle-date-btn" type="button" @click="toggleTimeRangePanel">
-              {{ showTimeRangePanel ? 'select date' : 'select time' }}
+            <button
+              class="mx-btn toggle-date-btn"
+              type="button"
+              @click="toggleTimeRangePanel"
+            >
+              {{ showTimeRangePanel ? $t("Select date") : $t("Select time") }}
             </button>
           </template>
         </date-picker>
@@ -201,32 +205,32 @@ export default {
       showMobileNav: false,
       shortcuts: [
         {
-          text: "Today",
+          text: this.$t("Today"),
           onClick() {
             const end = new Date();
             const start = new Date();
             start.setHours(0, 0, 0, 0); // Set to midnight (00:00:00.000)
             return [start, end];
-          }
+          },
         },
         {
-          text: "7 days",
+          text: this.$t("7 days"),
           onClick() {
             const end = new Date();
             const start = new Date();
             start.setDate(end.getDate() - 7);
             return [start, end];
-          }
+          },
         },
         {
-          text: "30 days",
+          text: this.$t("30 days"),
           onClick() {
             const end = new Date();
             const start = new Date();
             start.setDate(end.getDate() - 30);
             return [start, end];
-          }
-        }
+          },
+        },
       ],
       showTimeRangePanel: false,
     };
