@@ -2,6 +2,22 @@
 
 Dates are in UTC.
 
+## 2.13.0 (2024-06-09)
+
+- Enable use of the frontend as a progressive web app (PWA) ([#98](https://github.com/owntracks/frontend/pull/98), [@RobinMeis](https://github.com/RobinMeis))
+- Add Turkish translations ([#94](https://github.com/owntracks/frontend/pull/94), [@ramazansancar](https://github.com/ramazansancar))
+- Add Slovak translations ([#110](https://github.com/owntracks/frontend/pull/110), [@aasami](https://github.com/aasami))
+- Add Czech translations ([#115](https://github.com/owntracks/frontend/pull/115), [@jmencak](https://github.com/jmencak))
+- Add action for uploading dist/ on release ([#114](https://github.com/owntracks/frontend/pull/114), [@abaumg](https://github.com/abaumg))
+- Replace outdated Twitter link with Mastodon
+- Remove the download modal
+- Show isolocal and tzname properties on the popup
+- Various changes to the underlying frontend build system:
+  - Bump node to version 20
+  - Switch from yarn to npm
+  - Migrate from vue-cli / webpack to vite
+- Upgrade dependencies
+
 ## 2.12.0 (2022-09-06)
 
 - Add Danish translation ([#87](https://github.com/owntracks/frontend/pull/87), [@atjn](https://github.com/atjn))
