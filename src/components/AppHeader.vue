@@ -53,35 +53,31 @@
       </div>
       <div class="nav-item">
         <CalendarIcon size="1x" aria-hidden="true" role="img" />
-        <VueCtkDateTimePicker
-          v-model="startDateTime"
-          :format="DATE_TIME_FORMAT"
-          :color="$config.primaryColor"
-          :locale="$config.locale"
-          :max-date="endDateTime"
-          :button-now-translation="$t('Now')"
+        <date-picker
+          v-model="dateTimeRange"
+          type="datetime"
+          format="YYYY-MM-DD HH:mm"
+          :editable="false"
+          :clearable="false"
+          :confirm="true"
+          :show-second="false"
+          :range="true"
+          range-separator=" – "
+          :shortcuts="shortcuts"
+          :show-time-panel="showTimeRangePanel"
+          :disabled-date="(date, _) => date > new Date()"
+          @change="handleDateTimeRangeChange"
         >
-          <button
-            type="button"
-            class="dropdown-button button"
-            :title="$t('Select start date')"
-          />
-        </VueCtkDateTimePicker>
-        <span>{{ $t("to") }}</span>
-        <VueCtkDateTimePicker
-          v-model="endDateTime"
-          :format="DATE_TIME_FORMAT"
-          :color="$config.primaryColor"
-          :locale="$config.locale"
-          :min-date="startDateTime"
-          :button-now-translation="$t('Now')"
-        >
-          <button
-            type="button"
-            class="dropdown-button button"
-            :title="$t('Select end date')"
-          />
-        </VueCtkDateTimePicker>
+          <template v-slot:footer>
+            <button
+              class="mx-btn toggle-date-btn"
+              type="button"
+              @click="toggleTimeRangePanel"
+            >
+              {{ showTimeRangePanel ? $t("Select date") : $t("Select time") }}
+            </button>
+          </template>
+        </date-picker>
       </div>
       <div class="nav-item">
         <UserIcon size="1x" aria-hidden="true" role="img" />
@@ -162,8 +158,9 @@ import {
   SmartphoneIcon,
   UserIcon,
 } from "vue-feather-icons";
-import VueCtkDateTimePicker from "vue-ctk-date-time-picker";
-import "vue-ctk-date-time-picker/dist/vue-ctk-date-time-picker.css";
+
+import DatePicker from "vue2-datepicker";
+import "vue2-datepicker/index.css";
 
 import DropdownButton from "@/components/DropdownButton.vue";
 import { DATE_TIME_FORMAT } from "@/constants";
@@ -176,12 +173,12 @@ export default {
     ArrowUpIcon,
     CalendarIcon,
     CrosshairIcon,
+    DatePicker,
     InfoIcon,
     LayersIcon,
     MenuIcon,
     SmartphoneIcon,
     UserIcon,
-    VueCtkDateTimePicker,
     DropdownButton,
   },
   data() {
@@ -194,6 +191,41 @@ export default {
         { layer: "heatmap", label: this.$t("Show location heatmap") },
       ],
       showMobileNav: false,
+      shortcuts: [
+        {
+          text: this.$t("Today"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("7 days"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setDate(end.getDate() - 7);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("30 days"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setDate(end.getDate() - 30);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+      ],
+      showTimeRangePanel: false,
     };
   },
   computed: {
@@ -221,32 +253,25 @@ export default {
         this.setSelectedDevice(value);
       },
     },
-    startDateTime: {
+    dateTimeRange: {
       get() {
-        return moment
+        const startDateTime = moment
           .utc(this.$store.state.startDateTime, DATE_TIME_FORMAT)
           .local()
-          .format(DATE_TIME_FORMAT);
-      },
-      set(value) {
-        this.setStartDateTime(
-          moment(value, DATE_TIME_FORMAT).utc().format(DATE_TIME_FORMAT)
-        );
-      },
-    },
-    endDateTime: {
-      get() {
-        return moment
+          .toDate();
+        const endDateTime = moment
           .utc(this.$store.state.endDateTime, DATE_TIME_FORMAT)
           .local()
-          .format(DATE_TIME_FORMAT);
+          .toDate();
+        return [startDateTime, endDateTime];
       },
-      set(value) {
+      set([startDateTime, endDateTime]) {
+        this.setStartDateTime(
+          moment(startDateTime).utc().format(DATE_TIME_FORMAT)
+        );
+
         this.setEndDateTime(
-          moment(value, DATE_TIME_FORMAT)
-            .set("seconds", 59)
-            .utc()
-            .format(DATE_TIME_FORMAT)
+          moment(endDateTime).set("seconds", 59).utc().format(DATE_TIME_FORMAT)
         );
       },
     },
@@ -262,6 +287,13 @@ export default {
       "setEndDateTime",
     ]),
     humanReadableDistance,
+    toggleTimeRangePanel() {
+      this.showTimeRangePanel = !this.showTimeRangePanel;
+    },
+    // Resetting to date choice after value change
+    handleDateTimeRangeChange(value, type) {
+      this.showTimeRangePanel = false;
+    },
   },
 };
 </script>

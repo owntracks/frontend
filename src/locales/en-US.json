@@ -32,5 +32,10 @@
   "Battery": "Battery",
   "Speed": "Speed",
   "Regions:": "Regions:",
-  "WiFi": "WiFi"
+  "WiFi": "WiFi",
+  "Select date": "Select date",
+  "Select time": "Select time",
+  "Today": "Today",
+  "7 days": "7 days",
+  "30 days": "30 days"
 }
