@@ -1,11 +1,13 @@
 .mx-datepicker {
-  width: 350px;
+  width: 330px;
 
   .mx-input {
     border: 0;
     border-radius: 18px;
     text-align: center;
     height: 33px;
+    padding-right: 0px;
+    padding-left: 0px;
   }
 }
 
@@ -36,4 +38,9 @@
 
 .toggle-date-btn {
   margin-right: 10px;
+}
+
+.mx-icon-calendar,
+.mx-icon-clear {
+  visibility: hidden;
 }

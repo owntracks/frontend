@@ -58,7 +58,7 @@
           type="datetime"
           format="YYYY-MM-DD HH:mm"
           range
-          range-separator=" ~ "
+          range-separator=" – "
           :show-second="false"
           :confirm="true"
           :shortcuts="shortcuts"
@@ -247,20 +247,23 @@ export default {
     },
     rangeDateTime: {
       get() {
-        let startDateTime = moment
+        const startDateTime = moment
           .utc(this.$store.state.startDateTime, DATE_TIME_FORMAT)
           .local()
           .toDate();
-        let endDateTime = moment
+        const endDateTime = moment
           .utc(this.$store.state.endDateTime, DATE_TIME_FORMAT)
           .local()
           .toDate();
         return [startDateTime, endDateTime];
       },
-      set(value) {
-        this.setStartDateTime(moment(value[0]).utc().format(DATE_TIME_FORMAT));
+      set([startDateTime, endDateTime]) {
+        this.setStartDateTime(
+          moment(startDateTime).utc().format(DATE_TIME_FORMAT)
+        );
+
         this.setEndDateTime(
-          moment(value[1]).set("seconds", 59).utc().format(DATE_TIME_FORMAT)
+          moment(endDateTime).set("seconds", 59).utc().format(DATE_TIME_FORMAT)
         );
       },
     },
