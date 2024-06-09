@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.13.1 (2024-06-09)
+
+- Bump versions, just to make sure the frontend shows the right one
+
 ## 2.13.0 (2024-06-09)
 
 - Enable use of the frontend as a progressive web app (PWA) ([#98](https://github.com/owntracks/frontend/pull/98), [@RobinMeis](https://github.com/RobinMeis))

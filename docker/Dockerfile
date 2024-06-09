@@ -6,7 +6,7 @@ COPY . ./
 RUN npm run build
 
 FROM nginx:1.25-alpine
-LABEL version="2.12.0"
+LABEL version="2.13.1"
 LABEL description="OwnTracks Frontend"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
 ENV LISTEN_PORT=80 \
