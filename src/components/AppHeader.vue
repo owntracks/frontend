@@ -209,7 +209,7 @@ export default {
           onClick() {
             const end = new Date();
             const start = new Date();
-            start.setHours(0, 0, 0, 0); // Set to midnight (00:00:00.000)
+            start.setHours(0, 0, 0, 0);
             return [start, end];
           },
         },
