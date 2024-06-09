@@ -54,16 +54,19 @@
       <div class="nav-item">
         <CalendarIcon size="1x" aria-hidden="true" role="img" />
         <date-picker
-          v-model="rangeDateTime"
+          v-model="dateTimeRange"
           type="datetime"
           format="YYYY-MM-DD HH:mm"
-          range
-          range-separator=" – "
-          :show-second="false"
+          :editable="false"
+          :clearable="false"
           :confirm="true"
+          :show-second="false"
+          :range="true"
+          range-separator=" – "
           :shortcuts="shortcuts"
           :show-time-panel="showTimeRangePanel"
-          @change="handleChange"
+          :disabled-date="(date, _) => date > new Date()"
+          @change="handleDateTimeRangeChange"
         >
           <template v-slot:footer>
             <button
@@ -193,6 +196,7 @@ export default {
           text: this.$t("Today"),
           onClick() {
             const end = new Date();
+            end.setHours(23, 59, 59, 0);
             const start = new Date();
             start.setHours(0, 0, 0, 0);
             return [start, end];
@@ -202,8 +206,10 @@ export default {
           text: this.$t("7 days"),
           onClick() {
             const end = new Date();
+            end.setHours(23, 59, 59, 0);
             const start = new Date();
             start.setDate(end.getDate() - 7);
+            start.setHours(0, 0, 0, 0);
             return [start, end];
           },
         },
@@ -211,8 +217,10 @@ export default {
           text: this.$t("30 days"),
           onClick() {
             const end = new Date();
+            end.setHours(23, 59, 59, 0);
             const start = new Date();
             start.setDate(end.getDate() - 30);
+            start.setHours(0, 0, 0, 0);
             return [start, end];
           },
         },
@@ -245,7 +253,7 @@ export default {
         this.setSelectedDevice(value);
       },
     },
-    rangeDateTime: {
+    dateTimeRange: {
       get() {
         const startDateTime = moment
           .utc(this.$store.state.startDateTime, DATE_TIME_FORMAT)
@@ -283,7 +291,7 @@ export default {
       this.showTimeRangePanel = !this.showTimeRangePanel;
     },
     // Resetting to date choice after value change
-    handleChange(value, type) {
+    handleDateTimeRangeChange(value, type) {
       this.showTimeRangePanel = false;
     },
   },

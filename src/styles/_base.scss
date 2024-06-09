@@ -101,8 +101,7 @@ pre {
   min-height: 100%;
   flex-direction: column;
 
-  // Only select immediate child as the datepicker contains a <header> as well
-  > header {
+  header {
     display: flex;
     padding: 20px;
     white-space: nowrap;

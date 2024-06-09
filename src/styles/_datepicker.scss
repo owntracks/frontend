@@ -1,5 +1,5 @@
 .mx-datepicker {
-  width: 330px;
+  width: 280px;
 
   .mx-input {
     border: 0;
@@ -40,7 +40,6 @@
   margin-right: 10px;
 }
 
-.mx-icon-calendar,
-.mx-icon-clear {
-  visibility: hidden;
+.mx-icon-calendar {
+  display: none;
 }
