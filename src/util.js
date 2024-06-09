@@ -65,24 +65,6 @@ export const distanceBetweenCoordinates = (c1, c2) => {
 };
 
 /**
- * Let the user download a string as file.
- *
- * @param {String} text Content of the file
- * @param {String} filename Suggested filename for the browser
- * @param {String} [mimeType] Content mime type
- */
-export const download = (text, filename, mimeType = "text/plain") => {
-  const dataUrl = `data:${mimeType},${encodeURIComponent(text)}`;
-  const element = document.createElement("a");
-  element.href = dataUrl;
-  element.download = filename;
-  element.style.display = "none";
-  document.body.appendChild(element);
-  element.click();
-  document.body.removeChild(element);
-};
-
-/**
  * Format a distance in meters into a human-readable string with unit.
  *
  * This only supports m / km for now, but could read a config option and return

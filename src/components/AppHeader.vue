@@ -138,19 +138,6 @@
       <div class="nav-item">
         <button
           class="button button-flat button-icon"
-          :title="$t('Download raw data')"
-          @click="$modal.show('download')"
-        >
-          <DownloadIcon
-            size="1x"
-            :aria-label="$t('Download raw data')"
-            role="img"
-          />
-        </button>
-      </div>
-      <div class="nav-item">
-        <button
-          class="button button-flat button-icon"
           :title="$t('Information')"
           @click="$modal.show('information')"
         >
@@ -169,7 +156,6 @@ import {
   ArrowUpIcon,
   CalendarIcon,
   CrosshairIcon,
-  DownloadIcon,
   InfoIcon,
   LayersIcon,
   MenuIcon,
@@ -190,7 +176,6 @@ export default {
     ArrowUpIcon,
     CalendarIcon,
     CrosshairIcon,
-    DownloadIcon,
     InfoIcon,
     LayersIcon,
     MenuIcon,

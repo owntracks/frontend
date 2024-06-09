@@ -4,7 +4,6 @@
     <main>
       <router-view />
     </main>
-    <DownloadModal />
     <InformationModal />
     <LoadingModal />
   </div>
@@ -16,12 +15,11 @@ import { mapActions } from "vuex";
 import * as types from "@/store/mutation-types";
 import { log } from "@/logging";
 import AppHeader from "@/components/AppHeader.vue";
-import DownloadModal from "@/components/modals/DownloadModal.vue";
 import InformationModal from "@/components/modals/InformationModal.vue";
 import LoadingModal from "@/components/modals/LoadingModal.vue";
 
 export default {
-  components: { AppHeader, DownloadModal, InformationModal, LoadingModal },
+  components: { AppHeader, InformationModal, LoadingModal },
   created() {
     document.documentElement.style.setProperty(
       "--color-primary",

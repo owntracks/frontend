@@ -31,7 +31,6 @@ pages, this is a more advanced interface with more functionality, all in one pla
 - Display data in a specific date and time range
 - Filter by user or specific device
 - Calculation of distance travelled
-- Download selected location data as JSON
 - Highly customisable
 
 ## Installation
