@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.14.0 (2024-06-09)
+
+- Implement new date/time range picker ([#116](https://github.com/owntracks/frontend/pull/116), [@jduar](https://github.com/jduar) / [@Tofee](https://github.com/Tofee))
+
 ## 2.13.1 (2024-06-09)
 
 - Bump versions, just to make sure the frontend shows the right one
