@@ -46,11 +46,18 @@ interface Config {
           heatmap: boolean;
           last: boolean;
           line: boolean;
+          poi: boolean;
           points: boolean;
         };
         maxNativeZoom: number;
         maxPointDistance: number | null;
         maxZoom: number;
+        poiMarker: {
+          color: OptionalColor;
+          fillColor: OptionalColor;
+          fillOpacity: number;
+          radius: number;
+        };
         polyline: {
           color: OptionalColor;
           fillColor: OptionalColor;
@@ -96,6 +103,7 @@ interface State {
             heatmap: boolean;
             last: boolean;
             line: boolean;
+            poi: boolean;
             points: boolean;
         };
         zoom: number;
@@ -173,6 +181,8 @@ interface OTLocation {
     lon: number;
     /** Friendly device name */
     name?: string;
+    /** Point of interest name */
+    poi?: string;
     /**
      * Trigger for the location report
      *

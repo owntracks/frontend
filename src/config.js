@@ -55,11 +55,18 @@ const DEFAULT_CONFIG = {
       heatmap: false,
       last: true,
       line: true,
+      poi: true,
       points: false,
     },
     maxNativeZoom: 19,
     maxPointDistance: null,
     maxZoom: 21,
+    poiMarker: {
+      color: "red",
+      fillColor: "red",
+      fillOpacity: 0.2,
+      radius: 12,
+    },
     polyline: {
       color: null,
       fillColor: "transparent",

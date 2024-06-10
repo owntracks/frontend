@@ -53,10 +53,12 @@ window.owntracks.config = {};
     - [`heatmap`](#maplayersheatmap)
     - [`last`](#maplayerslast)
     - [`line`](#maplayersline)
+    - [`poi`](#maplayerspoi)
     - [`points`](#maplayerspoints)
   - [`maxNativeZoom`](#mapmaxnativezoom)
   - [`maxPointDistance`](#mapmaxpointdistance)
   - [`maxZoom`](#mapmaxzoom)
+  - [`poiMarker`](#mappoimarker)
   - [`polyline`](#mappolyline)
   - [`url`](#mapurl)
 - `onLocationChange`
@@ -337,9 +339,16 @@ Initial visibility of the line layer.
 - Type: [`Boolean`]
 - Default: `true`
 
+### `map.layers.poi`
+
+Initial visibility of the POI layer.
+
+- Type: [`Boolean`]
+- Default: `true`
+
 ### `map.layers.points`
 
-Initial visibility of the points layer.
+Initial visibility of the location points layer.
 
 - Type: [`Boolean`]
 - Default: `false`
@@ -380,9 +389,25 @@ to disable.
 - Type: [`Number`]
 - Default: `21`
 
+### `map.poiMarker`
+
+POI marker configuration. See [Vue2Leaflet `l-circle-marker` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-circle-marker/)
+for all possible values.
+
+- Type: [`Object`]
+- Default:
+  ```js
+  {
+    color: "red",
+    fillColor: "red",
+    fillOpacity: 0.2,
+    radius: 12
+  }
+  ```
+
 ### `map.polyline`
 
-Location point marker configuation. `color` defaults to `primaryColor` if `null`. See
+Location point marker configuration. `color` defaults to `primaryColor` if `null`. See
 [Vue2Leaflet `l-polyline` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-polyline/)
 for all possible values.
 

@@ -189,6 +189,7 @@ export default {
         { layer: "line", label: this.$t("Show location history (line)") },
         { layer: "points", label: this.$t("Show location history (points)") },
         { layer: "heatmap", label: this.$t("Show location heatmap") },
+        { layer: "poi", label: this.$t("Show points of interest") },
       ],
       showMobileNav: false,
       shortcuts: [

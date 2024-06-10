@@ -25,6 +25,62 @@
       :options="{ maxNativeZoom, maxZoom, zoomOffset }"
     />
 
+    <template v-if="map.layers.line">
+      <LPolyline
+        v-for="(group, i) in filteredLocationHistoryLatLngGroups"
+        :key="i"
+        :lat-lngs="group"
+        v-bind="polyline"
+      />
+    </template>
+
+    <template v-for="(userDevices, user) in filteredLocationHistory">
+      <template v-for="(deviceLocations, device) in userDevices">
+        <template
+          v-for="(l, n) in deviceLocationsWithNameAndFace(
+            user,
+            device,
+            deviceLocations
+          )"
+        >
+          <LCircleMarker
+            v-if="map.layers.poi && l.poi"
+            :key="`${l.topic}-poi-${n}`"
+            :lat-lng="[l.lat, l.lon]"
+            v-bind="poiMarker"
+          >
+            <LTooltip :options="{ permanent: true }">
+              {{ l.poi }}
+            </LTooltip>
+          </LCircleMarker>
+          <LCircleMarker
+            v-if="map.layers.points"
+            :key="`${l.topic}-location-${n}`"
+            :lat-lng="[l.lat, l.lon]"
+            v-bind="circleMarker"
+          >
+            <LDeviceLocationPopup
+              :user="user"
+              :device="device"
+              :name="l.name"
+              :face="l.face"
+              :timestamp="l.tst"
+              :iso-local="l.isolocal"
+              :time-zone="l.tzname"
+              :lat="l.lat"
+              :lon="l.lon"
+              :alt="l.alt"
+              :battery="l.batt"
+              :speed="l.vel"
+              :regions="l.inregions"
+              :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
+              :address="l.addr"
+            ></LDeviceLocationPopup>
+          </LCircleMarker>
+        </template>
+      </template>
+    </template>
+
     <template v-if="map.layers.last">
       <LCircle
         v-for="l in lastLocations"
@@ -61,50 +117,6 @@
       </LMarker>
     </template>
 
-    <template v-if="map.layers.line">
-      <LPolyline
-        v-for="(group, i) in filteredLocationHistoryLatLngGroups"
-        :key="i"
-        :lat-lngs="group"
-        v-bind="polyline"
-      />
-    </template>
-
-    <template v-if="map.layers.points">
-      <template v-for="(userDevices, user) in filteredLocationHistory">
-        <template v-for="(deviceLocations, device) in userDevices">
-          <LCircleMarker
-            v-for="(l, n) in deviceLocationsWithNameAndFace(
-              user,
-              device,
-              deviceLocations
-            )"
-            :key="`${user}-${device}-${n}`"
-            :lat-lng="[l.lat, l.lon]"
-            v-bind="circleMarker"
-          >
-            <LDeviceLocationPopup
-              :user="user"
-              :device="device"
-              :name="l.name"
-              :face="l.face"
-              :timestamp="l.tst"
-              :iso-local="l.isolocal"
-              :time-zone="l.tzname"
-              :lat="l.lat"
-              :lon="l.lon"
-              :alt="l.alt"
-              :battery="l.batt"
-              :speed="l.vel"
-              :regions="l.inregions"
-              :wifi="{ ssid: l.SSID, bssid: l.BSSID }"
-              :address="l.addr"
-            ></LDeviceLocationPopup>
-          </LCircleMarker>
-        </template>
-      </template>
-    </template>
-
     <template v-if="map.layers.heatmap">
       <LHeatmap
         v-if="filteredLocationHistoryLatLngs.length"
@@ -130,6 +142,7 @@ import {
   LCircleMarker,
   LCircle,
   LPolyline,
+  LTooltip,
 } from "vue2-leaflet";
 import "leaflet/dist/leaflet.css";
 import * as types from "@/store/mutation-types";
@@ -149,6 +162,7 @@ export default {
     LPolyline,
     LDeviceLocationPopup,
     LHeatmap,
+    LTooltip,
   },
   data() {
     return {
@@ -173,6 +187,7 @@ export default {
         ...this.$config.map.circleMarker,
         color: this.$config.map.circleMarker.color || this.$config.primaryColor,
       },
+      poiMarker: this.$config.map.poiMarker,
       polyline: {
         ...this.$config.map.polyline,
         color: this.$config.map.polyline.color || this.$config.primaryColor,
@@ -214,6 +229,7 @@ export default {
       if (
         (this.map.layers.line ||
           this.map.layers.points ||
+          this.map.layers.poi ||
           this.map.layers.heatmap) &&
         this.filteredLocationHistoryLatLngs.length > 0
       ) {
