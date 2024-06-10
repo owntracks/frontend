@@ -2,6 +2,13 @@
 
 Dates are in UTC.
 
+## 2.15.0 (2024-06-10)
+
+- Implement POI map layer (see [Booklet](https://owntracks.org/booklet/features/poi/))
+
+  - Use the `map.poiMarker` config option to tweak the appearance, defaults to a red circle slightly larger than the default location points
+  - Use `map.layers.poi` to change the layer visibility, defaults to `true`
+
 ## 2.14.0 (2024-06-09)
 
 - Implement new date/time range picker ([#116](https://github.com/owntracks/frontend/pull/116), [@jduar](https://github.com/jduar) / [@Tofee](https://github.com/Tofee))
