@@ -2,6 +2,12 @@
 
 Dates are in UTC.
 
+## 2.15.1 (2024-06-14)
+
+- Update `index.html` to emit relative paths again, allowing deployment under a subpath
+- Update Docker image to use nginx 1.27
+- Upgrade dependencies
+
 ## 2.15.0 (2024-06-10)
 
 - Implement POI map layer (see [Booklet](https://owntracks.org/booklet/features/poi/))
