@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.15.2 (2024-06-14)
+
+- Fix npm lockfile
+
 ## 2.15.1 (2024-06-14)
 
 - Update `index.html` to emit relative paths again, allowing deployment under a subpath
