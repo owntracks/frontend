@@ -26,6 +26,7 @@
   },
   "dependencies": {
     "deepmerge": "^4.3.1",
+    "eslint-config-prettier": "^9.1.0",
     "leaflet": "^1.9.4",
     "leaflet.heat": "^0.2.0",
     "moment": "^2.30.1",
