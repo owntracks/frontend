@@ -2,6 +2,10 @@
 
 Dates are in UTC.
 
+## 2.15.3 (2024-06-15)
+
+- Force relative path for `config/config.js` even if it doesn't exist at build time
+
 ## 2.15.2 (2024-06-14)
 
 - Fix npm lockfile
