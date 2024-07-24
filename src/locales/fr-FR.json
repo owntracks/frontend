@@ -32,5 +32,14 @@
   "Battery": "Batterie",
   "Speed": "Vitesse",
   "Regions:": "Régions:",
-  "WiFi": "WiFi"
+  "WiFi": "WiFi",
+  "Today": "Aujourd'hui",
+  "Yesterday": "Hier",
+  "3 days": "3 jours",
+  "7 days": "7 jours",
+  "15 days": "15 jours",
+  "30 days": "30 jours",
+  "3 months": "3 mois",
+  "6 months": "6 mois",
+  "1 year": "1 an"
 }

@@ -32,5 +32,14 @@
   "Battery": "Akku",
   "Speed": "Geschwindigkeit",
   "Regions:": "Regionen:",
-  "WiFi": "WLAN"
+  "WiFi": "WLAN",
+  "Today": "Heute",
+  "Yesterday": "Gestern",
+  "3 days": "3 Tage",
+  "7 days": "7 Tage",
+  "15 days": "15 Tage",
+  "30 days": "30 Tage",
+  "3 months": "3 Monate",
+  "6 months": "6 Monate",
+  "1 year": "1 Jahr"
 }

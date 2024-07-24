@@ -37,6 +37,12 @@
   "Select date": "Select date",
   "Select time": "Select time",
   "Today": "Today",
+  "Yesterday": "Yesterday",
+  "3 days": "3 days",
   "7 days": "7 days",
-  "30 days": "30 days"
+  "15 days": "15 days",
+  "30 days": "30 days",
+  "3 months": "3 months",
+  "6 months": "6 months",
+  "1 year": "1 year"
 }

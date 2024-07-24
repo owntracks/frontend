@@ -204,6 +204,28 @@ export default {
           },
         },
         {
+          text: this.$t("Yesterday"),
+          onClick() {
+            const end = new Date();
+            end.setDate(end.getDate() - 1);
+            end.setHours(23, 59, 59, 0);
+            const start = new Date(end);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("3 days"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setDate(end.getDate() - 3);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
           text: this.$t("7 days"),
           onClick() {
             const end = new Date();
@@ -215,12 +237,56 @@ export default {
           },
         },
         {
+          text: this.$t("15 days"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setDate(end.getDate() - 15);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
           text: this.$t("30 days"),
           onClick() {
             const end = new Date();
             end.setHours(23, 59, 59, 0);
             const start = new Date();
             start.setDate(end.getDate() - 30);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("3 months"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setMonth(end.getMonth() - 3);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("6 months"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setMonth(end.getMonth() - 6);
+            start.setHours(0, 0, 0, 0);
+            return [start, end];
+          },
+        },
+        {
+          text: this.$t("1 year"),
+          onClick() {
+            const end = new Date();
+            end.setHours(23, 59, 59, 0);
+            const start = new Date();
+            start.setFullYear(end.getFullYear() - 1);
             start.setHours(0, 0, 0, 0);
             return [start, end];
           },
