@@ -190,7 +190,6 @@ use `en-US` for translations.
 - Type: [`String`]
 - Default: `"en-US"`
 
-
 ### `map.attribution`
 
 Attribution for map tiles.
@@ -580,7 +579,6 @@ Choosing anything other than one of these options will fall back to metric.
 
 - Type: [`String`]
 - Default: `"metric"`
-
 
 ### `verbose`
 

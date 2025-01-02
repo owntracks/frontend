@@ -71,21 +71,20 @@ export const distanceBetweenCoordinates = (c1, c2) => {
  * @returns {String} Formatted string including unit
  */
 export const humanReadableDistance = (distance) => {
-  let unit = 'm';
+  let unit = "m";
   let digits = 1;
 
-  if(config.units == "imperial") {
+  if (config.units == "imperial") {
     unit = "ft";
-    digits = 0; // We don't need anything after the decimal when working with feet.
-    distance = distance * 3.28084;  // convert meters to feet.
-    if(Math.abs(distance) >= 1500) { // Most mapping apps switch to fractions of a mile above 1,500 ft
+    digits = 0; // We don't need anything after decimal when working with feet.
+    distance = distance * 3.28084; // convert meters to feet.
+    if (Math.abs(distance) >= 1500) {
+      // Most mapping apps switch to fractions of a mile above 1,500 ft
       distance = distance / 5280;
       unit = "mi";
       digits = 2;
     }
-  }
-  else
-  {
+  } else {
     if (Math.abs(distance) >= 1000) {
       distance = distance / 1000;
       unit = "km";
@@ -94,7 +93,6 @@ export const humanReadableDistance = (distance) => {
   return `${distance.toLocaleString(config.locale, {
     maximumFractionDigits: digits,
   })} ${unit}`;
-
 };
 
 /**
