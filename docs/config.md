@@ -199,6 +199,8 @@ Available options:
 - `metric`
 - `imperial`
 
+Choosing anything other than one of these options will fall back to metric.
+
 - Type: [`String`]
 - Default: `"metric"`
 
