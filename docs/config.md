@@ -30,6 +30,7 @@ window.owntracks.config = {};
   - [`minAccuracy`](#filtersminaccuracy)
 - [`ignorePingLocation`](#ignorepinglocation)
 - [`locale`](#locale)
+- [`units`](#units)
 - `map`
   - [`attribution`](#mapattribution)
   - [`circle`](#mapcircle)
@@ -188,6 +189,19 @@ use `en-US` for translations.
 
 - Type: [`String`]
 - Default: `"en-US"`
+
+### `units`
+
+Allows the configuration of the units of measurement to use for the user interface.
+
+Available options:
+
+- `metric`
+- `imperial`
+
+- Type: [`String`]
+- Default: `"metric"`
+
 
 ### `map.attribution`
 

@@ -26,7 +26,8 @@
           <br />
           {{ lon }}
           <br />
-          {{ alt }}m
+          {{ $config.units == "imperial" ? Math.round(alt*3.28084) : alt }}
+	  {{ $config.units == "imperial" ? " ft" : " m" }}
         </li>
         <li v-if="address" :title="$t('Address')">
           <HomeIcon size="1x" aria-hidden="true" role="img" />
@@ -38,7 +39,8 @@
         </li>
         <li v-if="typeof speed === 'number'" :title="$t('Speed')">
           <ZapIcon size="1x" aria-hidden="true" role="img" />
-          {{ speed }} km/h
+          {{ $config.units == "imperial" ? Math.round(speed/1.609*10)/10 : speed }} 
+	  {{ $config.units == "imperial" ? " mph" : " km/h" }}
         </li>
         <li v-if="wifi.ssid" :title="$t('WiFi')">
           <WifiIcon size="1x" aria-hidden="true" role="img" />

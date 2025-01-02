@@ -74,7 +74,7 @@ export const humanReadableDistance = (distance) => {
   let unit = 'm';
   let digits = 1;
 
-  if(config.locale == "en-US") {
+  if(config.units == "imperial") {
     unit = "ft";
     digits = 0; // We don't need anything after the decimal when working with feet.
     distance = distance * 3.28084;  // convert meters to feet.

@@ -18,6 +18,7 @@ const DEFAULT_CONFIG = {
   },
   ignorePingLocation: true,
   locale: "en-US",
+  units: "metric",
   map: {
     attribution:
       '&copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors',
