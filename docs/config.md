@@ -30,7 +30,6 @@ window.owntracks.config = {};
   - [`minAccuracy`](#filtersminaccuracy)
 - [`ignorePingLocation`](#ignorepinglocation)
 - [`locale`](#locale)
-- [`units`](#units)
 - `map`
   - [`attribution`](#mapattribution)
   - [`circle`](#mapcircle)
@@ -72,6 +71,7 @@ window.owntracks.config = {};
 - [`selectedUser`](#selecteduser)
 - [`showDistanceTravelled`](#showdistancetravelled)
 - [`startDateTime`](#startdatetime)
+- [`units`](#units)
 - [`verbose`](#verbose)
 
 ### `api.baseUrl`
@@ -189,20 +189,6 @@ use `en-US` for translations.
 
 - Type: [`String`]
 - Default: `"en-US"`
-
-### `units`
-
-Allows the configuration of the units of measurement to use for the user interface.
-
-Available options:
-
-- `metric`
-- `imperial`
-
-Choosing anything other than one of these options will fall back to metric.
-
-- Type: [`String`]
-- Default: `"metric"`
 
 
 ### `map.attribution`
@@ -580,6 +566,21 @@ Initial start date and time (browser timezone) for fetched data.
     startDateTime,
   };
   ```
+
+### `units`
+
+Allows the configuration of the units of measurement to use for the user interface.
+
+Available options:
+
+- `metric`
+- `imperial`
+
+Choosing anything other than one of these options will fall back to metric.
+
+- Type: [`String`]
+- Default: `"metric"`
+
 
 ### `verbose`
 
