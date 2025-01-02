@@ -129,5 +129,21 @@ describe("humanReadableDistance", () => {
     expect(humanReadableDistance(9999.9999)).toBe("10 km");
     expect(humanReadableDistance(100000)).toBe("100 km");
     expect(humanReadableDistance(-42)).toBe("-42 m");
+
+    config.units = "imperial";
+    expect(humanReadableDistance(0)).toBe("0 ft");
+    expect(humanReadableDistance(1)).toBe("3 ft");
+    expect(humanReadableDistance(123)).toBe("404 ft");
+    expect(humanReadableDistance(123.4567)).toBe("405 ft");
+    expect(humanReadableDistance(999)).toBe("0.62 mi");
+    expect(humanReadableDistance(1000)).toBe("0.62 mi");
+    expect(humanReadableDistance(9000)).toBe("5.59 mi");
+    expect(humanReadableDistance(9900)).toBe("6.15 mi");
+    expect(humanReadableDistance(9990)).toBe("6.21 mi");
+    expect(humanReadableDistance(9999)).toBe("6.21 mi");
+    expect(humanReadableDistance(9999.0)).toBe("6.21 mi");
+    expect(humanReadableDistance(9999.9999)).toBe("6.21 mi");
+    expect(humanReadableDistance(100000)).toBe("62.14 mi");
+    expect(humanReadableDistance(-42)).toBe("-137.80 ft");
   });
 });
