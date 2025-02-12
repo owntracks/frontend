@@ -208,7 +208,7 @@ Attribution for map tiles.
 ### `map.circle`
 
 Location accuracy indicator configuation. `color` and `fillColor` default to
-`primaryColor` if `null`. See [Vue2Leaflet `l-circle` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-circle/)
+`primaryColor` if `null`. See [Vue2Leaflet `l-circle` documentation](https://vue2-leaflet.netlify.app/components/LCircle.html)
 for all possible values.
 
 - Type: [`Object`]
@@ -224,7 +224,7 @@ for all possible values.
 ### `map.circleMarker`
 
 Location point marker configuation. `color` defaults to `primaryColor` if `null`. See
-[Vue2Leaflet `l-circle-marker` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-circle-marker/)
+[Vue2Leaflet `l-circle-marker` documentation](https://vue2-leaflet.netlify.app/components/LCircleMarker.html)
 for all possible values.
 
 - Type: [`Object`]
@@ -268,7 +268,7 @@ Whether to show an metric scale (m) or not.
 
 ### `map.controls.scale.position`
 
-Scale control position on the map. See [Leaflet control position documentation](https://leafletjs.com/reference-1.5.0.html#control-position)
+Scale control position on the map. See [Leaflet control position documentation](https://leafletjs.com/reference.html#control)
 for all possible values.
 
 - Type: [`String`]
@@ -283,7 +283,7 @@ Whether to show zoom control or not.
 
 ### `map.controls.zoom.position`
 
-Zoom control position on the map. See [Leaflet control position documentation](https://leafletjs.com/reference-1.5.0.html#control-position)
+Zoom control position on the map. See [Leaflet control position documentation](https://leafletjs.com/reference.html#control)
 for all possible values.
 
 - Type: [`String`]
@@ -391,7 +391,7 @@ to disable.
 
 ### `map.poiMarker`
 
-POI marker configuration. See [Vue2Leaflet `l-circle-marker` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-circle-marker/)
+POI marker configuration. See [Vue2Leaflet `l-circle-marker` documentation](https://vue2-leaflet.netlify.app/components/LCircleMarker.html)
 for all possible values.
 
 - Type: [`Object`]
@@ -408,7 +408,7 @@ for all possible values.
 ### `map.polyline`
 
 Location point marker configuration. `color` defaults to `primaryColor` if `null`. See
-[Vue2Leaflet `l-polyline` documentation](https://korigan.github.io/Vue2Leaflet/#/components/l-polyline/)
+[Vue2Leaflet `l-polyline` documentation](https://vue2-leaflet.netlify.app/components/LPolyline.html)
 for all possible values.
 
 - Type: [`Object`]
@@ -430,7 +430,7 @@ Size of the tiles in pixels returned by the tile server. Can be used together wi
 
 ### `map.url`
 
-Tile server URL. For more information see [Leaflet tile layer documentation](https://leafletjs.com/reference-1.5.0.html#tilelayer-url-template)
+Tile server URL. For more information see [Leaflet tile layer documentation](https://leafletjs.com/reference.html#tilelayer)
 and [this Wikipedia article](https://en.wikipedia.org/wiki/Tiled_web_map).
 
 - Type: [`String`]
@@ -578,4 +578,4 @@ Whether to enable verbose mode or not.
 [`object`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object
 [`string`]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String
 [css `<color>`]: https://developer.mozilla.org/en-US/docs/Web/CSS/color_value
-[`fetch()` docs on mdn]: https://developer.mozilla.org/en-US/docs/Web/API/WindowOrWorkerGlobalScope/fetch#Parameters
+[`fetch()` docs on mdn]: https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch#parameters
