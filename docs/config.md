@@ -71,6 +71,7 @@ window.owntracks.config = {};
 - [`selectedUser`](#selecteduser)
 - [`showDistanceTravelled`](#showdistancetravelled)
 - [`startDateTime`](#startdatetime)
+- [`units`](#units)
 - [`verbose`](#verbose)
 
 ### `api.baseUrl`
@@ -564,6 +565,20 @@ Initial start date and time (browser timezone) for fetched data.
     startDateTime,
   };
   ```
+
+### `units`
+
+Allows the configuration of the units of measurement to use for the user interface.
+
+Available options:
+
+- `metric`
+- `imperial`
+
+Choosing anything other than one of these options will fall back to metric.
+
+- Type: [`String`]
+- Default: `"metric"`
 
 ### `verbose`
 

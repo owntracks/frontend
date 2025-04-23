@@ -87,6 +87,7 @@ const DEFAULT_CONFIG = {
   selectedUser: null,
   showDistanceTravelled: true,
   startDateTime,
+  units: "metric",
   verbose: false,
 };
 
