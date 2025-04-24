@@ -66,6 +66,7 @@
           :shortcuts="shortcuts"
           :show-time-panel="showTimeRangePanel"
           :disabled-date="(date, _) => date > new Date()"
+          :lang="datePickerLang"
           @change="handleDateTimeRangeChange"
         >
           <template v-slot:footer>
@@ -293,6 +294,7 @@ export default {
         },
       ],
       showTimeRangePanel: false,
+      datePickerLang: null,
     };
   },
   computed: {
@@ -362,7 +364,20 @@ export default {
       this.showTimeRangePanel = false;
     },
   },
+  async created() {
+    const fullLocale = this.$config.locale || "en";
+    const shortLocale = fullLocale.split("-")[0];
+    this.datePickerLang = await loadDatepickerLocale(shortLocale);
+  }
 };
+
+async function loadDatepickerLocale(localeCode) {
+  const supported = ["cs", "da", "de", "es", "fr", "tr", "en"];
+  if (!supported.includes(localeCode)) {
+    localeCode = "en";
+  }
+  return (await import(`vue2-datepicker/locale/${localeCode}`)).default;
+}
 </script>
 
 <style lang="scss" scoped>
