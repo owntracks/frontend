@@ -561,7 +561,7 @@ Initial start date and time (browser timezone) for fetched data.
   startDateTime.setHours(0, 0, 0, 0);
   startDateTime.setDate(1);
   window.owntracks.config = {
-    startDateTime,
+    startDateTime: startDateTime,
   };
   ```
 
