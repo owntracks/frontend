@@ -29,8 +29,9 @@
       <LPolyline
         v-for="(group, i) in filteredLocationHistoryLatLngGroups"
         :key="i"
-        :lat-lngs="group"
+        :lat-lngs="group.latLngs"
         v-bind="polyline"
+        :color="deviceColor(group.user, group.device, polyline.color)"
       />
     </template>
 
@@ -58,6 +59,7 @@
             :key="`${l.topic}-location-${n}`"
             :lat-lng="[l.lat, l.lon]"
             v-bind="circleMarker"
+            :color="deviceColor(user, device, circleMarker.color)"
           >
             <LDeviceLocationPopup
               :user="user"
@@ -88,6 +90,8 @@
         :lat-lng="[l.lat, l.lon]"
         :radius="l.acc"
         v-bind="circle"
+        :color="deviceColor(l.username, l.device, circle.color)"
+        :fill-color="deviceColor(l.username, l.device, circle.fillColor)"
       />
 
       <LMarker
@@ -222,6 +226,19 @@ export default {
       setMapCenter: types.SET_MAP_CENTER,
       setMapZoom: types.SET_MAP_ZOOM,
     }),
+    /**
+     * Get the configured color for a user/device, falling back to the
+     * given default. Lookup order: "user/device", then "user".
+     *
+     * @param {String} user Username
+     * @param {String} device Device name
+     * @param {String} fallback Color to use if none is configured
+     * @returns {String} Color
+     */
+    deviceColor(user, device, fallback) {
+      const colors = this.$config.map.colors || {};
+      return colors[`${user}/${device}`] || colors[user] || fallback;
+    },
     /**
      * Fit all objects on the map into view.
      */

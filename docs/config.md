@@ -34,6 +34,7 @@ window.owntracks.config = {};
   - [`attribution`](#mapattribution)
   - [`circle`](#mapcircle)
   - [`circleMarker`](#mapcirclemarker)
+  - [`colors`](#mapcolors)
   - `controls`
     - `scale`
       - [`display`](#mapcontrolsscaledisplay)
@@ -236,6 +237,28 @@ for all possible values.
     fillOpacity: 1,
     radius: 4
   }
+  ```
+
+### `map.colors`
+
+Per-user or per-device colors for location history lines, location points and
+the accuracy circle of the last known location. Keys are either `"user"` or
+`"user/device"`; a `"user/device"` entry takes precedence. Users and devices
+without an entry use the colors from `map.polyline`, `map.circleMarker` and
+`map.circle` (which default to `primaryColor`).
+
+- Type: [`Object`]
+- Default: `{}`
+- Example:
+  ```js
+  window.owntracks.config = {
+    map: {
+      colors: {
+        alice: "#3b6fd4",
+        "bob/phone": "#e06c4f",
+      },
+    },
+  };
   ```
 
 ### `map.controls.scale.display`

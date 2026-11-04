@@ -32,6 +32,7 @@ const DEFAULT_CONFIG = {
       fillOpacity: 1,
       radius: 4,
     },
+    colors: {},
     controls: {
       scale: {
         display: true,

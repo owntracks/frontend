@@ -79,14 +79,14 @@ const filteredLocationHistoryLatLngGroups = (state) => {
             config.map.maxPointDistance
           ) {
             // Distance is too far, start new group of coordinate
-            groups.push(latLngs);
+            groups.push({ user, device, latLngs });
             latLngs = [];
           }
         }
         // Add coordinate to current active group
         latLngs.push(latLng);
       });
-      groups.push(latLngs);
+      groups.push({ user, device, latLngs });
     });
   });
   return groups;

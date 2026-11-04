@@ -23,6 +23,7 @@ interface Config {
           fillOpacity: number;
           radius: number;
         };
+        colors: Record<string, string>;
         controls: {
           scale: {
             display: boolean;
