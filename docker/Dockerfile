@@ -5,7 +5,7 @@ RUN npm install
 COPY . ./
 RUN npm run build
 
-FROM nginx:1.27-alpine
+FROM nginx:stable-alpine
 LABEL version="2.15.3"
 LABEL description="OwnTracks Frontend"
 LABEL maintainer="Linus Groh <mail@linusgroh.de>"
