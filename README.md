@@ -33,6 +33,10 @@ pages, this is a more advanced interface with more functionality, all in one pla
 - Calculation of distance travelled
 - Highly customisable
 
+## Notes
+
+Frontend has no provision for user management, authentication, or for configuring TLS; these are tasks which a HTTP server you use will have to provide, and an explanation on how to do that is beyond our scope; you should be able to find a myriad explanatory documents for the server you wish to use. Also note, that even if you set up authentication, any user successfully being able to access Frontend will be able to see all Recorder data, as the API of the latter doesn't distinguish querying users.
+
 ## Installation
 
 ### Docker
