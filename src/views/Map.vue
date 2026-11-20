@@ -141,9 +141,9 @@ import {
   LMarker,
   LCircleMarker,
   LCircle,
-  LPolyline,
   LTooltip,
 } from "vue2-leaflet";
+import { LPolyline } from "vue-leaflet-antimeridian";
 import "leaflet/dist/leaflet.css";
 import * as types from "@/store/mutation-types";
 import LCustomMarker from "@/components/LCustomMarker";
